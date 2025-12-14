@@ -19,7 +19,7 @@ export const HeroSlider: React.FC = () => {
       titleKey: 'html.title',
       descKey: 'html.desc',
       ctaKey: 'html.start_btn',
-      path: '/live-html',
+      path: '/live_editor/index.html',
       image: ASSETS.SLIDE_HTML,
       bgClass: 'bg-gradient-to-r from-[#240b4c] to-[#6C5CE7]',
       accentColor: 'bg-[#FF6B6B] text-white hover:bg-[#ff5252]',
@@ -29,7 +29,7 @@ export const HeroSlider: React.FC = () => {
       titleKey: 'pdf.title',
       descKey: 'pdf.desc',
       ctaKey: 'pdf.start_btn',
-      path: '/live-pdf',
+      path: '/live-pdf/app',
       image: ASSETS.SLIDE_PDF,
       bgClass: 'bg-gradient-to-r from-[#004d40] to-[#00CEC9]',
       accentColor: 'bg-[#FFD700] text-slate-900 hover:bg-[#ffca28]',
@@ -106,11 +106,21 @@ export const HeroSlider: React.FC = () => {
                     </div>
 
                     {/* Button with more delayed animation */}
-                    <NavLink to={slide.path} key={`btn-${index}-${currentSlide === index}`} className={`inline-block ${currentSlide === index ? "animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]" : ""}`}>
-                      <Button size="lg" className={`px-12 py-5 text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-2xl ${slide.accentColor}`}>
-                        {t(slide.ctaKey)}
-                      </Button>
-                    </NavLink>
+                    <div key={`btn-${index}-${currentSlide === index}`} className={currentSlide === index ? "animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]" : ""}>
+                      {slide.path.endsWith('.html') ? (
+                        <a href={slide.path} className="inline-block">
+                          <Button size="lg" className={`px-12 py-5 text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-2xl ${slide.accentColor}`}>
+                            {t(slide.ctaKey)}
+                          </Button>
+                        </a>
+                      ) : (
+                        <NavLink to={slide.path} className="inline-block">
+                          <Button size="lg" className={`px-12 py-5 text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-2xl ${slide.accentColor}`}>
+                            {t(slide.ctaKey)}
+                          </Button>
+                        </NavLink>
+                      )}
+                    </div>
                   </div>
 
                   <div className="hidden lg:block relative z-20 perspective-1000 h-full flex items-center justify-end">

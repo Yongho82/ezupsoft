@@ -26,7 +26,7 @@ export const App = () => {
         subTool: string | null;
         result: ProcessingResult | null;
     }>({ active: false, toolId: null, subTool: null, result: null });
-    
+
     const [isEditDirty, setIsEditDirty] = useState(false);
     const [showUnsavedModal, setShowUnsavedModal] = useState(false);
     const [pendingNav, setPendingNav] = useState<{ type: 'select' | 'switch', toolId: ToolID, subTool?: string, file?: PdfFile } | null>(null);
@@ -56,15 +56,15 @@ export const App = () => {
             setShowUnsavedModal(true);
             return;
         }
-        
+
         executeToolSelect(toolId, subTool);
     }, [activeToolId, isEditDirty, executeToolSelect]);
 
     const handleSwitchToolWithFile = useCallback((toolId: ToolID, file: PdfFile) => {
         if ((activeToolId === 'edit' || activeToolId === 'watermark') && isEditDirty) {
-             setPendingNav({ type: 'switch', toolId, file });
-             setShowUnsavedModal(true);
-             return;
+            setPendingNav({ type: 'switch', toolId, file });
+            setShowUnsavedModal(true);
+            return;
         }
         executeSwitchTool(toolId, file);
     }, [activeToolId, isEditDirty, executeSwitchTool]);
@@ -83,7 +83,7 @@ export const App = () => {
         setShowUnsavedModal(false);
         setPendingNav(null);
     };
-    
+
     const handleRemoveFile = useCallback((idToRemove: string) => {
         setFiles(prev => prev.filter(f => f.id !== idToRemove));
     }, []);
@@ -98,7 +98,7 @@ export const App = () => {
             isLoading: true,
         };
         setFiles([placeholder]);
-        
+
         const result = await generatePreview(newFile);
         if (result) {
             setFiles([{ ...result, id: newId, isLoading: false }]);
@@ -170,7 +170,7 @@ export const App = () => {
 
             const currentFile = files.length > 0 ? files[0] : null;
             const allFilesToMerge = currentFile ? [currentFile.file, ...pdfFiles] : pdfFiles;
-            
+
             if (allFilesToMerge.length === 1 && !currentFile) {
                 const file = allFilesToMerge[0];
                 const fileId = `${file.name}-${file.size}`;
@@ -214,7 +214,7 @@ export const App = () => {
         if (activeToolId !== 'merge') {
             const file = filesToAdd[0];
             const fileId = `${file.name}-${file.size}`;
-            
+
             const placeholder: PdfFile = {
                 id: fileId,
                 file,
@@ -234,14 +234,14 @@ export const App = () => {
                     pageCount: 0,
                     isLoading: true,
                 }));
-            
+
             if (newPlaceholders.length > 0) {
                 setFiles(prev => [...prev, ...newPlaceholders]);
                 newPlaceholders.forEach(pf => processFile(pf.file));
             }
         }
     }, [activeToolId, files, mergePdfs, handleUpdateFile, processFile, t]);
-    
+
     const handleReorderFiles = (dragIndex: number, hoverIndex: number) => {
         setFiles(prevFiles => {
             const newFiles = [...prevFiles];
@@ -262,16 +262,16 @@ export const App = () => {
     ) => {
         setProcessingState({ active: true, toolId, subTool: subTool || null, result: null });
         const startTime = Date.now();
-        
+
         try {
             const result = await processFn();
             const duration = Date.now() - startTime;
             const minDuration = 3000;
-    
+
             if (duration < minDuration) {
                 await new Promise(resolve => setTimeout(resolve, minDuration - duration));
             }
-    
+
             if (result) {
                 setProcessingState(prev => ({ ...prev, result }));
             } else {
@@ -284,7 +284,7 @@ export const App = () => {
             setProcessingState({ active: false, toolId: null, subTool: null, result: null });
         }
     }, [t]);
-    
+
     const handleResetProcess = useCallback(() => {
         setFiles([]);
         setProcessingState({ active: false, toolId: null, subTool: null, result: null });
@@ -297,7 +297,7 @@ export const App = () => {
         }
 
         if (processingState.active && processingState.toolId) {
-            return <ProcessingPage 
+            return <ProcessingPage
                 toolId={processingState.toolId}
                 subTool={processingState.subTool || activeSubTool}
                 result={processingState.result}
@@ -322,31 +322,31 @@ export const App = () => {
         }
 
         if (activeToolId === 'edit' || activeToolId === 'watermark') {
-            return <EditPage 
-                        activeToolId={activeToolId}
-                        files={files} 
-                        onRemoveFile={handleRemoveFile}
-                        onAddFiles={handleFilesSelect}
-                        onUpdateFile={handleUpdateFile}
-                        onSwitchTool={handleSwitchToolWithFile}
-                        onDirtyChange={setIsEditDirty}
-                    />;
+            return <EditPage
+                activeToolId={activeToolId}
+                files={files}
+                onRemoveFile={handleRemoveFile}
+                onAddFiles={handleFilesSelect}
+                onUpdateFile={handleUpdateFile}
+                onSwitchTool={handleSwitchToolWithFile}
+                onDirtyChange={setIsEditDirty}
+            />;
         }
 
-        return <ToolPage 
-                    files={files} 
-                    activeToolId={activeToolId}
-                    activeSubTool={activeSubTool}
-                    onRemoveFile={handleRemoveFile} 
-                    onAddFiles={handleFilesSelect} 
-                    onReorderFiles={handleReorderFiles} 
-                    onProcessStart={handleProcessStart}
-                />;
+        return <ToolPage
+            files={files}
+            activeToolId={activeToolId}
+            activeSubTool={activeSubTool}
+            onRemoveFile={handleRemoveFile}
+            onAddFiles={handleFilesSelect}
+            onReorderFiles={handleReorderFiles}
+            onProcessStart={handleProcessStart}
+        />;
     };
 
     return (
         <div className="flex flex-col w-screen h-screen">
-            <Header />
+
             <div className="flex flex-grow min-h-0">
                 <Sidebar activeTool={activeToolId} onToolSelect={handleToolSelect} />
                 {renderContent()}
@@ -355,19 +355,19 @@ export const App = () => {
             {showUnsavedModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100]">
                     <div className="bg-white rounded-lg p-6 max-w-sm w-full shadow-xl">
-                         <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-5">
+                        <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-5">
                             <span className="h-8 w-8 text-blue-600">{ICONS.info}</span>
                         </div>
                         <h3 className="text-lg font-bold mb-4 text-center text-slate-900">{t('editPage.modal.title')}</h3>
                         <p className="text-slate-600 mb-6 text-center">{t('alert.unsavedChanges')}</p>
                         <div className="flex justify-center space-x-3">
-                            <button 
+                            <button
                                 onClick={cancelUnsavedNavigation}
                                 className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded font-semibold border border-slate-300"
                             >
                                 {t('common.cancel')}
                             </button>
-                            <button 
+                            <button
                                 onClick={confirmUnsavedNavigation}
                                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 font-semibold shadow-md"
                             >

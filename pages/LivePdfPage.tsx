@@ -145,8 +145,8 @@ const FAQBoard: React.FC = () => {
                         key={idx}
                         onClick={() => { setActiveTab(idx); setOpenIndex(null); }}
                         className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-200 ${activeTab === idx
-                                ? 'bg-[#00CEC9] text-white shadow-lg shadow-cyan-500/30 ring-2 ring-cyan-200 ring-offset-2'
-                                : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
+                            ? 'bg-[#00CEC9] text-white shadow-lg shadow-cyan-500/30 ring-2 ring-cyan-200 ring-offset-2'
+                            : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
                             }`}
                     >
                         {section.category}
@@ -371,8 +371,13 @@ export const LivePdfPage: React.FC = () => {
 
 export const LivePdfApp: React.FC = () => {
     return (
-        <div className="w-full h-full flex flex-col bg-white">
-            <iframe src="https://ezupsoft.com/pdf" title="Live PDF Tool" className="w-full flex-grow border-0" allowFullScreen />
+        <div className="fixed top-[72px] left-0 right-0 bottom-0 bg-white z-0">
+            <iframe
+                src={`/pdf-studio/index.html?v=${new Date().getTime()}`}
+                title="Live PDF Tool"
+                className="w-full h-full border-0"
+                allowFullScreen
+            />
         </div>
     );
 };

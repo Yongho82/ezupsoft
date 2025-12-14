@@ -22,7 +22,7 @@ export const HomePage: React.FC = () => {
       title: t('home.product_html_title'),
       desc: t('home.product_html_desc'),
       image: ASSETS.PREVIEW_HTML,
-      path: '/live-html',
+      path: '/live_editor/index.html',
       icons: [
         { icon: Code2, label: 'HTML5' },
         { icon: FileCode, label: 'CSS3' },
@@ -36,7 +36,7 @@ export const HomePage: React.FC = () => {
       title: t('home.product_pdf_title'),
       desc: t('home.product_pdf_desc'),
       image: ASSETS.PREVIEW_PDF,
-      path: '/live-pdf',
+      path: '/live-pdf/app',
       icons: [
         { icon: Lock, label: '256-bit' },
         { icon: FileText, label: 'PDF/A' },
@@ -141,12 +141,21 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="flex justify-end pt-4">
-              <NavLink to={currentProduct.path}>
-                <button className="flex items-center gap-3 text-slate-900 font-bold text-lg hover:text-[#6C5CE7] transition-all group bg-white border border-slate-200 px-6 py-3 rounded-full hover:shadow-lg hover:border-[#6C5CE7]">
-                  {t('home.read_more')}
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </NavLink>
+              {currentProduct.path.endsWith('.html') ? (
+                <a href={currentProduct.path}>
+                  <button className="flex items-center gap-3 text-slate-900 font-bold text-lg hover:text-[#6C5CE7] transition-all group bg-white border border-slate-200 px-6 py-3 rounded-full hover:shadow-lg hover:border-[#6C5CE7]">
+                    {t('home.read_more')}
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </a>
+              ) : (
+                <NavLink to={currentProduct.path}>
+                  <button className="flex items-center gap-3 text-slate-900 font-bold text-lg hover:text-[#6C5CE7] transition-all group bg-white border border-slate-200 px-6 py-3 rounded-full hover:shadow-lg hover:border-[#6C5CE7]">
+                    {t('home.read_more')}
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </NavLink>
+              )}
             </div>
           </div>
 
@@ -177,11 +186,11 @@ export const HomePage: React.FC = () => {
                     <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><MousePointer2 className="text-[#6C5CE7]" size={24} /> {t('home.feat_html_item2')}</span>
                   </div>
                   <div className="pt-8">
-                    <NavLink to="/live-html">
+                    <a href="/live_editor/index.html">
                       <Button variant="outline" size="lg" className="gap-3 px-10 py-4 text-base border-2 border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7] hover:text-white rounded-full">
                         {t('home.feat_html_btn')} <ArrowRight size={20} />
                       </Button>
-                    </NavLink>
+                    </a>
                   </div>
                 </div>
                 <div className="order-1 lg:order-2 lg:col-span-7 flex justify-center">
@@ -236,7 +245,7 @@ export const HomePage: React.FC = () => {
                     <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><Zap className="text-[#00CEC9]" size={24} /> {t('home.feat_pdf_item2')}</span>
                   </div>
                   <div className="pt-8">
-                    <NavLink to="/live-pdf">
+                    <NavLink to="/live-pdf/app">
                       <Button variant="primary" size="lg" className="gap-3 px-10 py-4 text-base bg-[#00CEC9] hover:bg-[#00b5b0] text-white shadow-lg shadow-cyan-500/20 rounded-full">
                         {t('home.feat_pdf_btn')} <ArrowRight size={20} />
                       </Button>

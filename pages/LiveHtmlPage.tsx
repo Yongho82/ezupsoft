@@ -254,7 +254,7 @@ export const LiveHtmlPage: React.FC = () => {
                         {t('html.desc')}
                     </p>
                     <div className="animate-fade-in-up opacity-0 [animation-fill-mode:forwards]" style={{ animationDelay: '0.3s' }}>
-                        <a href="/live_editor/dist/index.html">
+                        <a href="/live_editor/index.html">
                             <Button size="lg" className="h-16 px-12 text-xl shadow-xl shadow-purple-500/30 gap-3 hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
                                 <span className="relative z-10 flex items-center gap-2">{t('html.start_btn')} <ArrowRight /></span>
                                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
@@ -358,7 +358,7 @@ export const LiveHtmlPage: React.FC = () => {
                     <p className="text-purple-100 mb-10 text-lg font-medium drop-shadow-md">{t('html.cta_desc')}</p>
                     <div className="relative inline-flex group">
                         <div className="absolute transition-all duration-1000 opacity-70 -inset-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-2xl blur-lg group-hover:opacity-100 group-hover:-inset-1.5 group-hover:duration-200 animate-tilt"></div>
-                        <a href="/live_editor/dist/index.html">
+                        <a href="/live_editor/index.html">
                             <Button size="lg" className="relative !bg-white !text-[#6C5CE7] hover:!bg-slate-50 border-none px-12 py-5 text-xl font-bold rounded-2xl shadow-xl transition-all transform group-hover:scale-[1.02]">
                                 {t('html.cta_btn')}
                             </Button>
