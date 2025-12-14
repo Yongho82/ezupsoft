@@ -142,8 +142,8 @@ const FAQBoard: React.FC = () => {
                         key={idx}
                         onClick={() => { setActiveTab(idx); setOpenIndex(null); }}
                         className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-200 ${activeTab === idx
-                                ? 'bg-[#6C5CE7] text-white shadow-lg shadow-purple-500/30 ring-2 ring-purple-200 ring-offset-2'
-                                : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
+                            ? 'bg-[#6C5CE7] text-white shadow-lg shadow-purple-500/30 ring-2 ring-purple-200 ring-offset-2'
+                            : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
                             }`}
                     >
                         {section.category}
@@ -254,12 +254,12 @@ export const LiveHtmlPage: React.FC = () => {
                         {t('html.desc')}
                     </p>
                     <div className="animate-fade-in-up opacity-0 [animation-fill-mode:forwards]" style={{ animationDelay: '0.3s' }}>
-                        <Link to="/live-html/app">
+                        <a href="/live_editor/dist/index.html">
                             <Button size="lg" className="h-16 px-12 text-xl shadow-xl shadow-purple-500/30 gap-3 hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
                                 <span className="relative z-10 flex items-center gap-2">{t('html.start_btn')} <ArrowRight /></span>
                                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -358,11 +358,11 @@ export const LiveHtmlPage: React.FC = () => {
                     <p className="text-purple-100 mb-10 text-lg font-medium drop-shadow-md">{t('html.cta_desc')}</p>
                     <div className="relative inline-flex group">
                         <div className="absolute transition-all duration-1000 opacity-70 -inset-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-2xl blur-lg group-hover:opacity-100 group-hover:-inset-1.5 group-hover:duration-200 animate-tilt"></div>
-                        <Link to="/live-html/app">
+                        <a href="/live_editor/dist/index.html">
                             <Button size="lg" className="relative !bg-white !text-[#6C5CE7] hover:!bg-slate-50 border-none px-12 py-5 text-xl font-bold rounded-2xl shadow-xl transition-all transform group-hover:scale-[1.02]">
                                 {t('html.cta_btn')}
                             </Button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>

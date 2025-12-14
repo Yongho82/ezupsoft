@@ -158,7 +158,7 @@ export const HomePage: React.FC = () => {
 
         {/* Feature 1: HTML Studio - Light Theme */}
         <section className="w-full py-16 lg:py-20 bg-white border-t border-slate-100 overflow-hidden">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
             <ScrollReveal direction="left" className="w-full">
               {/* Changed Grid to 12 columns for wider image (5 col text / 7 col image) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -166,27 +166,27 @@ export const HomePage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 text-[#6C5CE7] text-sm font-bold uppercase tracking-wide">
                     <Code2 size={16} /> {t('home.feat_html_badge')}
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
                     {t('home.feat_html_title')}
                   </h2>
-                  <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                  <p className="text-lg text-slate-500 leading-relaxed max-w-2xl">
                     {t('home.feat_html_desc')}
                   </p>
                   <div className="flex flex-col gap-4 pt-4">
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><Layers className="text-[#6C5CE7]" size={24} /> {t('home.feat_html_item1')}</span>
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><MousePointer2 className="text-[#6C5CE7]" size={24} /> {t('home.feat_html_item2')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><Layers className="text-[#6C5CE7]" size={24} /> {t('home.feat_html_item1')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><MousePointer2 className="text-[#6C5CE7]" size={24} /> {t('home.feat_html_item2')}</span>
                   </div>
                   <div className="pt-8">
                     <NavLink to="/live-html">
-                      <Button variant="outline" size="lg" className="gap-3 px-10 py-4 text-lg border-2 border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7] hover:text-white rounded-full">
+                      <Button variant="outline" size="lg" className="gap-3 px-10 py-4 text-base border-2 border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7] hover:text-white rounded-full">
                         {t('home.feat_html_btn')} <ArrowRight size={20} />
                       </Button>
                     </NavLink>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2 lg:col-span-7">
+                <div className="order-1 lg:order-2 lg:col-span-7 flex justify-center">
                   {/* Straightened Image with slight hover lift */}
-                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-purple-200/50 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out">
+                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-purple-200/50 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out max-w-[800px] w-full">
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity duration-500" />
                     <img
                       src={ASSETS.PREVIEW_HTML}
@@ -206,13 +206,13 @@ export const HomePage: React.FC = () => {
           <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-cyan-100/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-purple-100/50 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
 
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-12 relative z-10">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
             <ScrollReveal direction="right" className="w-full">
               {/* Changed Grid to 12 columns for wider image (7 col image / 5 col text) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-                <div className="lg:col-span-7">
+                <div className="lg:col-span-7 flex justify-center">
                   {/* Straightened Image with slight hover lift */}
-                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-cyan-900/10 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out">
+                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-cyan-900/10 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out max-w-[800px] w-full">
                     <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 blur opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     <img
                       src={ASSETS.PREVIEW_PDF}
@@ -225,19 +225,19 @@ export const HomePage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 text-[#00CEC9] border border-cyan-100 text-sm font-bold uppercase tracking-wide">
                     <Lock size={16} /> {t('home.feat_pdf_badge')}
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
                     {t('home.feat_pdf_title')}
                   </h2>
-                  <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                  <p className="text-lg text-slate-500 leading-relaxed max-w-2xl">
                     {t('home.feat_pdf_desc')}
                   </p>
                   <div className="flex flex-col gap-4 pt-4">
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><ShieldCheck className="text-[#00CEC9]" size={24} /> {t('home.feat_pdf_item1')}</span>
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><Zap className="text-[#00CEC9]" size={24} /> {t('home.feat_pdf_item2')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><ShieldCheck className="text-[#00CEC9]" size={24} /> {t('home.feat_pdf_item1')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><Zap className="text-[#00CEC9]" size={24} /> {t('home.feat_pdf_item2')}</span>
                   </div>
                   <div className="pt-8">
                     <NavLink to="/live-pdf">
-                      <Button variant="primary" size="lg" className="gap-3 px-10 py-4 text-lg bg-[#00CEC9] hover:bg-[#00b5b0] text-white shadow-lg shadow-cyan-500/20 rounded-full">
+                      <Button variant="primary" size="lg" className="gap-3 px-10 py-4 text-base bg-[#00CEC9] hover:bg-[#00b5b0] text-white shadow-lg shadow-cyan-500/20 rounded-full">
                         {t('home.feat_pdf_btn')} <ArrowRight size={20} />
                       </Button>
                     </NavLink>
@@ -250,7 +250,7 @@ export const HomePage: React.FC = () => {
 
         {/* Feature 3: Catch Capture - White Theme */}
         <section className="w-full py-16 lg:py-20 bg-white border-t border-slate-100 overflow-hidden">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
             <ScrollReveal direction="left" className="w-full">
               {/* Changed Grid to 12 columns for wider image (5 col text / 7 col image) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -258,27 +258,27 @@ export const HomePage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 text-rose-500 text-sm font-bold uppercase tracking-wide">
                     <Crop size={16} /> {t('home.feat_catch_badge')}
                   </div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
                     {t('home.feat_catch_title')}
                   </h2>
-                  <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                  <p className="text-lg text-slate-500 leading-relaxed max-w-2xl">
                     {t('home.feat_catch_desc')}
                   </p>
                   <div className="flex flex-col gap-4 pt-4">
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><Layers className="text-rose-500" size={24} /> {t('home.feat_catch_item1')}</span>
-                    <span className="flex items-center gap-4 text-slate-700 font-bold text-lg"><Code2 className="text-rose-500" size={24} /> {t('home.feat_catch_item2')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><Layers className="text-rose-500" size={24} /> {t('home.feat_catch_item1')}</span>
+                    <span className="flex items-center gap-4 text-slate-700 font-bold text-base"><Code2 className="text-rose-500" size={24} /> {t('home.feat_catch_item2')}</span>
                   </div>
                   <div className="pt-8">
                     <NavLink to="/catch-capture">
-                      <Button variant="outline" size="lg" className="gap-3 px-10 py-4 text-lg border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white rounded-full">
+                      <Button variant="outline" size="lg" className="gap-3 px-10 py-4 text-base border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white rounded-full">
                         {t('home.feat_catch_btn')} <ArrowRight size={20} />
                       </Button>
                     </NavLink>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2 lg:col-span-7">
+                <div className="order-1 lg:order-2 lg:col-span-7 flex justify-center">
                   {/* Straightened Image with slight hover lift */}
-                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out">
+                  <div className="relative group rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50 border-[8px] border-slate-900/5 hover:-translate-y-2 transition-all duration-500 ease-out max-w-[800px] w-full">
                     <img
                       src={ASSETS.PREVIEW_CATCH}
                       alt="Catch Capture"
