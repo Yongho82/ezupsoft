@@ -114,7 +114,7 @@ const Header: React.FC = () => {
             <div className="relative" ref={langRef}>
                 <button 
                   onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-white/10 text-white font-bold text-sm transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-white/10 text-white font-bold text-[15px] transition-colors"
                 >
                   <Globe size={18} />
                   <span className="uppercase">{language}</span>
@@ -143,7 +143,7 @@ const Header: React.FC = () => {
             <NavLink 
                to="/contact"
                className={({ isActive }) => 
-                 `flex items-center gap-1.5 px-3 py-2 rounded-lg font-bold text-sm transition-colors ${isActive ? 'bg-[#6C5CE7]/10 text-[#6C5CE7]' : 'hover:bg-white/10 text-white'}`
+                 `flex items-center gap-1.5 px-3 py-2 rounded-lg font-bold text-[15px] transition-colors ${isActive ? 'bg-[#6C5CE7]/10 text-[#6C5CE7]' : 'hover:bg-white/10 text-white'}`
                }
             >
                <MessageCircle size={18} />

@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EZUP | The Toolbox for Creators</title>
+    <title>Ezup</title>
     <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- Tailwind CSS -->
@@ -23,25 +23,25 @@
               surface: '#FFFFFF', // Mapped to white
             },
             animation: {
-              'fade-in-up': 'fadeInUp 0.5s ease-out',
-              'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
-              'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-in-left': 'slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-in-right': 'slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
               'blob': 'blob 7s infinite',
               'float': 'float 6s ease-in-out infinite',
               'spin-slow': 'spin 12s linear infinite',
             },
             keyframes: {
               fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
+                '0%': { opacity: '0', transform: 'translate3d(0, 20px, 0)' },
+                '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
               },
               slideInLeft: {
-                '0%': { opacity: '0', transform: 'translateX(-60px)' },
-                '100%': { opacity: '1', transform: 'translateX(0)' },
+                '0%': { opacity: '0', transform: 'translate3d(-60px, 0, 0)' },
+                '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
               },
               slideInRight: {
-                '0%': { opacity: '0', transform: 'translateX(60px)' },
-                '100%': { opacity: '1', transform: 'translateX(0)' },
+                '0%': { opacity: '0', transform: 'translate3d(60px, 0, 0)' },
+                '100%': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
               },
               blob: {
                 "0%": { transform: "translate(0px, 0px) scale(1)" },
@@ -59,6 +59,33 @@
       }
     </script>
     <style>
+      /* Global Font Size Adjustment - Force 14px */
+      html {
+        font-size: 14px !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      
+      body {
+        font-size: 1rem; 
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+      
+      /* GPU Acceleration for animations */
+      .animate-fade-in-up, 
+      .animate-slide-in-left, 
+      .animate-slide-in-right,
+      .animate-float,
+      .animate-blob {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        transform: translate3d(0,0,0);
+      }
+
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;

@@ -1,0 +1,5 @@
+{
+  "name": "라이브코드에디터",
+  "description": "A simple web application to edit HTML code with a live preview. Users can edit text, adjust font and element sizes, and download their work. This app is inspired by a guide for building with Google AI Studio and Firebase.",
+  "requestFramePermissions": []
+}

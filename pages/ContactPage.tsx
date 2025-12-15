@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, Mail, Clock, MessageSquare } from 'lucide-react';
+import { Send, CheckCircle, Mail, Clock, MessageSquare, Paperclip, UploadCloud } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -43,7 +43,7 @@ export const ContactPage: React.FC = () => {
     <div className="w-full min-h-screen bg-slate-50 pb-20">
       
       {/* Header */}
-      <div className="bg-[#6C5CE7] py-20 px-4 text-center text-white relative overflow-hidden">
+      <div className="bg-[#6C5CE7] py-16 px-4 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 blur-[80px] animate-blob" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-900 opacity-20 blur-[80px] animate-blob animation-delay-2000" />
@@ -59,17 +59,17 @@ export const ContactPage: React.FC = () => {
               
               {/* Contact Info Cards */}
               <div className="lg:col-span-1 space-y-6">
-                  <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
-                      <div className="w-12 h-12 bg-purple-50 text-[#6C5CE7] rounded-xl flex items-center justify-center mb-4">
-                          <Mail size={24} />
+                  <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
+                      <div className="w-10 h-10 bg-purple-50 text-[#6C5CE7] rounded-xl flex items-center justify-center mb-4">
+                          <Mail size={20} />
                       </div>
                       <h3 className="font-bold text-slate-900 text-lg mb-1">{t('contact.info_email')}</h3>
                       <p className="text-slate-500 font-medium text-sm">support@ezup.com</p>
                   </div>
 
-                  <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
-                      <div className="w-12 h-12 bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center mb-4">
-                          <Clock size={24} />
+                  <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
+                      <div className="w-10 h-10 bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center mb-4">
+                          <Clock size={20} />
                       </div>
                       <h3 className="font-bold text-slate-900 text-lg mb-1">{t('contact.info_time')}</h3>
                       <p className="text-slate-500 font-medium text-sm">{t('contact.info_time_val')}</p>
@@ -79,13 +79,26 @@ export const ContactPage: React.FC = () => {
               {/* Main Form */}
               <div className="lg:col-span-2">
                   <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl shadow-slate-200/50 border border-slate-100 h-full flex flex-col">
+                      
+                      {/* Inquiry Category */}
+                      <div className="space-y-2 mb-6">
+                          <label className="text-sm font-bold text-slate-700">{t('contact.label_category')} *</label>
+                          <select 
+                              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium appearance-none text-sm"
+                          >
+                              <option>{t('contact.cat_program')}</option>
+                              <option>{t('contact.cat_partner')}</option>
+                              <option>{t('contact.cat_other')}</option>
+                          </select>
+                      </div>
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                           <div className="space-y-2">
                               <label className="text-sm font-bold text-slate-700">{t('contact.label_name')} *</label>
                               <input 
                                   required
                                   type="text" 
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium"
+                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium text-sm"
                               />
                           </div>
                           <div className="space-y-2">
@@ -93,7 +106,7 @@ export const ContactPage: React.FC = () => {
                               <input 
                                   required
                                   type="email" 
-                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium"
+                                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium text-sm"
                               />
                           </div>
                       </div>
@@ -103,17 +116,41 @@ export const ContactPage: React.FC = () => {
                           <input 
                               required
                               type="text" 
-                              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium"
+                              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all font-medium text-sm"
                           />
                       </div>
 
-                      <div className="space-y-2 mb-8 flex-grow">
+                      <div className="space-y-2 mb-6 flex-grow">
                           <label className="text-sm font-bold text-slate-700">{t('contact.label_message')} *</label>
                           <textarea 
                               required
-                              rows={6}
-                              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all resize-none font-medium"
+                              rows={5}
+                              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-[#6C5CE7] focus:ring-2 focus:ring-[#6C5CE7]/20 focus:outline-none transition-all resize-none font-medium text-sm"
                           />
+                      </div>
+
+                      {/* File Attachment - Prominent Drag & Drop Style */}
+                      <div className="space-y-2 mb-8">
+                          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+                              <Paperclip size={16} /> {t('contact.label_file')}
+                          </label>
+                          <div className="relative border-2 border-dashed border-slate-200 rounded-xl p-6 text-center hover:bg-slate-50 hover:border-purple-200 transition-colors cursor-pointer group">
+                              <input 
+                                  type="file" 
+                                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                              />
+                              <div className="pointer-events-none">
+                                  <div className="w-10 h-10 bg-purple-50 text-[#6C5CE7] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                                      <UploadCloud size={20} />
+                                  </div>
+                                  <p className="text-sm text-slate-600 font-bold group-hover:text-[#6C5CE7]">
+                                      Click to upload or drag and drop
+                                  </p>
+                                  <p className="text-xs text-slate-400 mt-1">
+                                      SVG, PNG, JPG or GIF (max. 10MB)
+                                  </p>
+                              </div>
+                          </div>
                       </div>
 
                       <Button 
