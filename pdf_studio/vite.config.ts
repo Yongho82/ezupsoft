@@ -9,6 +9,8 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
+      // Use relative asset paths so dist works when uploaded under /pdf_studio/ (or any subpath)
+      base: './',
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

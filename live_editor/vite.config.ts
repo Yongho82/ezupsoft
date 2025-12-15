@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: mode === 'production' ? '/live_editor/dist/' : '/',
+      // Use relative base so assets resolve regardless of hosting subpath
+      base: './',
       server: {
         port: 3000,
         host: '0.0.0.0',

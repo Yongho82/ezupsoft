@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FileJson, Presentation, FileText, Zap, Code2, HelpCircle, ChevronDown, ChevronUp, ArrowRight, Layout, Atom, FileCode, CheckCircle2 } from 'lucide-react';
 import { Button } from '../components/Button';
@@ -336,7 +335,8 @@ export const LiveHtmlPage: React.FC = () => {
 export const LiveHtmlApp: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col bg-white">
-      <iframe src="https://ezupsoft.com/editor.php?lang=ko" title="Live HTML Studio" className="w-full flex-grow border-0" allowFullScreen />
+      {/* Serve the built Live Editor app from /live_editor/ on the same server */}
+      <iframe src="/live_editor/" title="Live HTML Studio" className="w-full flex-grow border-0" allowFullScreen />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -193,6 +192,7 @@ export const TestimonialSlider: React.FC = () => {
                 />
              ))}
           </div>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FileText, Layers, Minimize2, Lock, Palette, HelpCircle, ChevronDown, ChevronUp, ArrowRight, UploadCloud, ShieldCheck, PenTool, Layout, FileSearch, Zap } from 'lucide-react';
 import { Button } from '../components/Button';
@@ -324,7 +323,8 @@ export const LivePdfPage: React.FC = () => {
 export const LivePdfApp: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col bg-white">
-      <iframe src="https://ezupsoft.com/pdf" title="Live PDF Tool" className="w-full flex-grow border-0" allowFullScreen />
+      {/* Serve the built PDF Studio app from /pdf_studio/ on the same server */}
+      <iframe src="/pdf_studio/" title="Live PDF Tool" className="w-full flex-grow border-0" allowFullScreen />
     </div>
   );
 };
