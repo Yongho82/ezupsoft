@@ -5,14 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:main && npm run build:subapps && npm run copy:subapps",
-    "build:main": "vite build",
-    "build:subapps": "npm run build:live && npm run build:pdf",
-    "build:live": "cd live_editor && npm run build",
-    "build:pdf": "cd pdf_studio && npm run build",
-    "copy:subapps": "npm run copy:live && npm run copy:pdf",
-    "copy:live": "xcopy live_editor\\dist\\* dist\\live_editor\\ /E /I /Y",
-    "copy:pdf": "xcopy pdf_studio\\dist\\* dist\\pdf_studio\\ /E /I /Y",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

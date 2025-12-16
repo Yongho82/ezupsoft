@@ -193,6 +193,7 @@ export const TestimonialSlider: React.FC = () => {
              ))}
           </div>
         </div>
+        {/* Close 'relative w-full' container */}
       </div>
     </section>
   );

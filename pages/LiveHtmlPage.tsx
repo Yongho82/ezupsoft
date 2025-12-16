@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { FileJson, Presentation, FileText, Zap, Code2, HelpCircle, ChevronDown, ChevronUp, ArrowRight, Layout, Atom, FileCode, CheckCircle2 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
@@ -78,17 +79,23 @@ const TechMarquee: React.FC = () => {
 };
 
 const FAQBoard: React.FC = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState(0);
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+    useEffect(() => {
+        setOpenIndex(null);
+    }, [language]);
+
     const faqData = [
         {
-            category: t('faq.html.cat1'),
+            category: t('faq.html.cat1'), 
             items: [
                 { q: t('faq.html.q1'), a: t('faq.html.a1') },
                 { q: t('faq.html.q2'), a: t('faq.html.a2') },
                 { q: t('faq.html.q3'), a: t('faq.html.a3') },
+                { q: t('faq.html.q4'), a: t('faq.html.a4') },
+                { q: t('faq.html.q5'), a: t('faq.html.a5') },
             ]
         },
         {
@@ -96,6 +103,29 @@ const FAQBoard: React.FC = () => {
             items: [
                 { q: t('faq.html.q6'), a: t('faq.html.a6') },
                 { q: t('faq.html.q7'), a: t('faq.html.a7') },
+                { q: t('faq.html.q8'), a: t('faq.html.a8') },
+                { q: t('faq.html.q9'), a: t('faq.html.a9') },
+                { q: t('faq.html.q10'), a: t('faq.html.a10') },
+            ]
+        },
+        {
+            category: t('faq.html.cat3'),
+            items: [
+                { q: t('faq.html.q11'), a: t('faq.html.a11') },
+                { q: t('faq.html.q12'), a: t('faq.html.a12') },
+                { q: t('faq.html.q13'), a: t('faq.html.a13') },
+                { q: t('faq.html.q14'), a: t('faq.html.a14') },
+                { q: t('faq.html.q15'), a: t('faq.html.a15') },
+            ]
+        },
+        {
+            category: t('faq.html.cat4'),
+            items: [
+                { q: t('faq.html.q16'), a: t('faq.html.a16') },
+                { q: t('faq.html.q17'), a: t('faq.html.a17') },
+                { q: t('faq.html.q18'), a: t('faq.html.a18') },
+                { q: t('faq.html.q19'), a: t('faq.html.a19') },
+                { q: t('faq.html.q20'), a: t('faq.html.a20') },
             ]
         }
     ];
@@ -105,7 +135,7 @@ const FAQBoard: React.FC = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4" key={language}>
             <div className="text-center mb-12">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-100 text-[#6C5CE7] mb-4">
                     <HelpCircle size={24} />
@@ -186,8 +216,8 @@ export const LiveHtmlPage: React.FC = () => {
 
   return (
     <div className="w-full pb-20 bg-white">
-      {/* 1. Hero Section - Reduced padding from pt-32 pb-48 to pt-20 pb-28 */}
-      <section className="relative pt-20 pb-28 overflow-hidden bg-slate-50 selection:bg-purple-100">
+      {/* 1. Hero Section - Mobile Optimized Padding */}
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-28 overflow-hidden bg-slate-50 selection:bg-purple-100">
         
         {/* Background Elements */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -200,36 +230,30 @@ export const LiveHtmlPage: React.FC = () => {
         {/* Floating Shapes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 left-[10%] text-slate-200 animate-float" style={{ animationDelay: '0s' }}>
-                <Code2 size={120} strokeWidth={1} className="transform -rotate-12 opacity-60" />
+                <Code2 size={120} strokeWidth={1} className="transform -rotate-12 opacity-60 scale-75 md:scale-100" />
             </div>
             <div className="absolute top-40 right-[10%] text-slate-200 animate-float" style={{ animationDelay: '2s' }}>
-                <span className="text-9xl font-mono font-bold opacity-30 rotate-12 block">{`}`}</span>
+                <span className="text-8xl md:text-9xl font-mono font-bold opacity-30 rotate-12 block">{`}`}</span>
             </div>
-            <div className="absolute bottom-20 left-[15%] w-24 h-24 border-4 border-slate-200/60 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/3 right-[20%] w-16 h-16 border-2 border-dashed border-slate-300/60 rounded-lg animate-spin-slow"></div>
-             <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-pulse"></div>
-             <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-indigo-400 rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            {/* Other shapes... */}
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-           {/* Reduced margin from mb-8 to mb-6 */}
            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-purple-100 text-[#6C5CE7] text-sm font-bold mb-6 shadow-sm animate-fade-in-up opacity-0">
               <Code2 size={16} /> {t('html.badge')}
            </div>
            
-           {/* Reduced margin from mb-8 to mb-6 */}
            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-snug animate-fade-in-up opacity-0" style={{ animationDelay: '0.1s' }}>
              {t('html.title')}
            </h1>
            
-           {/* Reduced margin from mb-12 to mb-8 */}
            <p className="text-base md:text-lg text-slate-500 max-w-3xl mb-8 leading-relaxed mx-auto animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
              {t('html.desc')}
            </p>
            
            <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.3s' }}>
              <Link to="/live-html/app">
-                <Button size="lg" className="h-16 px-12 text-xl shadow-xl shadow-purple-500/30 gap-3 hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
+                <Button size="lg" className="h-14 md:h-16 px-8 md:px-12 text-lg md:text-xl shadow-xl shadow-purple-500/30 gap-3 hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
                   <span className="relative z-10 flex items-center gap-2">{t('html.start_btn')} <ArrowRight /></span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </Button>
@@ -240,12 +264,12 @@ export const LiveHtmlPage: React.FC = () => {
 
       <TechMarquee />
 
-      <section className="max-w-7xl mx-auto px-4 py-24">
-          <div className="text-center mb-20 max-w-3xl mx-auto">
+      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+          <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">{t('html.feat_title')}</h2>
               <p className="text-lg text-slate-500">{t('html.feat_subtitle')}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {features.map((feat, idx) => (
                   <FeatureCard key={idx} {...feat} />
               ))}
@@ -253,11 +277,11 @@ export const LiveHtmlPage: React.FC = () => {
       </section>
 
       {/* Workflow Steps Section */}
-      <section className="bg-slate-50 py-32 overflow-hidden">
+      <section className="bg-slate-50 py-16 md:py-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                   <div className="order-2 lg:order-1 relative">
-                      <div className="bg-white rounded-[2rem] p-4 shadow-2xl border border-slate-200 relative z-10 overflow-hidden h-[425px]">
+                      <div className="bg-white rounded-[2rem] p-4 shadow-2xl border border-slate-200 relative z-10 overflow-hidden h-[300px] md:h-[425px]">
                            <img src={ASSETS.PREVIEW_HTML} alt="HTML Editor Preview" className="rounded-xl w-full h-full object-cover" />
                       </div>
                       <div className="absolute -top-12 -left-12 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl z-0 animate-pulse-slow"></div>
@@ -267,15 +291,15 @@ export const LiveHtmlPage: React.FC = () => {
                       <div className="space-y-6">
                           <div className="flex gap-5 group">
                               <div className="w-10 h-10 rounded-full bg-[#6C5CE7] text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-purple-200 group-hover:scale-110 transition-transform">1</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('html.flow_1')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('html.flow_1')}</p>
                           </div>
                           <div className="flex gap-5 group">
                               <div className="w-10 h-10 rounded-full bg-[#6C5CE7] text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-purple-200 group-hover:scale-110 transition-transform">2</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('html.flow_2')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('html.flow_2')}</p>
                           </div>
                           <div className="flex gap-5 group">
                               <div className="w-10 h-10 rounded-full bg-[#6C5CE7] text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-purple-200 group-hover:scale-110 transition-transform">3</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('html.flow_3')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('html.flow_3')}</p>
                           </div>
                       </div>
                   </div>
@@ -283,12 +307,12 @@ export const LiveHtmlPage: React.FC = () => {
           </div>
       </section>
 
-      <section className="bg-slate-50/50 py-24">
+      <section className="bg-slate-50/50 py-16 md:py-24">
           <FAQBoard />
       </section>
 
       {/* Final CTA */}
-      <section className="relative py-20 overflow-hidden bg-[#6C5CE7] isolate">
+      <section className="relative py-16 md:py-20 overflow-hidden bg-[#6C5CE7] isolate">
            <style>{`
              @keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
              @keyframes spin-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
@@ -301,19 +325,11 @@ export const LiveHtmlPage: React.FC = () => {
            `}</style>
 
            <div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] via-[#5D3FD3] to-[#4834d4] z-0"></div>
-           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 z-0 pointer-events-none"></div>
            
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none z-0 opacity-60">
-               <div className="absolute inset-0 rounded-full border-2 border-white/20 border-dashed" style={{ animation: 'spin-cw 60s linear infinite' }}></div>
-               <div className="absolute inset-[80px] rounded-full border-2 border-white/30" style={{ animation: 'spin-ccw 40s linear infinite' }}></div>
-               <div className="absolute inset-[160px] rounded-full border-4 border-white/10" style={{ animation: 'spin-cw 20s linear infinite' }}></div>
-               <div className="absolute inset-0" style={{ animation: 'spin-cw 25s linear infinite' }}>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2 w-6 h-6 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
-               </div>
-           </div>
-
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-400/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 mix-blend-screen animate-blob"></div>
-           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-400/30 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 mix-blend-screen animate-blob animation-delay-2000"></div>
+           {/* Restored Spiral/Circular Animations */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse] opacity-30 pointer-events-none"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
 
            <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold text-white mb-6 drop-shadow-xl">{t('html.cta_title')}</h2>
@@ -335,8 +351,7 @@ export const LiveHtmlPage: React.FC = () => {
 export const LiveHtmlApp: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col bg-white">
-      {/* Serve the built Live Editor app from /live_editor/ on the same server */}
-      <iframe src="/live_editor/" title="Live HTML Studio" className="w-full flex-grow border-0" allowFullScreen />
+      <iframe src="https://ezupsoft.com/editor.php?lang=ko" title="Live HTML Studio" className="w-full flex-grow border-0" allowFullScreen />
     </div>
   );
 };

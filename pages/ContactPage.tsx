@@ -42,19 +42,23 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-slate-50 pb-20">
       
-      {/* Header */}
-      <div className="bg-[#6C5CE7] py-16 px-4 text-center text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 blur-[80px] animate-blob" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-900 opacity-20 blur-[80px] animate-blob animation-delay-2000" />
+      {/* Header/Hero Section */}
+      <div className="bg-white py-16 px-4 text-center relative overflow-hidden border-b border-slate-100">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(#6C5CE7_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07]"></div>
           
-          <div className="relative z-10 max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{t('contact.title')}</h1>
-              <p className="text-purple-100 text-lg md:text-xl font-medium">{t('contact.subtitle')}</p>
+          {/* Natural Symbol */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03]">
+              <MessageSquare size={300} className="text-slate-900" />
+          </div>
+          
+          <div className="relative z-10 max-w-3xl mx-auto pt-2">
+              <h1 className="text-3xl md:text-5xl font-black mb-3 tracking-tight text-slate-900">{t('contact.title')}</h1>
+              <p className="text-slate-500 text-base md:text-lg font-medium">{t('contact.subtitle')}</p>
           </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
+      <div className="max-w-6xl mx-auto px-4 mt-8 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               
               {/* Contact Info Cards */}

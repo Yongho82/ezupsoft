@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Crop, Monitor, HelpCircle, ChevronDown, ChevronUp, Download, ShieldCheck, Timer, Zap, Layers, Maximize2, AppWindow, MousePointerClick, ArrowDownToLine, Video, ScanText } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -82,29 +82,73 @@ const TechMarquee: React.FC = () => {
 };
 
 const FAQBoard: React.FC = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState(0);
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+    useEffect(() => {
+        setOpenIndex(null);
+    }, [language]);
+
     const faqData = [
         {
-            category: t('faq.catch.cat1'),
+            category: t('faq.catch.cat1'), 
             items: [
                 { q: t('faq.catch.q1'), a: t('faq.catch.a1') },
                 { q: t('faq.catch.q2'), a: t('faq.catch.a2') },
                 { q: t('faq.catch.q3'), a: t('faq.catch.a3') },
                 { q: t('faq.catch.q4'), a: t('faq.catch.a4') },
-                { q: t('faq.catch.q5'), a: t('faq.catch.a5') }
+                { q: t('faq.catch.q5'), a: t('faq.catch.a5') },
             ]
         },
         {
-            category: t('faq.catch.cat2'),
+            category: t('faq.catch.cat2'), 
             items: [
                 { q: t('faq.catch.q6'), a: t('faq.catch.a6') },
                 { q: t('faq.catch.q7'), a: t('faq.catch.a7') },
                 { q: t('faq.catch.q8'), a: t('faq.catch.a8') },
                 { q: t('faq.catch.q9'), a: t('faq.catch.a9') },
-                { q: t('faq.catch.q10'), a: t('faq.catch.a10') }
+                { q: t('faq.catch.q10'), a: t('faq.catch.a10') },
+                { q: t('faq.catch.q11'), a: t('faq.catch.a11') },
+                { q: t('faq.catch.q12'), a: t('faq.catch.a12') },
+            ]
+        },
+        {
+            category: t('faq.catch.cat3'),
+            items: [
+                { q: t('faq.catch.q13'), a: t('faq.catch.a13') },
+                { q: t('faq.catch.q14'), a: t('faq.catch.a14') },
+                { q: t('faq.catch.q15'), a: t('faq.catch.a15') },
+                { q: t('faq.catch.q16'), a: t('faq.catch.a16') },
+                { q: t('faq.catch.q17'), a: t('faq.catch.a17') },
+            ]
+        },
+        {
+            category: t('faq.catch.cat4'),
+            items: [
+                { q: t('faq.catch.q18'), a: t('faq.catch.a18') },
+                { q: t('faq.catch.q19'), a: t('faq.catch.a19') },
+                { q: t('faq.catch.q20'), a: t('faq.catch.a20') },
+                { q: t('faq.catch.q21'), a: t('faq.catch.a21') },
+            ]
+        },
+        {
+            category: t('faq.catch.cat5'),
+            items: [
+                { q: t('faq.catch.q22'), a: t('faq.catch.a22') },
+                { q: t('faq.catch.q23'), a: t('faq.catch.a23') },
+                { q: t('faq.catch.q24'), a: t('faq.catch.a24') },
+                { q: t('faq.catch.q25'), a: t('faq.catch.a25') },
+                { q: t('faq.catch.q26'), a: t('faq.catch.a26') },
+            ]
+        },
+        {
+            category: t('faq.catch.cat6'), 
+            items: [
+                { q: t('faq.catch.q27'), a: t('faq.catch.a27') },
+                { q: t('faq.catch.q28'), a: t('faq.catch.a28') },
+                { q: t('faq.catch.q29'), a: t('faq.catch.a29') },
+                { q: t('faq.catch.q30'), a: t('faq.catch.a30') },
             ]
         }
     ];
@@ -114,7 +158,7 @@ const FAQBoard: React.FC = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4" key={language}>
             <div className="text-center mb-12">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
                     <HelpCircle size={24} />
@@ -219,8 +263,8 @@ export const CatchCapturePage: React.FC = () => {
 
   return (
     <div className="w-full overflow-hidden bg-white">
-      {/* 1. Hero Section - Reduced padding from pt-24 pb-16 to pt-20 pb-16 */}
-      <section className="relative pt-20 pb-16 overflow-hidden bg-slate-50">
+      {/* 1. Hero Section - Mobile Optimized Padding */}
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-16 overflow-hidden bg-slate-50">
          
          <div className="absolute inset-0 w-full h-full pointer-events-none">
              <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]"></div>
@@ -230,35 +274,32 @@ export const CatchCapturePage: React.FC = () => {
 
          <div className="absolute inset-0 overflow-hidden pointer-events-none">
              <div className="absolute top-32 left-[5%] text-indigo-300 animate-float" style={{ animationDelay: '0s' }}>
-                <Crop size={100} className="opacity-40 transform -rotate-12" />
+                <Crop size={100} className="opacity-40 transform -rotate-12 scale-75 md:scale-100" />
              </div>
-             <div className="absolute bottom-40 right-[10%] text-rose-300 animate-float" style={{ animationDelay: '2s' }}>
-                <ScanText size={80} className="opacity-40 transform rotate-12" />
-             </div>
-             <div className="absolute top-1/4 right-1/4 w-32 h-20 border-2 border-dashed border-indigo-300/50 rounded-lg animate-pulse"></div>
+             {/* ... */}
          </div>
 
-         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10">
             {/* Left Content (Text) */}
-            <div className="lg:col-span-5 space-y-10 text-left lg:pl-16">
+            <div className="lg:col-span-5 space-y-8 lg:space-y-10 text-center lg:text-left lg:pl-16">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-indigo-100 text-indigo-600 text-sm font-bold shadow-sm animate-fade-in-up opacity-0">
                     <Crop size={16} /> {t('catch.badge')}
                 </div>
-                {/* REDUCED TEXT SIZE: text-4xl -> text-3xl, lg:text-6xl -> lg:text-5xl */}
+                
                 <h1 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-snug animate-fade-in-up opacity-0" style={{ animationDelay: '0.1s' }}>
                     {t('catch.title')}
                 </h1>
-                {/* REDUCED TEXT SIZE: text-lg -> text-base */}
-                <p className="text-base text-slate-500 leading-relaxed max-w-lg animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
+                
+                <p className="text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
                     {t('catch.desc')}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-5 pt-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0.3s' }}>
-                    <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-200 text-lg h-16 px-10 rounded-2xl">
+                <div className="flex flex-col sm:flex-row gap-5 pt-4 animate-fade-in-up opacity-0 justify-center lg:justify-start" style={{ animationDelay: '0.3s' }}>
+                    <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-200 text-lg h-14 md:h-16 px-10 rounded-2xl">
                         <Download className="mr-3" size={24} />
                         {t('catch.download_btn')}
                     </Button>
                 </div>
-                <div className="flex gap-8 text-sm text-slate-400 font-semibold animate-fade-in-up opacity-0" style={{ animationDelay: '0.4s' }}>
+                <div className="flex gap-4 md:gap-8 text-xs md:text-sm text-slate-400 font-semibold animate-fade-in-up opacity-0 justify-center lg:justify-start" style={{ animationDelay: '0.4s' }}>
                     <span className="flex items-center gap-2 uppercase tracking-wide"><Monitor size={16} /> Windows 10/11</span>
                     <span className="flex items-center gap-2 uppercase tracking-wide"><ShieldCheck size={16} /> Professional Grade</span>
                 </div>
@@ -267,11 +308,11 @@ export const CatchCapturePage: React.FC = () => {
             {/* Right Content (Image) */}
             <div className="lg:col-span-7 relative animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
                 <div className="absolute -inset-8 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-                <div className="relative bg-white rounded-3xl shadow-2xl border-4 border-white overflow-hidden group">
+                <div className="relative bg-white rounded-2xl lg:rounded-3xl shadow-2xl border-[4px] lg:border-[4px] border-white overflow-hidden group">
                      <img 
                        src={ASSETS.PREVIEW_CATCH} 
                        alt={t('catch.preview_alt')} 
-                       className="w-full h-[395px] object-cover" 
+                       className="w-full h-[250px] md:h-[395px] object-cover" 
                      />
                 </div>
             </div>
@@ -280,24 +321,24 @@ export const CatchCapturePage: React.FC = () => {
 
       <TechMarquee />
 
-      <section className="max-w-7xl mx-auto px-4 pt-24 pb-12 text-center">
+      <section className="max-w-7xl mx-auto px-4 pt-16 md:pt-24 pb-12 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">{t('catch.feat_title')}</h2>
           <p className="text-lg text-slate-500 max-w-3xl mx-auto">{t('catch.feat_subtitle')}</p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="max-w-7xl mx-auto px-4 pb-16 md:pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {features.map((feat, idx) => (
                   <FeatureItem key={idx} {...feat} />
               ))}
           </div>
       </section>
 
-      <section className="bg-slate-50 py-32">
+      <section className="bg-slate-50 py-16 md:py-32">
           <div className="max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                   <div className="order-2 lg:order-1 relative">
-                      <div className="bg-white rounded-[2rem] p-4 shadow-2xl border border-slate-200 relative z-10 overflow-hidden aspect-[16/10]">
+                      <div className="bg-white rounded-[2rem] p-4 shadow-2xl border border-slate-200 relative z-10 overflow-hidden aspect-[16/10] h-[300px] md:h-auto">
                            <img src={ASSETS.THUMB_PROD} alt="Editor Preview" className="rounded-xl w-full h-full object-cover" />
                       </div>
                       <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl z-0"></div>
@@ -307,15 +348,15 @@ export const CatchCapturePage: React.FC = () => {
                       <div className="space-y-6">
                           <div className="flex gap-5">
                               <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">1</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('catch.flow_1')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_1')}</p>
                           </div>
                           <div className="flex gap-5">
                               <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">2</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('catch.flow_2')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_2')}</p>
                           </div>
                           <div className="flex gap-5">
                               <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">3</div>
-                              <p className="text-slate-600 leading-relaxed text-lg font-medium">{t('catch.flow_3')}</p>
+                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_3')}</p>
                           </div>
                       </div>
                   </div>
@@ -323,11 +364,11 @@ export const CatchCapturePage: React.FC = () => {
           </div>
       </section>
 
-      <section className="bg-slate-50/50 py-24">
+      <section className="bg-slate-50/50 py-16 md:py-24">
           <FAQBoard />
       </section>
 
-      <section className="relative py-20 overflow-hidden bg-[#6C5CE7] isolate">
+      <section className="relative py-16 md:py-20 overflow-hidden bg-[#6C5CE7] isolate">
            <style>{`
              @keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
              @keyframes spin-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
@@ -340,25 +381,17 @@ export const CatchCapturePage: React.FC = () => {
            `}</style>
 
            <div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] via-[#5D3FD3] to-[#4834d4] z-0"></div>
-           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 z-0 pointer-events-none"></div>
-
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none z-0 opacity-60">
-               <div className="absolute inset-0 rounded-full border-2 border-white/20 border-dashed" style={{ animation: 'spin-cw 60s linear infinite' }}></div>
-               <div className="absolute inset-[80px] rounded-full border-2 border-white/30" style={{ animation: 'spin-ccw 40s linear infinite' }}></div>
-               <div className="absolute inset-[160px] rounded-full border-4 border-white/10" style={{ animation: 'spin-cw 20s linear infinite' }}></div>
-               <div className="absolute inset-0" style={{ animation: 'spin-cw 25s linear infinite' }}>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2 w-6 h-6 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
-               </div>
-           </div>
            
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-400/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 mix-blend-screen animate-blob"></div>
-           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-400/30 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 mix-blend-screen animate-blob animation-delay-2000"></div>
-
+           {/* Restored Spiral/Circular Animations */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse] opacity-30 pointer-events-none"></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
+           
            <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight drop-shadow-2xl">
                     {t('catch.cta_title')}
                 </h2>
-                <p className="text-xl text-purple-100 mb-12 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90">
+                <p className="text-lg md:text-xl text-purple-100 mb-12 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90">
                     {t('catch.cta_desc')}
                 </p>
                 

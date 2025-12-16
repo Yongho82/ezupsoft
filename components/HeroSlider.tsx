@@ -69,7 +69,7 @@ export const HeroSlider: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    <div className="w-full bg-white py-8">
+    <div className="w-full bg-slate-50 pb-8 pt-0 -mt-1">
       <style>
         {`
           @keyframes fillProgress { from { width: 0%; } to { width: 100%; } }
@@ -77,8 +77,9 @@ export const HeroSlider: React.FC = () => {
         `}
       </style>
 
-      <div className="w-[95%] max-w-[1440px] mx-auto px-4 sm:px-6">
-        <div className="relative w-full h-[700px] rounded-[3rem] overflow-hidden shadow-2xl ring-1 ring-slate-900/10">
+      <div className="w-[95%] max-w-[1440px] mx-auto px-2 md:px-6">
+        {/* Adjusted height for mobile: h-[500px] to lg:h-[700px] */}
+        <div className="relative w-full h-[520px] lg:h-[700px] rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl ring-1 ring-slate-900/10 bg-slate-900">
           
           {slides.map((slide, index) => (
             <div
@@ -88,17 +89,18 @@ export const HeroSlider: React.FC = () => {
               <div className="absolute top-0 right-0 w-[900px] h-[900px] bg-white/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
               
               <div className="absolute inset-0 flex items-center">
-                 <div className="w-full px-12 md:px-20 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                 <div className="w-full px-6 md:px-20 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     
-                    <div className="text-left z-20 pt-12 lg:pt-0">
-                        <h2 className="text-4xl lg:text-7xl font-black text-white leading-[1.1] mb-10 drop-shadow-xl tracking-tight">
+                    <div className="text-left z-20 pt-8 lg:pt-0">
+                        {/* Responsive Typography */}
+                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-10 drop-shadow-xl tracking-tight">
                             {t(slide.titleKey)}
                         </h2>
-                        <p className="text-xl text-white/90 mb-14 max-w-lg leading-relaxed font-medium drop-shadow-md">
+                        <p className="text-base md:text-xl text-white/90 mb-8 md:mb-14 max-w-lg leading-relaxed font-medium drop-shadow-md">
                             {t(slide.descKey)}
                         </p>
                         <NavLink to={slide.path}>
-                            <Button size="lg" className={`px-12 py-5 text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-2xl ${slide.accentColor}`}>
+                            <Button size="lg" className={`w-full md:w-auto px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-xl md:rounded-2xl ${slide.accentColor}`}>
                                 {t(slide.ctaKey)}
                             </Button>
                         </NavLink>
@@ -115,21 +117,21 @@ export const HeroSlider: React.FC = () => {
             </div>
           ))}
 
-          <div className="absolute bottom-12 left-12 md:left-20 lg:left-24 z-30">
-             <div className="flex items-center gap-8 text-white font-medium select-none bg-black/30 backdrop-blur-xl px-8 py-4 rounded-full border border-white/10 shadow-2xl">
-                <div className="flex items-center gap-5 text-base min-w-[120px]">
-                   <span className="font-bold text-2xl tracking-tighter">{currentSlide + 1}</span>
+          <div className="absolute bottom-6 md:bottom-12 left-6 md:left-20 lg:left-24 z-30">
+             <div className="flex items-center gap-4 md:gap-8 text-white font-medium select-none bg-black/30 backdrop-blur-xl px-4 md:px-8 py-2 md:py-4 rounded-full border border-white/10 shadow-2xl scale-90 md:scale-100 origin-bottom-left">
+                <div className="flex items-center gap-3 md:gap-5 text-base min-w-[100px] md:min-w-[120px]">
+                   <span className="font-bold text-xl md:text-2xl tracking-tighter">{currentSlide + 1}</span>
                    <div className="flex-grow h-1.5 bg-white/20 relative overflow-hidden rounded-full">
                        {isPlaying && <div key={currentSlide} className="absolute inset-0 bg-white animate-progress"></div>}
                        {!isPlaying && <div className="absolute inset-0 bg-white w-full"></div>}
                    </div>
-                   <span className="opacity-60 text-lg">{slides.length}</span>
+                   <span className="opacity-60 text-base md:text-lg">{slides.length}</span>
                 </div>
-                <div className="w-px h-6 bg-white/20 mx-2"></div>
-                <div className="flex items-center gap-3">
-                   <button onClick={prevSlide} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronLeft size={24} /></button>
-                   <button onClick={togglePlay} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90">{isPlaying ? <Pause size={22} /> : <Play size={22} />}</button>
-                   <button onClick={nextSlide} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronRight size={24} /></button>
+                <div className="w-px h-6 bg-white/20 mx-1 md:mx-2"></div>
+                <div className="flex items-center gap-2 md:gap-3">
+                   <button onClick={prevSlide} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronLeft size={20} /></button>
+                   <button onClick={togglePlay} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90">{isPlaying ? <Pause size={18} /> : <Play size={18} />}</button>
+                   <button onClick={nextSlide} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronRight size={20} /></button>
                 </div>
              </div>
           </div>
