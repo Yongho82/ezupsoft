@@ -83,7 +83,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
     };
 
     const actionButtonClass = "px-3 py-1.5 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-150 bg-white text-gray-700 hover:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed disabled:bg-gray-50";
-    
+
     const downloadButtonClass = "flex flex-col items-center justify-center w-12 py-2 text-gray-700 hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent transition-colors duration-150";
 
     const getPptxButtonText = () => {
@@ -111,7 +111,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         await new Promise(resolve => setTimeout(resolve, 100)); // Allow time for deselection to render
         downloadFn();
     };
-    
+
     const toggleLanguage = () => {
         setLanguage(prev => prev === 'ko' ? 'en' : 'ko');
     }
@@ -119,14 +119,6 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
     return (
         <header className="bg-white shadow-sm px-4 py-2 flex justify-between items-center flex-shrink-0 z-20">
             <h1 className="text-2xl font-bold text-gray-700 flex items-center">
-                <img
-                  src="/assets/icons/editor-title.jpg"
-                  alt=""
-                  width={50}
-                  height={30}
-                  className="mr-2 rounded"
-                  aria-hidden="true"
-                />
                 {t('header.title')}
             </h1>
             <div className="flex items-center gap-2">
@@ -137,14 +129,14 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
                     </button>
                 </div>
                 <div className="h-6 w-px bg-gray-300 mx-1"></div> {/* Separator */}
-                 <button
+                <button
                     onClick={() => setIsManualOpen(true)}
                     className="flex flex-col items-center justify-center w-16 py-1 text-gray-700 bg-white hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 transition-colors duration-150"
                     title={t('header.manual')}
                 >
                     <div className="h-6 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
                     <span className="text-xs font-medium">{t('header.manual')}</span>
@@ -213,7 +205,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
                             accept=".html,.htm,.pdf,.pptx,image/*"
                             style={{ display: 'none' }}
                         />
-                         <button onClick={() => handleOpenClick('.html,.htm')} title={t('header.import') + ' HTML'} className={downloadButtonClass}>
+                        <button onClick={() => handleOpenClick('.html,.htm')} title={t('header.import') + ' HTML'} className={downloadButtonClass}>
                             <div className="h-6 flex items-center">
                                 <i className="fas fa-file-code fa-xl text-blue-600"></i>
                             </div>
@@ -232,11 +224,11 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
                             <span className="text-xs font-medium">{t('header.importPptx')}</span>
                         </button>
                         <button onClick={() => handleOpenClick('image/*')} title={t('header.import') + ' IMG'} className={downloadButtonClass}>
-                           <div className="h-6 flex items-center">
-                               <i className="fas fa-file-image fa-xl text-green-600"></i>
-                           </div>
-                           <span className="text-xs font-medium">{t('header.importImg')}</span>
-                       </button>
+                            <div className="h-6 flex items-center">
+                                <i className="fas fa-file-image fa-xl text-green-600"></i>
+                            </div>
+                            <span className="text-xs font-medium">{t('header.importImg')}</span>
+                        </button>
                     </div>
                 </div>
                 <div className="relative" ref={previewSizerRef}>

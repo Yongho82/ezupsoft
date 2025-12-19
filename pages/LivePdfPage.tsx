@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
@@ -377,11 +377,38 @@ export const LivePdfPage: React.FC = () => {
 };
 
 export const LivePdfApp: React.FC = () => {
+    const { language } = useLanguage();
+    const iframeRef = useRef<HTMLIFrameElement>(null);
+
+    // 언어가 변경될 때마다 iframe에 메시지 전송
+    useEffect(() => {
+        const iframe = iframeRef.current;
+        if (iframe && iframe.contentWindow) {
+            // iframe이 로드될 때까지 기다렸다가 메시지 전송
+            const sendLanguageMessage = () => {
+                iframe.contentWindow?.postMessage({
+                    type: 'changeLanguage',
+                    language: language
+                }, '*');
+            };
+
+            // iframe이 이미 로드되었다면 즉시 전송
+            if (iframe.contentDocument?.readyState === 'complete') {
+                sendLanguageMessage();
+            } else {
+                // 로드되지 않았다면 load 이벤트 대기
+                iframe.addEventListener('load', sendLanguageMessage);
+                return () => iframe.removeEventListener('load', sendLanguageMessage);
+            }
+        }
+    }, [language]);
+
     return (
         <div className="w-full h-full flex flex-col bg-black overflow-hidden">
             <div className="w-full h-full relative overflow-hidden">
                 <iframe
-                    src="/pdf_studio/index.html"
+                    ref={iframeRef}
+                    src={`/pdf_studio/index.html?lang=${language}`}
                     title="Live PDF Tool"
                     className="absolute top-0 left-0 border-0"
                     style={{

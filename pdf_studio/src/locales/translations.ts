@@ -9,7 +9,7 @@ export const translations = {
     'common.error': '오류',
     'common.confirm': '확인',
     'common.cancel': '취소',
-    
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': '홈',
@@ -63,7 +63,7 @@ export const translations = {
     'fileUpload.pdfOnlyDescription': 'PDF 파일만 업로드할 수 있습니다.',
     'fileUpload.editDescription': '편집할 PDF 파일을 추가하세요.',
     'fileUpload.allDescription': 'PDF, 이미지, Word, Excel, PowerPoint, HTML 파일 추가',
-    
+
     // Loading Screen
     'loadingScreen.message': '잠시만 기다려주세요...',
 
@@ -74,22 +74,22 @@ export const translations = {
     'filePreview.rotateAria': '회전',
     'filePreview.zoomInAria': '확대',
     'filePreview.viewPagesAria': '페이지 보기',
-    
+
     // Floating Action Buttons
     'fab.addFilesAria': '파일 더 추가하기',
 
     // Options Panel
     'options.noOptions': '이 도구에 대한 옵션이 없습니다.',
-    
+
     // Page Detail Modal
     'pageDetail.closeAria': '세부 정보 닫기',
 
     // Page Grid View
     'pageGrid.loading': '페이지 미리보기를 생성 중입니다...',
-    
+
     // Page Thumbnail
     'pageThumbnail.zoomAria': '{pageNumber}페이지 확대',
-    
+
     // Preview Modal
     'previewModal.closeAria': '미리보기 닫기',
 
@@ -230,7 +230,7 @@ export const translations = {
     'watermarkHeader.date': '날짜',
     'watermarkHeader.text': '텍스트',
     'watermarkHeader.stamps': '스탬프',
-    
+
     // Text Options Toolbar
     'textOptions.title': '텍스트 서식',
     'textOptions.font': '글꼴',
@@ -258,7 +258,7 @@ export const translations = {
     'signatureList.empty': '저장된 서명이 없습니다.',
     'signatureList.new': '새 서명 만들기',
     'signatureList.back': '페이지 목록으로 돌아가기',
-    
+
     // Shapes Dropdown
     'shapes.lines': '선',
     'shapes.rectangles': '사각형',
@@ -267,7 +267,7 @@ export const translations = {
     'shapes.equation': '수식 도형',
     'shapes.flowchart': '순서도',
     'shapes.starsAndBanners': '별 및 현수막',
-    
+
     // Shape Options
     'shapeOptions.title': '도형 서식',
     'shapeOptions.fillColor': '채우기 색',
@@ -338,7 +338,7 @@ export const translations = {
     'processing.linkAria': '링크 복사',
     'processing.trashAria': '삭제하고 새로 시작',
     'processing.deleted': '삭제되었습니다!',
-    
+
     // Processing Specific Results
     'processing.pptSuccessTitle': 'PowerPoint로 변환되었습니다!',
     'processing.excelSuccessTitle': 'Excel로 변환되었습니다!',
@@ -459,7 +459,7 @@ export const translations = {
     'fileUpload.pdfOnlyDescription': 'Only PDF files can be uploaded.',
     'fileUpload.editDescription': 'Add a PDF file to edit.',
     'fileUpload.allDescription': 'Add PDF, Image, Word, Excel, PowerPoint, HTML files',
-    
+
     // Loading Screen
     'loadingScreen.message': 'One moment please...',
 
@@ -470,7 +470,7 @@ export const translations = {
     'filePreview.rotateAria': 'Rotate',
     'filePreview.zoomInAria': 'Zoom in',
     'filePreview.viewPagesAria': 'View pages',
-    
+
     // Floating Action Buttons
     'fab.addFilesAria': 'Add more files',
 
@@ -522,7 +522,7 @@ export const translations = {
     'compressOptions.downloadCompressed': 'Download Compressed File',
     'compressOptions.downloadOriginal': 'Download Original File',
     'compressOptions.retry': 'Try again with different settings',
-    
+
     // Split Options
     'splitOptions.rangeTab': 'Range',
     'splitOptions.pageTab': 'Page',
@@ -580,7 +580,7 @@ export const translations = {
     // Edit Page
     'editPage.modal.title': 'Notification',
     'editPage.modal.confirm': 'OK',
-    
+
     // Edit Header
     'editHeader.openFile': 'Open File',
     'editHeader.addFile': 'Add File',
@@ -626,7 +626,7 @@ export const translations = {
     'watermarkHeader.date': 'Date',
     'watermarkHeader.text': 'Text',
     'watermarkHeader.stamps': 'Stamps',
-    
+
     // Text Options Toolbar
     'textOptions.title': 'Text Formatting',
     'textOptions.font': 'Font',
@@ -663,7 +663,7 @@ export const translations = {
     'shapes.equation': 'Equation Shapes',
     'shapes.flowchart': 'Flowchart',
     'shapes.starsAndBanners': 'Stars and Banners',
-    
+
     // Shape Options
     'shapeOptions.title': 'Shape Format',
     'shapeOptions.fillColor': 'Fill Color',
@@ -705,7 +705,7 @@ export const translations = {
     'pdfViewer.zoomInTooltip': 'Zoom in',
     'pdfViewer.defaultText': 'Enter text',
 
-     // Processing Page
+    // Processing Page
     'processing.merging': 'Merging PDF...',
     'processing.splitting': 'Splitting PDF...',
     'processing.compressing': 'Compressing PDF...',
@@ -793,6 +793,15 @@ export const translations = {
     'alert.unsavedChanges': 'Unsaved changes will be lost. Do you want to continue?',
   },
   ja: {
+    // Common
+    'common.page': '{count} ページ',
+    'common.pages': '{count} ページ',
+    'common.pageSingle': 'ページ',
+    'common.download': 'ダウンロード',
+    'common.error': 'エラー',
+    'common.confirm': '確認',
+    'common.cancel': 'キャンセル',
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': 'ホーム',
@@ -812,43 +821,123 @@ export const translations = {
 
     // Home Page Cards
     'home.mergeTitle': 'PDF結合',
-    'home.mergeDesc': 'PDFファイルを結合して統合します。簡単かつ迅速です！',
+    'home.mergeDesc': 'PDFファイルを好きな順序で結合します。簡単かつ迅速です！',
     'home.splitTitle': 'PDF分割',
-    'home.splitDesc': 'ページ範囲を選択して、PDFファイルを分割します。',
+    'home.splitDesc': 'ページ範囲を選択して、PDFファイルを個別のファイルに分割します。',
     'home.compressTitle': 'PDF圧縮',
     'home.compressDesc': '最高の品質を維持しながらPDFファイルのサイズを縮小します。',
     'home.pdfToWordTitle': 'PDF Word変換',
-    'home.pdfToWordDesc': 'PDFファイルを編集しやすいWord文書に変換します。',
+    'home.pdfToWordDesc': 'PDFファイルを編集しやすいWord文書に変換します。高い精度を保証します。',
     'home.pdfToPptTitle': 'PDF PowerPoint変換',
-    'home.pdfToPptDesc': 'PDFファイルをPPTおよびPPTXスライドショーに変換します。',
+    'home.pdfToPptDesc': 'PDFファイルを編集可能なPPTおよびPPTXスライドに変換します。',
     'home.pdfToExcelTitle': 'PDF Excel変換',
-    'home.pdfToExcelDesc': 'PDFデータを数秒でExcelスプレッドシートに変換します。',
+    'home.pdfToExcelDesc': 'PDFデータを数秒でExcelスプレッドシートに抽出します。',
     'home.wordToPdfTitle': 'Word PDF変換',
     'home.wordToPdfDesc': 'DOCおよびDOCXファイルを簡単にPDFに変換します。',
     'home.pptToPdfTitle': 'PowerPoint PDF変換',
-    'home.pptToPdfDesc': 'PPTおよびPPTXスライドショーを簡単にPDFに変換します。',
+    'home.pptToPdfDesc': 'PPTおよびPPTXスライドを簡単にPDFに変換します。',
     'home.excelToPdfTitle': 'Excel PDF変換',
     'home.excelToPdfDesc': 'Excelスプレッドシートを簡単にPDFに変換します。',
     'home.editPdfTitle': 'PDF編集',
-    'home.editPdfDesc': 'テキスト、画像、図形、注釈をPDFに追加します。',
+    'home.editPdfDesc': 'テキスト、画像、図形、注釈をPDFに追加します。フォントや色の変更も可能です。',
     'home.pdfToJpgTitle': 'PDF JPG変換',
-    'home.pdfToJpgDesc': 'PDFページをJPGに変換するか、画像を抽出します。',
+    'home.pdfToJpgDesc': 'PDFページをJPG画像に変換するか、内の画像を抽出します。',
     'home.jpgToPdfTitle': 'JPG PDF変換',
-    'home.jpgToPdfDesc': '画像をPDFに変換します。向きと余白を調整できます。',
+    'home.jpgToPdfDesc': '画像をPDFに変換します。向きと余白を自由に調整。',
     'home.watermarkTitle': '透かし',
-    'home.watermarkDesc': 'PDFに画像またはテキストの透かしを追加します。',
+    'home.watermarkDesc': 'PDFに画像またはテキストの透かしを追加します。位置や透明度を選択。',
     'home.htmlToPdfTitle': 'HTML PDF変換',
-    'home.htmlToPdfDesc': 'ウェブページをPDFに変換します。',
+    'home.htmlToPdfDesc': 'ウェブページをPDFに変換します。URLやコードを保存。',
 
-    // Common
-    'common.download': 'ダウンロード',
-    'common.confirm': '確認',
-    'common.cancel': 'キャンセル',
-    'common.page': '{count} ページ',
-    'common.pages': '{count} ページ',
+    // File Upload
     'fileUpload.selectFile': 'ファイルを選択',
+    'fileUpload.mergeDescription': 'PDFと画像ファイルを結合できます。',
+    'fileUpload.pdfOnlyDescription': 'PDFファイルのみアップロード可能です。',
+    'fileUpload.editDescription': '編集するPDFファイルを追加してください。',
+    'fileUpload.allDescription': 'PDF、画像、Word、Excel、PPT、HTMLファイルに対応',
+
+    // Loading Screen
+    'loadingScreen.message': 'お待ちください...',
+
+    // File Preview
+    'filePreview.pageCountCalculating': 'ページ数計算中...',
+    'filePreview.noPreview': 'プレビューなし',
+    'filePreview.removeAria': '削除',
+    'filePreview.rotateAria': '回転',
+    'filePreview.zoomInAria': '拡大',
+    'filePreview.viewPagesAria': 'ページ表示',
+
+    // Edit Header
+    'editHeader.openFile': 'ファイルを開く',
+    'editHeader.addFile': 'ファイル追加',
+
+    // Edit Ribbon
+    'editRibbon.group.edit': '編集',
+    'editRibbon.undo': '元に戻す',
+    'editRibbon.redo': 'やり直し',
+    'editRibbon.reset': 'リセット',
+    'editRibbon.group.transform': '変形',
+    'editRibbon.rotate': '回転',
+    'editRibbon.flipHorizontal': '左右反転',
+    'editRibbon.flipVertical': '上下反転',
+    'editRibbon.group.comment': '注釈',
+    'editRibbon.shapes': '図形',
+    'editRibbon.pen': 'ペン',
+    'editRibbon.highlighter': '蛍光ペン',
+    'editRibbon.text': 'テキスト',
+    'editRibbon.group.modify': '修正',
+    'editRibbon.mosaic': 'モザイク',
+    'editRibbon.eraser': '消しゴム',
+    'editRibbon.group.tools': 'ツール',
+    'editRibbon.group.create': '生成',
+    'editRibbon.select': '選択',
+    'editRibbon.lineDraw': '直線',
+    'editRibbon.textInsert': 'テキスト追加',
+    'editRibbon.imageInsert': '画像挿入',
+    'editRibbon.pdfMerge': 'PDF結合',
+    'editRibbon.pdfSplit': 'PDF分割',
+    'editRibbon.pdfCompress': 'PDF圧縮',
+    'editRibbon.pdfConvert': 'PDF変換',
+    'editRibbon.group.textEdit': 'テキスト編集',
+    'editRibbon.textColor': '文字色',
+    'editRibbon.backgroundColor': '背景色',
+    'editRibbon.lineColor': '線の色',
+    'editRibbon.thickness': '太さ',
+    'editRibbon.dashes': '点線',
+
+    // Processing Page
+    'processing.merging': 'PDFを結合しています...',
+    'processing.splitting': 'PDFを分割しています...',
+    'processing.compressing': 'PDFを圧縮しています...',
+    'processing.converting': 'PDFを変換しています...',
+    'processing.pleaseWait': '少々お待ちください...',
+    'processing.mergeSuccessTitle': '結合が完了しました！',
+    'processing.splitSuccessTitle': '分割が完了しました！',
+    'processing.compressSuccessTitle': '圧縮が完了しました！',
+    'processing.convertSuccessTitle': '変換が完了しました！',
+    'processing.downloadButtonMerge': '結合したPDFをダウンロード',
+    'processing.downloadButtonSplit': '分割したPDFをダウンロード',
+    'processing.downloadButtonCompress': '圧縮したPDFをダウンロード',
+    'processing.downloadButtonConvert': '変換したPDFをダウンロード',
+
+    // Alerts
+    'alert.updateFileFailed': 'ファイルの更新に失敗しました。',
+    'alert.editOnlyPdf': '編集ツールはPDFファイルのみ対応しています。',
+    'alert.mergeSupportedFiles': 'PDFと画像ファイル(JPG, PNG)のみ結合可能です。',
+    'alert.toolOnlyPdf': 'このツールはPDFファイルのみ対応しています。',
+    'alert.processingFailed': '処理に失敗しました。もう一度お試しください。',
+    'alert.unsavedChanges': '変更内容が保存されていません。移動しますか？',
   },
   zh: {
+    // Common
+    'common.page': '{count} 页',
+    'common.pages': '{count} 页',
+    'common.pageSingle': '页',
+    'common.download': '下载',
+    'common.error': '错误',
+    'common.confirm': '确认',
+    'common.cancel': '取消',
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': '首页',
@@ -868,43 +957,123 @@ export const translations = {
 
     // Home Page Cards
     'home.mergeTitle': '合并PDF',
-    'home.mergeDesc': '将多个PDF文件合并为一个文件。简单快速！',
+    'home.mergeDesc': '按您想要的顺序合并 PDF。简单又快速！',
     'home.splitTitle': '拆分PDF',
-    'home.splitDesc': '选择页面范围，将PDF文件拆分为多个文件。',
+    'home.splitDesc': '选择页面范围，或将每一页提取为独立的 PDF 文件。',
     'home.compressTitle': '压缩PDF',
-    'home.compressDesc': '在保持最佳质量的同时减小PDF文件大小。',
-    'home.pdfToWordTitle': 'PDF转Word',
-    'home.pdfToWordDesc': '轻松将PDF文件转换为易于编辑的Word文档。',
-    'home.pdfToPptTitle': 'PDF转PPT',
-    'home.pdfToPptDesc': '将PDF文件转换为PPT和PPTX幻灯片。',
-    'home.pdfToExcelTitle': 'PDF转Excel',
-    'home.pdfToExcelDesc': '几秒钟内将PDF数据转换为Excel电子表格。',
-    'home.wordToPdfTitle': 'Word转PDF',
-    'home.wordToPdfDesc': '轻松将DOC和DOCX文件转换为PDF。',
-    'home.pptToPdfTitle': 'PPT转PDF',
-    'home.pptToPdfDesc': '轻松将PPT和PPTX幻灯片转换为PDF。',
-    'home.excelToPdfTitle': 'Excel转PDF',
-    'home.excelToPdfDesc': '轻松将Excel电子表格转换为PDF。',
+    'home.compressDesc': '在保持最佳质量的同时缩小 PDF 文件大小。',
+    'home.pdfToWordTitle': 'PDF 转 Word',
+    'home.pdfToWordDesc': '将 PDF 轻松转换为可编辑的 Word 文档。',
+    'home.pdfToPptTitle': 'PDF 转 PowerPoint',
+    'home.pdfToPptDesc': '将 PDF 文件转换为可编辑的 PPT 和 PPTX 幻灯片。',
+    'home.pdfToExcelTitle': 'PDF 转 Excel',
+    'home.pdfToExcelDesc': '在几秒钟内将 PDF 数据直接提取到 Excel 表格中。',
+    'home.wordToPdfTitle': 'Word 转 PDF',
+    'home.wordToPdfDesc': '将 DOC 和 DOCX 文件轻松转换为 PDF。',
+    'home.pptToPdfTitle': 'PowerPoint 转 PDF',
+    'home.pptToPdfDesc': '将 PPT 和 PPTX 幻灯片轻松转换为 PDF。',
+    'home.excelToPdfTitle': 'Excel 转 PDF',
+    'home.excelToPdfDesc': '将 Excel 表格轻松转换为 PDF。',
     'home.editPdfTitle': '编辑PDF',
-    'home.editPdfDesc': '在PDF文档中添加文本、图像、形状或注释。',
-    'home.pdfToJpgTitle': 'PDF转JPG',
-    'home.pdfToJpgDesc': '将PDF页面转换为JPG或提取图像。',
-    'home.jpgToPdfTitle': 'JPG转PDF',
-    'home.jpgToPdfDesc': '将图像转换为PDF。调整方向和边距。',
+    'home.editPdfDesc': '在 PDF 文档中添加文本、图像、形状或手写注释。',
+    'home.pdfToJpgTitle': 'PDF 转 JPG',
+    'home.pdfToJpgDesc': '将 PDF 页面转换为 JPG 图像，或提取其中的所有图像。',
+    'home.jpgToPdfTitle': 'JPG 转 PDF',
+    'home.jpgToPdfDesc': '将图像转换为 PDF。可调整方向和页边距。',
     'home.watermarkTitle': '水印',
-    'home.watermarkDesc': '在PDF中添加图像或文本水印。',
-    'home.htmlToPdfTitle': 'HTML转PDF',
-    'home.htmlToPdfDesc': '将网页转换为PDF。',
+    'home.watermarkDesc': '在 PDF 中添加图像或文本水印。可选择位置和透明度。',
+    'home.htmlToPdfTitle': 'HTML 转 PDF',
+    'home.htmlToPdfDesc': '将网页转换为 PDF。保存网页代码或 URL。',
 
-    // Common
-    'common.download': '下载',
-    'common.confirm': '确认',
-    'common.cancel': '取消',
-    'common.page': '{count} 页',
-    'common.pages': '{count} 页',
+    // File Upload
     'fileUpload.selectFile': '选择文件',
+    'fileUpload.mergeDescription': '您可以合并 PDF 和图像文件。',
+    'fileUpload.pdfOnlyDescription': '仅支持上传 PDF 文件。',
+    'fileUpload.editDescription': '添加要编辑的 PDF 文件。',
+    'fileUpload.allDescription': '支持 PDF、图像、Word、Excel、PPT、HTML 文件',
+
+    // Loading Screen
+    'loadingScreen.message': '请稍候...',
+
+    // File Preview
+    'filePreview.pageCountCalculating': '正在计算页数...',
+    'filePreview.noPreview': '无预览',
+    'filePreview.removeAria': '删除',
+    'filePreview.rotateAria': '旋转',
+    'filePreview.zoomInAria': '放大',
+    'filePreview.viewPagesAria': '查看页面',
+
+    // Edit Header
+    'editHeader.openFile': '打开文件',
+    'editHeader.addFile': '添加文件',
+
+    // Edit Ribbon
+    'editRibbon.group.edit': '编辑',
+    'editRibbon.undo': '撤回',
+    'editRibbon.redo': '重做',
+    'editRibbon.reset': '重置',
+    'editRibbon.group.transform': '变换',
+    'editRibbon.rotate': '旋转',
+    'editRibbon.flipHorizontal': '水平翻转',
+    'editRibbon.flipVertical': '垂直翻转',
+    'editRibbon.group.comment': '评论',
+    'editRibbon.shapes': '形状',
+    'editRibbon.pen': '笔',
+    'editRibbon.highlighter': '荧光笔',
+    'editRibbon.text': '文本',
+    'editRibbon.group.modify': '修改',
+    'editRibbon.mosaic': '马赛克',
+    'editRibbon.eraser': '橡皮擦',
+    'editRibbon.group.tools': '工具',
+    'editRibbon.group.create': '创建',
+    'editRibbon.select': '选择',
+    'editRibbon.lineDraw': '线条绘制',
+    'editRibbon.textInsert': '添加文本',
+    'editRibbon.imageInsert': '插入图像',
+    'editRibbon.pdfMerge': '合并 PDF',
+    'editRibbon.pdfSplit': '拆分 PDF',
+    'editRibbon.pdfCompress': '压缩 PDF',
+    'editRibbon.pdfConvert': '转换 PDF',
+    'editRibbon.group.textEdit': '文本编辑',
+    'editRibbon.textColor': '文本颜色',
+    'editRibbon.backgroundColor': '背景颜色',
+    'editRibbon.lineColor': '线条颜色',
+    'editRibbon.thickness': '粗细',
+    'editRibbon.dashes': '虚线',
+
+    // Processing Page
+    'processing.merging': '正在合并 PDF...',
+    'processing.splitting': '正在拆分 PDF...',
+    'processing.compressing': '正在压缩 PDF...',
+    'processing.converting': '正在转换 PDF...',
+    'processing.pleaseWait': '请稍等片刻...',
+    'processing.mergeSuccessTitle': '合并成功！',
+    'processing.splitSuccessTitle': '拆分成功！',
+    'processing.compressSuccessTitle': '压缩成功！',
+    'processing.convertSuccessTitle': '转换成功！',
+    'processing.downloadButtonMerge': '下载合并后的 PDF',
+    'processing.downloadButtonSplit': '下载拆分后的 PDF',
+    'processing.downloadButtonCompress': '下载压缩后的 PDF',
+    'processing.downloadButtonConvert': '下载转换后的 PDF',
+
+    // Alerts
+    'alert.updateFileFailed': '更新文件失败。',
+    'alert.editOnlyPdf': '编辑工具仅支持 PDF 文件。',
+    'alert.mergeSupportedFiles': '仅支持合并 PDF 和图像文件 (JPG, PNG)。',
+    'alert.toolOnlyPdf': '此工具仅支持 PDF 文件。',
+    'alert.processingFailed': '处理失败。请重试。',
+    'alert.unsavedChanges': '您的更改尚未保存。确定要离开吗？',
   },
   es: {
+    // Common
+    'common.page': '{count} página',
+    'common.pages': '{count} páginas',
+    'common.pageSingle': 'Página',
+    'common.download': 'Descargar',
+    'common.error': 'Error',
+    'common.confirm': 'Confirmar',
+    'common.cancel': 'Cancelar',
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': 'Inicio',
@@ -924,43 +1093,123 @@ export const translations = {
 
     // Home Page Cards
     'home.mergeTitle': 'Unir PDF',
-    'home.mergeDesc': 'Une PDFs y ponlos en el orden que prefieras. ¡Rápido y fácil!',
+    'home.mergeDesc': 'Combina tus archivos PDF en el orden que prefieras. ¡Rápido y fácil!',
     'home.splitTitle': 'Dividir PDF',
-    'home.splitDesc': 'Extrae una o varias páginas de tu PDF o convierte cada página en un PDF independiente.',
+    'home.splitDesc': 'Selecciona un rango de páginas o extrae cada página en archivos PDF independientes.',
     'home.compressTitle': 'Comprimir PDF',
-    'home.compressDesc': 'Consigue que tu documento PDF pese menos y, al mismo tiempo, mantener la máxima calidad posible.',
+    'home.compressDesc': 'Reduce el tamaño de tu PDF manteniendo la mejor calidad posible.',
     'home.pdfToWordTitle': 'PDF a Word',
-    'home.pdfToWordDesc': 'Convierte tus PDF a WORD con una precisión increíble.',
+    'home.pdfToWordDesc': 'Convierte fácilmente tus PDF a documentos Word editables.',
     'home.pdfToPptTitle': 'PDF a PowerPoint',
-    'home.pdfToPptDesc': 'Convierte tus PDF a POWERPOINT.',
+    'home.pdfToPptDesc': 'Convierte tus archivos PDF en presentaciones PPT y PPTX editables.',
     'home.pdfToExcelTitle': 'PDF a Excel',
-    'home.pdfToExcelDesc': 'Convierte datos en PDF a tablas EXCEL.',
+    'home.pdfToExcelDesc': 'Extrae datos directamente de tus PDF a hojas de cálculo Excel en segundos.',
     'home.wordToPdfTitle': 'Word a PDF',
-    'home.wordToPdfDesc': 'Convierte tus documentos WORD a PDF.',
+    'home.wordToPdfDesc': 'Convierte tus archivos DOC y DOCX a PDF fácilmente.',
     'home.pptToPdfTitle': 'PowerPoint a PDF',
-    'home.pptToPdfDesc': 'Convierte tus presentaciones POWERPOINT a PDF.',
+    'home.pptToPdfDesc': 'Convierte tus presentaciones PPT y PPTX a PDF fácilmente.',
     'home.excelToPdfTitle': 'Excel a PDF',
-    'home.excelToPdfDesc': 'Convierte tus tablas EXCEL a PDF.',
+    'home.excelToPdfDesc': 'Convierte tus hojas de cálculo Excel a PDF fácilmente.',
     'home.editPdfTitle': 'Editar PDF',
-    'home.editPdfDesc': 'Añade texto, imágenes, formas o anotaciones a mano en tu documento PDF.',
+    'home.editPdfDesc': 'Añade texto, imágenes, formas o anotaciones a tu documento PDF.',
     'home.pdfToJpgTitle': 'PDF a JPG',
-    'home.pdfToJpgDesc': 'Extrae todas las imágenes de un PDF o convierte cada página en una imagen JPG.',
+    'home.pdfToJpgDesc': 'Convierte cada página de tu PDF a JPG o extrae todas las imágenes.',
     'home.jpgToPdfTitle': 'JPG a PDF',
-    'home.jpgToPdfDesc': 'Pasa tus imágenes JPG a PDF. Ajusta la orientación y los márgenes.',
+    'home.jpgToPdfDesc': 'Convierte tus imágenes a PDF. Ajusta la orientación y los márgenes.',
     'home.watermarkTitle': 'Marca de agua',
-    'home.watermarkDesc': 'Elige una imagen o texto e insértalo encima de un PDF. Elige posición, transparencia y tipografía.',
+    'home.watermarkDesc': 'Añade una imagen o texto de marca de agua a tu PDF.',
     'home.htmlToPdfTitle': 'HTML a PDF',
-    'home.htmlToPdfDesc': 'Convierte páginas web en HTML a PDF.',
+    'home.htmlToPdfDesc': 'Convierte páginas web a PDF guardando el código o la URL.',
 
-    // Common
-    'common.download': 'Descargar',
-    'common.confirm': 'Confirmar',
-    'common.cancel': 'Cancelar',
-    'common.page': '{count} página',
-    'common.pages': '{count} páginas',
+    // File Upload
     'fileUpload.selectFile': 'Seleccionar archivos',
+    'fileUpload.mergeDescription': 'Puedes unir archivos PDF e imágenes.',
+    'fileUpload.pdfOnlyDescription': 'Solo se pueden subir archivos PDF.',
+    'fileUpload.editDescription': 'Añade un archivo PDF para editar.',
+    'fileUpload.allDescription': 'Soporta archivos PDF, Imágenes, Word, Excel, PPT, HTML',
+
+    // Loading Screen
+    'loadingScreen.message': 'Un momento, por favor...',
+
+    // File Preview
+    'filePreview.pageCountCalculating': 'Calculando páginas...',
+    'filePreview.noPreview': 'Sin previsualización',
+    'filePreview.removeAria': 'Eliminar',
+    'filePreview.rotateAria': 'Rotar',
+    'filePreview.zoomInAria': 'Ampliar',
+    'filePreview.viewPagesAria': 'Ver páginas',
+
+    // Edit Header
+    'editHeader.openFile': 'Abrir archivo',
+    'editHeader.addFile': 'Añadir archivo',
+
+    // Edit Ribbon
+    'editRibbon.group.edit': 'Editar',
+    'editRibbon.undo': 'Deshacer',
+    'editRibbon.redo': 'Rehacer',
+    'editRibbon.reset': 'Restablecer',
+    'editRibbon.group.transform': 'Transformar',
+    'editRibbon.rotate': 'Rotar',
+    'editRibbon.flipHorizontal': 'Volteo horiz.',
+    'editRibbon.flipVertical': 'Volteo vert.',
+    'editRibbon.group.comment': 'Comentario',
+    'editRibbon.shapes': 'Formas',
+    'editRibbon.pen': 'Lápiz',
+    'editRibbon.highlighter': 'Resaltador',
+    'editRibbon.text': 'Texto',
+    'editRibbon.group.modify': 'Modificar',
+    'editRibbon.mosaic': 'Mosaico',
+    'editRibbon.eraser': 'Borrador',
+    'editRibbon.group.tools': 'Herramientas',
+    'editRibbon.group.create': 'Crear',
+    'editRibbon.select': 'Seleccionar',
+    'editRibbon.lineDraw': 'Dibujar línea',
+    'editRibbon.textInsert': 'Añadir texto',
+    'editRibbon.imageInsert': 'Añadir imagen',
+    'editRibbon.pdfMerge': 'Unir PDF',
+    'editRibbon.pdfSplit': 'Dividir PDF',
+    'editRibbon.pdfCompress': 'Comprimir PDF',
+    'editRibbon.pdfConvert': 'Convertir PDF',
+    'editRibbon.group.textEdit': 'Edición texto',
+    'editRibbon.textColor': 'Color texto',
+    'editRibbon.backgroundColor': 'Color fondo',
+    'editRibbon.lineColor': 'Color línea',
+    'editRibbon.thickness': 'Grosor',
+    'editRibbon.dashes': 'Guiones',
+
+    // Processing Page
+    'processing.merging': 'Uniendo PDF...',
+    'processing.splitting': 'Dividiendo PDF...',
+    'processing.compressing': 'Comprimiendo PDF...',
+    'processing.converting': 'Convirtiendo PDF...',
+    'processing.pleaseWait': 'Por favor, espera...',
+    'processing.mergeSuccessTitle': '¡PDF unido con éxito!',
+    'processing.splitSuccessTitle': '¡PDF dividido con éxito!',
+    'processing.compressSuccessTitle': '¡PDF comprimido con éxito!',
+    'processing.convertSuccessTitle': '¡PDF convertido con éxito!',
+    'processing.downloadButtonMerge': 'Descargar PDF unido',
+    'processing.downloadButtonSplit': 'Descargar PDF dividido',
+    'processing.downloadButtonCompress': 'Descargar PDF comprimido',
+    'processing.downloadButtonConvert': 'Descargar PDF convertido',
+
+    // Alerts
+    'alert.updateFileFailed': 'Error al actualizar el archivo.',
+    'alert.editOnlyPdf': 'La herramienta de edición solo admite archivos PDF.',
+    'alert.mergeSupportedFiles': 'Solo se pueden unir archivos PDF e imágenes (JPG, PNG).',
+    'alert.toolOnlyPdf': 'Esta herramienta solo admite archivos PDF.',
+    'alert.processingFailed': 'La operación falló. Inténtalo de nuevo.',
+    'alert.unsavedChanges': 'Los cambios no guardados se perderán. ¿Deseas continuar?',
   },
   fr: {
+    // Common
+    'common.page': '{count} page',
+    'common.pages': '{count} pages',
+    'common.pageSingle': 'Page',
+    'common.download': 'Télécharger',
+    'common.error': 'Erreur',
+    'common.confirm': 'Confirmer',
+    'common.cancel': 'Annuler',
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': 'Accueil',
@@ -980,43 +1229,123 @@ export const translations = {
 
     // Home Page Cards
     'home.mergeTitle': 'Fusionner PDF',
-    'home.mergeDesc': 'Assemblez vos PDF et mettez-les dans l\'ordre que vous voulez. C\'est rapide et facile !',
+    'home.mergeDesc': 'Assemblez vos fichiers PDF dans l\'ordre que vous voulez. C\'est rapide et facile !',
     'home.splitTitle': 'Diviser PDF',
-    'home.splitDesc': 'Extrayez une ou plusieurs pages de votre PDF ou convertissez chaque page en PDF indépendant.',
+    'home.splitDesc': 'Sélectionnez une plage de pages ou extrayez chaque page dans des fichiers PDF indépendants.',
     'home.compressTitle': 'Compresser PDF',
-    'home.compressDesc': 'Diminuez la taille de votre fichier PDF, tout en conservant la meilleure qualité possible.',
+    'home.compressDesc': 'Diminuez la taille de votre fichier PDF tout en conservant la meilleure qualité possible.',
     'home.pdfToWordTitle': 'PDF en Word',
-    'home.pdfToWordDesc': 'Convertissez facilement vos fichiers PDF en documents DOC et DOCX.',
+    'home.pdfToWordDesc': 'Convertissez facilement vos fichiers PDF en documents Word modifiables.',
     'home.pdfToPptTitle': 'PDF en PowerPoint',
-    'home.pdfToPptDesc': 'Transformez vos fichiers PDF en présentations PPT et PPTX.',
+    'home.pdfToPptDesc': 'Transformez vos fichiers PDF en présentations PPT et PPTX modifiables.',
     'home.pdfToExcelTitle': 'PDF en Excel',
-    'home.pdfToExcelDesc': 'Extrayez des données directement de PDF vers des feuilles de calcul Excel.',
+    'home.pdfToExcelDesc': 'Extrayez des données directement de vos PDF vers des feuilles de calcul Excel en quelques secondes.',
     'home.wordToPdfTitle': 'Word en PDF',
-    'home.wordToPdfDesc': 'Convertissez vos documents WORD en PDF.',
+    'home.wordToPdfDesc': 'Convertissez vos documents DOC et DOCX en PDF facilement.',
     'home.pptToPdfTitle': 'PowerPoint en PDF',
-    'home.pptToPdfDesc': 'Convertissez vos présentations POWERPOINT en PDF.',
+    'home.pptToPdfDesc': 'Convertissez vos présentations PPT et PPTX en PDF facilement.',
     'home.excelToPdfTitle': 'Excel en PDF',
-    'home.excelToPdfDesc': 'Convertissez vos tableaux EXCEL en PDF.',
-    'home.editPdfTitle': 'Éditer PDF',
-    'home.editPdfDesc': 'Ajoutez du texte, des images, des formes ou des annotations manuscrites à un document PDF.',
+    'home.excelToPdfDesc': 'Convertissez vos feuilles de calcul Excel en PDF facilement.',
+    'home.editPdfTitle': 'Modifier le PDF',
+    'home.editPdfDesc': 'Ajoutez du texte, des images, des formes ou des annotations manuscrites à votre document PDF.',
     'home.pdfToJpgTitle': 'PDF en JPG',
-    'home.pdfToJpgDesc': 'Convertissez chaque page d\'un fichier PDF en JPG ou extrayez toutes les images contenues dans un PDF.',
+    'home.pdfToJpgDesc': 'Convertissez chaque page d\'un PDF en JPG ou extrayez toutes les images.',
     'home.jpgToPdfTitle': 'JPG en PDF',
-    'home.jpgToPdfDesc': 'Convertissez vos images JPG en PDF. Ajustez l\'orientation et les marges.',
+    'home.jpgToPdfDesc': 'Convertissez vos images en PDF. Ajustez l\'orientation et les marges.',
     'home.watermarkTitle': 'Filigrane',
-    'home.watermarkDesc': 'Choisissez une image ou du texte pour l\'insérer par-dessus un PDF.',
+    'home.watermarkDesc': 'Ajoutez une image ou un texte en filigrane sur votre PDF.',
     'home.htmlToPdfTitle': 'HTML en PDF',
-    'home.htmlToPdfDesc': 'Convertissez des pages web HTML en PDF.',
+    'home.htmlToPdfDesc': 'Convertissez des pages web en PDF en enregistrant le code ou l\'URL.',
 
-    // Common
-    'common.download': 'Télécharger',
-    'common.confirm': 'Confirmer',
-    'common.cancel': 'Annuler',
-    'common.page': '{count} page',
-    'common.pages': '{count} pages',
-    'fileUpload.selectFile': 'Sélectionner les fichiers',
+    // File Upload
+    'fileUpload.selectFile': 'Sélectionner des fichiers',
+    'fileUpload.mergeDescription': 'Vous pouvez fusionner des fichiers PDF et des images.',
+    'fileUpload.pdfOnlyDescription': 'Seuls les fichiers PDF peuvent être téléchargés.',
+    'fileUpload.editDescription': 'Ajoutez un fichier PDF à modifier.',
+    'fileUpload.allDescription': 'Prend en charge les fichiers PDF, Image, Word, Excel, PPT, HTML',
+
+    // Loading Screen
+    'loadingScreen.message': 'Un instant, s\'il vous plaît...',
+
+    // File Preview
+    'filePreview.pageCountCalculating': 'Calcul des pages...',
+    'filePreview.noPreview': 'Pas d\'aperçu',
+    'filePreview.removeAria': 'Supprimer',
+    'filePreview.rotateAria': 'Pivoter',
+    'filePreview.zoomInAria': 'Agrandir',
+    'filePreview.viewPagesAria': 'Voir les pages',
+
+    // Edit Header
+    'editHeader.openFile': 'Ouvrir fichier',
+    'editHeader.addFile': 'Ajouter fichier',
+
+    // Edit Ribbon
+    'editRibbon.group.edit': 'Éditer',
+    'editRibbon.undo': 'Annuler',
+    'editRibbon.redo': 'Rétablir',
+    'editRibbon.reset': 'Réinitialiser',
+    'editRibbon.group.transform': 'Transformer',
+    'editRibbon.rotate': 'Pivoter',
+    'editRibbon.flipHorizontal': 'Retourner horiz.',
+    'editRibbon.flipVertical': 'Retourner vert.',
+    'editRibbon.group.comment': 'Commentaire',
+    'editRibbon.shapes': 'Formes',
+    'editRibbon.pen': 'Stylo',
+    'editRibbon.highlighter': 'Surligneur',
+    'editRibbon.text': 'Texte',
+    'editRibbon.group.modify': 'Modifier',
+    'editRibbon.mosaic': 'Mosaïque',
+    'editRibbon.eraser': 'Gomme',
+    'editRibbon.group.tools': 'Outils',
+    'editRibbon.group.create': 'Créer',
+    'editRibbon.select': 'Sélectionner',
+    'editRibbon.lineDraw': 'Tracer ligne',
+    'editRibbon.textInsert': 'Ajouter texte',
+    'editRibbon.imageInsert': 'Ajouter image',
+    'editRibbon.pdfMerge': 'Fusionner PDF',
+    'editRibbon.pdfSplit': 'Diviser PDF',
+    'editRibbon.pdfCompress': 'Compresser PDF',
+    'editRibbon.pdfConvert': 'Convertir PDF',
+    'editRibbon.group.textEdit': 'Édition texte',
+    'editRibbon.textColor': 'Couleur texte',
+    'editRibbon.backgroundColor': 'Couleur fond',
+    'editRibbon.lineColor': 'Couleur ligne',
+    'editRibbon.thickness': 'Épaisseur',
+    'editRibbon.dashes': 'Tirets',
+
+    // Processing Page
+    'processing.merging': 'Fusion du PDF...',
+    'processing.splitting': 'Division du PDF...',
+    'processing.compressing': 'Compression du PDF...',
+    'processing.converting': 'Conversion du PDF...',
+    'processing.pleaseWait': 'Veuillez patienter...',
+    'processing.mergeSuccessTitle': 'PDF fusionné avec succès !',
+    'processing.splitSuccessTitle': 'PDF divisé avec succès !',
+    'processing.compressSuccessTitle': 'PDF compressé avec succès !',
+    'processing.convertSuccessTitle': 'PDF converti avec succès !',
+    'processing.downloadButtonMerge': 'Télécharger le PDF fusionné',
+    'processing.downloadButtonSplit': 'Télécharger le PDF divisé',
+    'processing.downloadButtonCompress': 'Télécharger le PDF compressé',
+    'processing.downloadButtonConvert': 'Télécharger le PDF converti',
+
+    // Alerts
+    'alert.updateFileFailed': 'Échec de la mise à jour du fichier.',
+    'alert.editOnlyPdf': 'L\'outil d\'édition ne prend en charge que les fichiers PDF.',
+    'alert.mergeSupportedFiles': 'Seuls les fichiers PDF et images (JPG, PNG) peuvent être fusionnés.',
+    'alert.toolOnlyPdf': 'Cet outil ne prend en charge que les fichiers PDF.',
+    'alert.processingFailed': 'L\'opération a échoué. Veuillez réessayer.',
+    'alert.unsavedChanges': 'Les modifications non enregistrées seront perdues. Voulez-vous continuer ?',
   },
   de: {
+    // Common
+    'common.page': '{count} Seite',
+    'common.pages': '{count} Seiten',
+    'common.pageSingle': 'Seite',
+    'common.download': 'Herunterladen',
+    'common.error': 'Fehler',
+    'common.confirm': 'Bestätigen',
+    'common.cancel': 'Abbrechen',
+
     // Sidebar
     'sidebar.title': 'PDF STUDIO',
     'sidebar.home': 'Startseite',
@@ -1036,40 +1365,111 @@ export const translations = {
 
     // Home Page Cards
     'home.mergeTitle': 'PDF zusammenfügen',
-    'home.mergeDesc': 'Fügen Sie PDFs zusammen und ordnen Sie sie nach Belieben. Schnell und einfach!',
+    'home.mergeDesc': 'Fügen Sie Ihre PDF-Dateien in der gewünschten Reihenfolge zusammen. Schnell und einfach!',
     'home.splitTitle': 'PDF teilen',
-    'home.splitDesc': 'Wählen Sie einen Seitenbereich aus, trennen Sie eine Seite oder konvertieren Sie jede Seite des Dokuments in eine unabhängige PDF-Datei.',
+    'home.splitDesc': 'Wählen Sie einen Seitenbereich aus oder extrahieren Sie jede Seite in einzelne PDF-Dateien.',
     'home.compressTitle': 'PDF komprimieren',
-    'home.compressDesc': 'Verringern Sie die Größe Ihrer PDF-Datei unter Beibehaltung der bestmöglichen Qualität.',
+    'home.compressDesc': 'Verringern Sie die Größe Ihrer PDF-Datei bei bestmöglicher Qualität.',
     'home.pdfToWordTitle': 'PDF in Word',
     'home.pdfToWordDesc': 'Wandeln Sie Ihre PDF-Dateien ganz einfach in bearbeitbare Word-Dokumente um.',
     'home.pdfToPptTitle': 'PDF in PowerPoint',
-    'home.pdfToPptDesc': 'Wandeln Sie Ihre PDF-Dateien in bearbeitbare PPT- und PPTX-Diashows um.',
+    'home.pdfToPptDesc': 'Wandeln Sie Ihre PDF-Dateien in bearbeitbare PPT- und PPTX-Präsentationen um.',
     'home.pdfToExcelTitle': 'PDF in Excel',
-    'home.pdfToExcelDesc': 'Ziehen Sie Daten direkt aus PDFs in Excel-Tabellen.',
+    'home.pdfToExcelDesc': 'Extrahieren Sie Daten direkt aus PDFs in Excel-Tabellen in wenigen Sekunden.',
     'home.wordToPdfTitle': 'Word in PDF',
-    'home.wordToPdfDesc': 'Wandeln Sie Ihre WORD-Dokumente in PDF um.',
+    'home.wordToPdfDesc': 'Wandeln Sie Ihre DOC- und DOCX-Dateien ganz einfach in PDF um.',
     'home.pptToPdfTitle': 'PowerPoint in PDF',
-    'home.pptToPdfDesc': 'Wandeln Sie Ihre POWERPOINT-Präsentationen in PDF um.',
+    'home.pptToPdfDesc': 'Wandeln Sie Ihre PPTXP- und PPTX-Präsentationen ganz einfach in PDF um.',
     'home.excelToPdfTitle': 'Excel in PDF',
-    'home.excelToPdfDesc': 'Wandeln Sie Ihre EXCEL-Tabellen in PDF um.',
+    'home.excelToPdfDesc': 'Wandeln Sie Ihre Excel-Tabellen ganz einfach in PDF um.',
     'home.editPdfTitle': 'PDF bearbeiten',
-    'home.editPdfDesc': 'Fügen Sie Text, Bilder, Formen oder handschriftliche Anmerkungen zu einem PDF-Dokument hinzu.',
+    'home.editPdfDesc': 'Fügen Sie Text, Bilder, Formen oder Anmerkungen zu Ihrem PDF-Dokument hinzu.',
     'home.pdfToJpgTitle': 'PDF in JPG',
-    'home.pdfToJpgDesc': 'Wandeln Sie jede PDF-Seite in ein JPG um oder extrahieren Sie alle in einem PDF enthaltenen Bilder.',
+    'home.pdfToJpgDesc': 'Wandeln Sie jede PDF-Seite in ein JPG-Bild um oder extrahieren Sie alle Bilder.',
     'home.jpgToPdfTitle': 'JPG in PDF',
-    'home.jpgToPdfDesc': 'Wandeln Sie Ihre Bilder in ein PDF um. Passen Sie die Ausrichtung und die Ränder an.',
+    'home.jpgToPdfDesc': 'Wandeln Sie Ihre Bilder in PDF um. Passen Sie Ausrichtung und Ränder an.',
     'home.watermarkTitle': 'Wasserzeichen',
-    'home.watermarkDesc': 'Fügen Sie ein Bild oder einen Text als Wasserzeichen in Ihr PDF ein.',
+    'home.watermarkDesc': 'Fügen Sie ein Bild oder einen Text als Wasserzeichen zu Ihrem PDF hinzu.',
     'home.htmlToPdfTitle': 'HTML in PDF',
-    'home.htmlToPdfDesc': 'Wandeln Sie HTML-Webseiten in PDF um.',
+    'home.htmlToPdfDesc': 'Wandeln Sie Webseiten in PDF um, indem Sie den Code oder die URL speichern.',
 
-    // Common
-    'common.download': 'Herunterladen',
-    'common.confirm': 'Bestätigen',
-    'common.cancel': 'Abbrechen',
-    'common.page': '{count} Seite',
-    'common.pages': '{count} Seiten',
+    // File Upload
     'fileUpload.selectFile': 'Dateien auswählen',
+    'fileUpload.mergeDescription': 'Sie können PDF- und Bilddateien zusammenfügen.',
+    'fileUpload.pdfOnlyDescription': 'Es können nur PDF-Dateien hochgeladen werden.',
+    'fileUpload.editDescription': 'PDF-Datei zum Bearbeiten hinzufügen.',
+    'fileUpload.allDescription': 'Unterstützt PDF-, Bild-, Word-, Excel-, PPT-, HTML-Dateien',
+
+    // Loading Screen
+    'loadingScreen.message': 'Einen Moment bitte...',
+
+    // File Preview
+    'filePreview.pageCountCalculating': 'Seiten werden berechnet...',
+    'filePreview.noPreview': 'Keine Vorschau',
+    'filePreview.removeAria': 'Entfernen',
+    'filePreview.rotateAria': 'Drehen',
+    'filePreview.zoomInAria': 'Vergrößern',
+    'filePreview.viewPagesAria': 'Seiten anzeigen',
+
+    // Edit Header
+    'editHeader.openFile': 'Datei öffnen',
+    'editHeader.addFile': 'Datei hinzufügen',
+
+    // Edit Ribbon
+    'editRibbon.group.edit': 'Bearbeiten',
+    'editRibbon.undo': 'Rückgängig',
+    'editRibbon.redo': 'Wiederholen',
+    'editRibbon.reset': 'Zurücksetzen',
+    'editRibbon.group.transform': 'Transformieren',
+    'editRibbon.rotate': 'Drehen',
+    'editRibbon.flipHorizontal': 'Horiz. spiegeln',
+    'editRibbon.flipVertical': 'Vert. spiegeln',
+    'editRibbon.group.comment': 'Kommentar',
+    'editRibbon.shapes': 'Formen',
+    'editRibbon.pen': 'Stift',
+    'editRibbon.highlighter': 'Textmarker',
+    'editRibbon.text': 'Text',
+    'editRibbon.group.modify': 'Modifizieren',
+    'editRibbon.mosaic': 'Mosaik',
+    'editRibbon.eraser': 'Radiergummi',
+    'editRibbon.group.tools': 'Werkzeuge',
+    'editRibbon.group.create': 'Erstellen',
+    'editRibbon.select': 'Auswählen',
+    'editRibbon.lineDraw': 'Linie zeichnen',
+    'editRibbon.textInsert': 'Text hinzufügen',
+    'editRibbon.imageInsert': 'Bild hinzufügen',
+    'editRibbon.pdfMerge': 'PDF zusammenfügen',
+    'editRibbon.pdfSplit': 'PDF teilen',
+    'editRibbon.pdfCompress': 'PDF komprimieren',
+    'editRibbon.pdfConvert': 'PDF umwandeln',
+    'editRibbon.group.textEdit': 'Textbearbeitung',
+    'editRibbon.textColor': 'Textfarbe',
+    'editRibbon.backgroundColor': 'Hintergrundfarbe',
+    'editRibbon.lineColor': 'Linienfarbe',
+    'editRibbon.thickness': 'Dicke',
+    'editRibbon.dashes': 'Striche',
+
+    // Processing Page
+    'processing.merging': 'PDF wird zusammengefügt...',
+    'processing.splitting': 'PDF wird geteilt...',
+    'processing.compressing': 'PDF wird komprimiert...',
+    'processing.converting': 'PDF wird umgewandelt...',
+    'processing.pleaseWait': 'Bitte warten...',
+    'processing.mergeSuccessTitle': 'PDF erfolgreich zusammengefügt!',
+    'processing.splitSuccessTitle': 'PDF erfolgreich geteilt!',
+    'processing.compressSuccessTitle': 'PDF erfolgreich komprimiert!',
+    'processing.convertSuccessTitle': 'PDF erfolgreich umgewandelt!',
+    'processing.downloadButtonMerge': 'Zusammengefügtes PDF herunterladen',
+    'processing.downloadButtonSplit': 'Geteiltes PDF herunterladen',
+    'processing.downloadButtonCompress': 'Komprimiertes PDF herunterladen',
+    'processing.downloadButtonConvert': 'Umgewandeltes PDF herunterladen',
+
+    // Alerts
+    'alert.updateFileFailed': 'Fehler beim Aktualisieren der Datei.',
+    'alert.editOnlyPdf': 'Das Bearbeitungswerkzeug unterstützt nur PDF-Dateien.',
+    'alert.mergeSupportedFiles': 'Nur PDF- und Bilddateien (JPG, PNG) können zusammengefügt werden.',
+    'alert.toolOnlyPdf': 'Dieses Werkzeug unterstützt nur PDF-Dateien.',
+    'alert.processingFailed': 'Vorgang fehlgeschlagen. Bitte versuchen Sie es erneut.',
+    'alert.unsavedChanges': 'Nicht gespeicherte Änderungen gehen verloren. Möchten Sie fortfahren?',
   }
 };

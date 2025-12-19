@@ -35,6 +35,18 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('ezup_language', lang);
+
+    // Notify all iframes on the page about the language change
+    const iframes = document.getElementsByTagName('iframe');
+    for (let i = 0; i < iframes.length; i++) {
+      const iframe = iframes[i];
+      if (iframe.contentWindow) {
+        iframe.contentWindow.postMessage({
+          type: 'changeLanguage',
+          language: lang
+        }, '*');
+      }
+    }
   };
 
   const t = (path: string): string => {
