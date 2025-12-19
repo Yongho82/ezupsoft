@@ -99,9 +99,9 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${roundedClass} ${headerStyle}`}>
-        <div className="max-w-[1440px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
-          <div className="flex items-center justify-between h-12">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16 ${roundedClass} ${headerStyle}`}>
+        <div className="max-w-[1440px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 h-full">
+          <div className="flex items-center justify-between h-full">
 
             <div className="flex-shrink-0 w-auto md:w-48 relative z-50">
               <NavLink to="/" className="flex items-center gap-2 group">
@@ -290,10 +290,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [activeLegalDoc, setActiveLegalDoc] = useState<'privacy' | 'terms' | null>(null);
 
   const mainPaddingClass = isAppPage
-    ? 'h-screen overflow-hidden !pt-[64px]'
+    ? 'h-screen overflow-hidden !pt-16'
     : location.pathname === '/'
       ? 'w-full pt-0'
-      : 'w-full pt-[64px]';
+      : 'w-full pt-16';
 
   const layoutBg = 'bg-white';
 
