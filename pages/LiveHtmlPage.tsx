@@ -243,9 +243,9 @@ export const LiveHtmlPage: React.FC = () => {
                         </div>
 
                         {/* Main Center Preview */}
-                        <div className="md:col-span-2 md:row-span-2 bg-slate-900 rounded-[3rem] p-1.5 shadow-2xl relative overflow-hidden group">
+                        <div className="md:col-span-2 md:row-span-2 bg-slate-900 rounded-[3rem] p-[3px] shadow-2xl relative overflow-hidden group">
                             <div className="relative z-10 w-full aspect-video rounded-[2.8rem] overflow-hidden">
-                                <img src={ASSETS.PREVIEW_HTML} alt="Main Interface" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                                <img src="/img/html_hero.jpg" alt="EZUP HTML Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                                 <div className="absolute bottom-8 left-8 right-8 text-white">
                                     <h3 className="text-2xl font-bold mb-2">EZUP STUDIO v2.1</h3>

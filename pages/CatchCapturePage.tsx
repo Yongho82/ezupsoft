@@ -311,7 +311,7 @@ export const CatchCapturePage: React.FC = () => {
 
                             <div className="w-full h-full flex items-center justify-center relative z-10 p-8">
                                 <img
-                                    src={ASSETS.PREVIEW_CATCH}
+                                    src="/img/catch_hero.jpg"
                                     alt="CatchCapture UI"
                                     className="w-[110%] max-w-none shadow-2xl rounded-xl border border-slate-200/50 transform group-hover:scale-[1.01] transition-transform duration-700"
                                 />
@@ -416,7 +416,7 @@ export const CatchCapturePage: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative group">
                             <div className="bg-slate-50 rounded-[3rem] p-3 shadow-inner border border-slate-100 relative z-10 overflow-hidden aspect-video">
-                                <img src={ASSETS.THUMB_PROD} alt="Workflow" className="rounded-[2.5rem] w-full h-full object-cover" />
+                                <img src="/img/catch_hero.jpg" alt="Workflow" className="rounded-[2.5rem] w-full h-full object-cover" />
                             </div>
                         </div>
                         <div className="space-y-10">

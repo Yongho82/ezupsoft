@@ -338,7 +338,7 @@ export const LivePdfPage: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <div className="order-2 lg:order-1 relative">
                             <div className="bg-slate-50 rounded-[2.5rem] p-3 shadow-inner border border-slate-100 relative z-10 overflow-hidden aspect-video h-[300px] md:h-[425px]">
-                                <img src={ASSETS.PREVIEW_PDF} alt="PDF Editor Preview" className="rounded-2xl w-full h-full object-cover" />
+                                <img src="/img/pdf_hero.jpg" alt="EZUP PDF Studio" className="rounded-2xl w-full h-full object-cover" />
                             </div>
                         </div>
                         <div className="order-1 lg:order-2 space-y-8 text-left">
