@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { Button } from './Button';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ASSETS } from '../constants';
@@ -21,7 +21,6 @@ export const HeroSlider: React.FC = () => {
       ctaKey: 'html.start_btn',
       path: '/live-html',
       image: ASSETS.SLIDE_HTML,
-      bgClass: 'bg-gradient-to-r from-[#240b4c] to-[#6C5CE7]', 
       accentColor: 'bg-[#FF6B6B] text-white hover:bg-[#ff5252]',
     },
     {
@@ -31,7 +30,6 @@ export const HeroSlider: React.FC = () => {
       ctaKey: 'pdf.start_btn',
       path: '/live-pdf',
       image: ASSETS.SLIDE_PDF,
-      bgClass: 'bg-gradient-to-r from-[#004d40] to-[#00CEC9]', 
       accentColor: 'bg-[#FFD700] text-slate-900 hover:bg-[#ffca28]',
     },
     {
@@ -41,7 +39,6 @@ export const HeroSlider: React.FC = () => {
       ctaKey: 'catch.download_btn',
       path: '/catch-capture',
       image: ASSETS.SLIDE_CATCH,
-      bgClass: 'bg-gradient-to-r from-[#4a0404] to-[#B91C1C]', 
       accentColor: 'bg-slate-900 text-white hover:bg-black',
     },
   ];
@@ -69,7 +66,7 @@ export const HeroSlider: React.FC = () => {
   const togglePlay = () => setIsPlaying(!isPlaying);
 
   return (
-    <div className="w-full bg-slate-50 pb-8 pt-0 -mt-1">
+    <div className="relative w-full h-screen overflow-hidden bg-black">
       <style>
         {`
           @keyframes fillProgress { from { width: 0%; } to { width: 100%; } }
@@ -77,65 +74,83 @@ export const HeroSlider: React.FC = () => {
         `}
       </style>
 
-      <div className="w-[95%] max-w-[1440px] mx-auto px-2 md:px-6">
-        {/* Adjusted height for mobile: h-[500px] to lg:h-[700px] */}
-        <div className="relative w-full h-[520px] lg:h-[700px] rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl ring-1 ring-slate-900/10 bg-slate-900">
-          
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'} ${slide.bgClass}`}
-            >
-              <div className="absolute top-0 right-0 w-[900px] h-[900px] bg-white/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
-              
-              <div className="absolute inset-0 flex items-center">
-                 <div className="w-full px-6 md:px-20 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+         <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-50 blur-[3px] scale-110"
+         >
+            <source src="https://ezupsoft.com/img/main_hero.webm" type="video/webm" />
+         </video>
+      </div>
+
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
+
+      {/* Content Container */}
+      <div className="relative w-full h-full z-10">
+          <div className="max-w-[1440px] mx-auto h-full relative">
+            
+            {/* Slides */}
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 w-full h-full flex items-center transition-opacity duration-700 ease-in-out px-8 sm:px-12 md:px-16 lg:px-20 ${index === currentSlide ? 'opacity-100 z-20 pointer-events-auto' : 'opacity-0 z-10 pointer-events-none'}`}
+              >
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     
-                    <div className="text-left z-20 pt-8 lg:pt-0">
-                        {/* Responsive Typography */}
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-10 drop-shadow-xl tracking-tight">
+                    {/* Text Content */}
+                    <div className="text-left pt-20 lg:pt-0 max-w-2xl">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 md:mb-10 drop-shadow-2xl tracking-tight animate-fade-in-up">
                             {t(slide.titleKey)}
                         </h2>
-                        <p className="text-base md:text-xl text-white/90 mb-8 md:mb-14 max-w-lg leading-relaxed font-medium drop-shadow-md">
+                        <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-14 max-w-xl leading-relaxed font-medium drop-shadow-lg animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                             {t(slide.descKey)}
                         </p>
-                        <NavLink to={slide.path}>
-                            <Button size="lg" className={`w-full md:w-auto px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-xl md:rounded-2xl ${slide.accentColor}`}>
-                                {t(slide.ctaKey)}
-                            </Button>
-                        </NavLink>
-                    </div>
-
-                    <div className="hidden lg:block relative z-20 perspective-1000 h-full flex items-center justify-end">
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[8px] border-white/10 transform rotate-y-[-8deg] rotate-x-[3deg] hover:rotate-0 transition-transform duration-700 ease-out bg-slate-900 aspect-[16/10] w-full max-w-4xl xl:max-w-5xl origin-right">
-                            <img src={slide.image} alt="Preview" className="w-full h-full object-cover opacity-95" />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                          <NavLink to={slide.path}>
+                              <Button size="lg" className={`w-full md:w-auto px-10 md:px-14 py-4 md:py-5 text-lg md:text-xl font-bold shadow-2xl border-none hover:scale-105 transition-all rounded-2xl ${slide.accentColor}`}>
+                                  {t(slide.ctaKey)}
+                              </Button>
+                          </NavLink>
                         </div>
                     </div>
-                 </div>
-              </div>
-            </div>
-          ))}
 
-          <div className="absolute bottom-6 md:bottom-12 left-6 md:left-20 lg:left-24 z-30">
-             <div className="flex items-center gap-4 md:gap-8 text-white font-medium select-none bg-black/30 backdrop-blur-xl px-4 md:px-8 py-2 md:py-4 rounded-full border border-white/10 shadow-2xl scale-90 md:scale-100 origin-bottom-left">
-                <div className="flex items-center gap-3 md:gap-5 text-base min-w-[100px] md:min-w-[120px]">
-                   <span className="font-bold text-xl md:text-2xl tracking-tighter">{currentSlide + 1}</span>
-                   <div className="flex-grow h-1.5 bg-white/20 relative overflow-hidden rounded-full">
-                       {isPlaying && <div key={currentSlide} className="absolute inset-0 bg-white animate-progress"></div>}
-                       {!isPlaying && <div className="absolute inset-0 bg-white w-full"></div>}
-                   </div>
-                   <span className="opacity-60 text-base md:text-lg">{slides.length}</span>
+                    {/* Image Content (3D Card) */}
+                    <div className="hidden lg:block relative perspective-1000 flex items-center justify-end animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[8px] border-white/20 transform rotate-y-[-8deg] rotate-x-[3deg] hover:rotate-0 transition-transform duration-700 ease-out aspect-[16/10] w-full max-w-4xl origin-right backdrop-blur-sm bg-white/5">
+                            <img src={slide.image} alt="Preview" className="w-full h-full object-cover opacity-100" />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none"></div>
+                        </div>
+                    </div>
                 </div>
-                <div className="w-px h-6 bg-white/20 mx-1 md:mx-2"></div>
-                <div className="flex items-center gap-2 md:gap-3">
-                   <button onClick={prevSlide} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronLeft size={20} /></button>
-                   <button onClick={togglePlay} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90">{isPlaying ? <Pause size={18} /> : <Play size={18} />}</button>
-                   <button onClick={nextSlide} className="p-1.5 md:p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><ChevronRight size={20} /></button>
-                </div>
-             </div>
+              </div>
+            ))}
+
+            {/* Navigation Controls */}
+            <div className="absolute bottom-12 left-8 sm:left-12 md:left-16 lg:left-20 z-30">
+               <div className="flex items-center gap-6 text-white font-medium select-none bg-black/20 backdrop-blur-xl px-6 py-3 rounded-full border border-white/10 shadow-2xl">
+                  <div className="flex items-center gap-4 text-base min-w-[120px]">
+                     <span className="font-bold text-xl tracking-tighter">{currentSlide + 1}</span>
+                     <div className="flex-grow h-1 bg-white/20 relative overflow-hidden rounded-full">
+                         {isPlaying && <div key={currentSlide} className="absolute inset-0 bg-white animate-progress"></div>}
+                         {!isPlaying && <div className="absolute inset-0 bg-white w-full"></div>}
+                     </div>
+                     <span className="opacity-60 text-lg">{slides.length}</span>
+                  </div>
+                  <div className="w-px h-6 bg-white/20 mx-2"></div>
+                  <div className="flex items-center gap-3">
+                     <button onClick={prevSlide} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><Icon icon="solar:alt-arrow-left-bold" width="20" /></button>
+                     <button onClick={togglePlay} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90">{isPlaying ? <Icon icon="solar:pause-circle-bold" width="18" /> : <Icon icon="solar:play-circle-bold" width="18" />}</button>
+                     <button onClick={nextSlide} className="p-2 hover:bg-white/20 rounded-full transition-colors active:scale-90"><Icon icon="solar:alt-arrow-right-bold" width="20" /></button>
+                  </div>
+               </div>
+            </div>
+
           </div>
-        </div>
       </div>
     </div>
   );

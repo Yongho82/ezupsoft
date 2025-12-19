@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { ExternalLink, Star } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { Tool } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -22,7 +23,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool }) => {
         />
         <div className="absolute top-3 right-3 z-20">
           <button className="p-2 bg-white/80 backdrop-blur-md rounded-full text-slate-400 hover:text-[#6C5CE7] transition-colors shadow-sm">
-            <Star size={16} />
+            <Icon icon="solar:star-bold" width="16" />
           </button>
         </div>
         {tool.isPaid !== undefined && (
@@ -63,7 +64,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool }) => {
             href={tool.url}
             className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-[#6C5CE7] transition-colors"
           >
-            Visit <ExternalLink size={14} />
+            Visit <Icon icon="solar:link-circle-bold" width="14" />
           </a>
         </div>
       </div>

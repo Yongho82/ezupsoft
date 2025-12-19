@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { X } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface LegalModalProps {
@@ -30,7 +30,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
         <div className="flex items-center justify-between p-6 border-b border-slate-100">
           <h2 className="text-2xl font-bold text-slate-900">{t(titleKey)}</h2>
           <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500 hover:text-slate-900">
-            <X size={24} />
+            <Icon icon="solar:close-circle-bold" width="24" />
           </button>
         </div>
         

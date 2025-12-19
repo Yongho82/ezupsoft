@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, Mail, Clock, MessageSquare, Paperclip, UploadCloud } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -24,7 +24,7 @@ export const ContactPage: React.FC = () => {
     return (
       <div className="w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center bg-white px-4">
         <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6 animate-fade-in-up">
-          <CheckCircle className="text-green-500" size={48} />
+          <Icon icon="solar:check-circle-bold" className="text-green-500" width="48" />
         </div>
         <h2 className="text-3xl font-bold text-slate-900 mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             {t('contact.success_title')}
@@ -49,7 +49,7 @@ export const ContactPage: React.FC = () => {
           
           {/* Natural Symbol */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03]">
-              <MessageSquare size={300} className="text-slate-900" />
+              <Icon icon="solar:chat-round-bold" className="text-slate-900" width="300" />
           </div>
           
           <div className="relative z-10 max-w-3xl mx-auto pt-2">
@@ -65,7 +65,7 @@ export const ContactPage: React.FC = () => {
               <div className="lg:col-span-1 space-y-6">
                   <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
                       <div className="w-10 h-10 bg-purple-50 text-[#6C5CE7] rounded-xl flex items-center justify-center mb-4">
-                          <Mail size={20} />
+                          <Icon icon="solar:letter-bold" width="20" />
                       </div>
                       <h3 className="font-bold text-slate-900 text-lg mb-1">{t('contact.info_email')}</h3>
                       <p className="text-slate-500 font-medium text-sm">support@ezup.com</p>
@@ -73,7 +73,7 @@ export const ContactPage: React.FC = () => {
 
                   <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
                       <div className="w-10 h-10 bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center mb-4">
-                          <Clock size={20} />
+                          <Icon icon="solar:clock-circle-bold" width="20" />
                       </div>
                       <h3 className="font-bold text-slate-900 text-lg mb-1">{t('contact.info_time')}</h3>
                       <p className="text-slate-500 font-medium text-sm">{t('contact.info_time_val')}</p>
@@ -136,7 +136,7 @@ export const ContactPage: React.FC = () => {
                       {/* File Attachment - Prominent Drag & Drop Style */}
                       <div className="space-y-2 mb-8">
                           <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-                              <Paperclip size={16} /> {t('contact.label_file')}
+                              <Icon icon="solar:paperclip-bold" width="16" /> {t('contact.label_file')}
                           </label>
                           <div className="relative border-2 border-dashed border-slate-200 rounded-xl p-6 text-center hover:bg-slate-50 hover:border-purple-200 transition-colors cursor-pointer group">
                               <input 
@@ -145,7 +145,7 @@ export const ContactPage: React.FC = () => {
                               />
                               <div className="pointer-events-none">
                                   <div className="w-10 h-10 bg-purple-50 text-[#6C5CE7] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                                      <UploadCloud size={20} />
+                                      <Icon icon="solar:cloud-upload-bold" width="20" />
                                   </div>
                                   <p className="text-sm text-slate-600 font-bold group-hover:text-[#6C5CE7]">
                                       Click to upload or drag and drop
@@ -167,7 +167,7 @@ export const ContactPage: React.FC = () => {
                               <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                           ) : (
                               <>
-                                  <Send size={20} /> {t('contact.btn_send')}
+                                  <Icon icon="solar:plain-3-bold" width="20" /> {t('contact.btn_send')}
                               </>
                           )}
                       </Button>

@@ -1,45 +1,30 @@
 
 import React, { useState, useEffect } from 'react';
-import { Crop, Monitor, HelpCircle, ChevronDown, ChevronUp, Download, ShieldCheck, Timer, Zap, Layers, Maximize2, AppWindow, MousePointerClick, ArrowDownToLine, Video, ScanText } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ASSETS } from '../constants';
 import { Link } from 'react-router-dom';
 
-const FeatureItem: React.FC<{ imageUrl: string; title: string; desc: string }> = ({ imageUrl, title, desc }) => (
-  <div className="flex flex-col rounded-2xl bg-white border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 group h-full">
-    <div className="h-56 overflow-hidden bg-slate-100">
-       <img src={imageUrl} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-    </div>
-    <div className="p-8">
-      <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-      <p className="text-sm text-slate-500 leading-relaxed whitespace-pre-line">{desc}</p>
-    </div>
-  </div>
-);
-
 const TechMarquee: React.FC = () => {
     const { t } = useLanguage();
-    
-    // Icons mapped to the 11 features from the request
     const techItems = [
-        { icon: Crop, label: 'Area' },              // 영역 캡처
-        { icon: Timer, label: 'Delay' },            // 지연 캡처
-        { icon: Zap, label: 'Instant' },            // 순간 캡처
-        { icon: Layers, label: 'Multi' },           // 멀티 캡처
-        { icon: Maximize2, label: 'Full Screen' },  // 전체화면
-        { icon: AppWindow, label: 'Window' },       // 지정/창 캡처
-        { icon: Monitor, label: 'Monitor' },        // 창 캡처 (General)
-        { icon: MousePointerClick, label: 'Unit' }, // 단위 캡처
-        { icon: ArrowDownToLine, label: 'Scroll' }, // 스크롤 캡처
-        { icon: Video, label: 'Record' },           // 화면 녹화
-        { icon: ScanText, label: 'OCR' }            // OCR 캡처
+        { icon: "solar:crop-minimalistic-bold", label: 'Area' },
+        { icon: "solar:stopwatch-bold", label: 'Delay' },
+        { icon: "solar:bolt-circle-bold", label: 'Instant' },
+        { icon: "solar:layers-bold", label: 'Multi' },
+        { icon: "solar:maximize-square-bold", label: 'Full Screen' },
+        { icon: "solar:window-frame-bold", label: 'Window' },
+        { icon: "solar:monitor-bold", label: 'Monitor' },
+        { icon: "solar:cursor-square-bold", label: 'Unit' },
+        { icon: "solar:download-square-bold", label: 'Scroll' },
+        { icon: "solar:videocamera-record-bold", label: 'Record' },
+        { icon: "solar:scanner-bold", label: 'OCR' }
     ];
-
     const scrollItems = [...techItems, ...techItems, ...techItems];
 
     return (
-        <div className="w-full bg-indigo-600 py-6 overflow-hidden relative">
+        <div className="w-full bg-[#4F46E5] py-4 overflow-hidden relative z-10 border-b border-white/10">
             <style>
                 {`
                 @keyframes marquee {
@@ -47,35 +32,22 @@ const TechMarquee: React.FC = () => {
                     100% { transform: translateX(-33.33%); }
                 }
                 .animate-marquee {
-                    animation: marquee 30s linear infinite;
+                    animation: marquee 40s linear infinite;
                     display: flex;
                     width: max-content;
                 }
                 `}
             </style>
-            
-            <div className="max-w-7xl mx-auto px-4 text-center mb-4">
-                <p className="text-white/80 font-bold uppercase tracking-[0.2em] text-[10px] mb-1">
-                    ALL-IN-ONE CAPTURE SUITE
-                </p>
-                <h2 className="text-xl md:text-2xl font-bold text-white max-w-2xl mx-auto leading-relaxed mb-1">
-                    {t('catch.tech_tagline')}
-                </h2>
-                <p className="text-white/80 text-xs max-w-xl mx-auto font-medium leading-relaxed">
-                    {t('catch.security_promise')}
-                </p>
-            </div>
-
             <div className="relative">
-                <div className="animate-marquee flex gap-16 items-center">
+                <div className="animate-marquee flex gap-12 items-center">
                     {scrollItems.map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-3 text-white/40 grayscale hover:grayscale-0 hover:text-white transition-all duration-300">
-                            <item.icon size={28} />
-                            <span className="text-base font-black italic tracking-tighter opacity-20 uppercase whitespace-nowrap">{item.label}</span>
+                        <div key={idx} className="flex items-center gap-2.5 text-white/30 grayscale hover:grayscale-0 hover:text-white transition-all duration-300">
+                            <Icon icon={item.icon} width="18" />
+                            <span className="text-[10px] font-black italic tracking-tighter uppercase">{item.label}</span>
                         </div>
                     ))}
                 </div>
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-indigo-600 via-transparent to-indigo-600" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#4F46E5] via-transparent to-[#4F46E5] opacity-50" />
             </div>
         </div>
     );
@@ -92,7 +64,7 @@ const FAQBoard: React.FC = () => {
 
     const faqData = [
         {
-            category: t('faq.catch.cat1'), 
+            category: t('faq.catch.cat1'),
             items: [
                 { q: t('faq.catch.q1'), a: t('faq.catch.a1') },
                 { q: t('faq.catch.q2'), a: t('faq.catch.a2') },
@@ -102,7 +74,7 @@ const FAQBoard: React.FC = () => {
             ]
         },
         {
-            category: t('faq.catch.cat2'), 
+            category: t('faq.catch.cat2'),
             items: [
                 { q: t('faq.catch.q6'), a: t('faq.catch.a6') },
                 { q: t('faq.catch.q7'), a: t('faq.catch.a7') },
@@ -128,13 +100,13 @@ const FAQBoard: React.FC = () => {
             items: [
                 { q: t('faq.catch.q18'), a: t('faq.catch.a18') },
                 { q: t('faq.catch.q19'), a: t('faq.catch.a19') },
-                { q: t('faq.catch.q20'), a: t('faq.catch.a20') },
-                { q: t('faq.catch.q21'), a: t('faq.catch.a21') },
             ]
         },
         {
             category: t('faq.catch.cat5'),
             items: [
+                { q: t('faq.catch.q20'), a: t('faq.catch.a20') },
+                { q: t('faq.catch.q21'), a: t('faq.catch.a21') },
                 { q: t('faq.catch.q22'), a: t('faq.catch.a22') },
                 { q: t('faq.catch.q23'), a: t('faq.catch.a23') },
                 { q: t('faq.catch.q24'), a: t('faq.catch.a24') },
@@ -143,7 +115,7 @@ const FAQBoard: React.FC = () => {
             ]
         },
         {
-            category: t('faq.catch.cat6'), 
+            category: t('faq.catch.cat6'),
             items: [
                 { q: t('faq.catch.q27'), a: t('faq.catch.a27') },
                 { q: t('faq.catch.q28'), a: t('faq.catch.a28') },
@@ -160,54 +132,51 @@ const FAQBoard: React.FC = () => {
     return (
         <div className="max-w-4xl mx-auto px-4" key={language}>
             <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 mb-4">
-                    <HelpCircle size={24} />
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-[#4F46E5] mb-4">
+                    <Icon icon="solar:question-circle-bold" width="24" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900">FAQ & Help Center</h2>
+                <h2 className="text-3xl font-bold text-slate-900">{t('common.faq_title')}</h2>
                 <p className="text-slate-500 mt-2">{t('contact.subtitle')}</p>
             </div>
 
-            {/* Category Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {faqData.map((section, idx) => (
                     <button
                         key={idx}
                         onClick={() => { setActiveTab(idx); setOpenIndex(null); }}
-                        className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
-                            activeTab === idx 
-                            ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30 ring-2 ring-indigo-200 ring-offset-2' 
+                        className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-200 ${activeTab === idx
+                            ? 'bg-[#4F46E5] text-white shadow-lg shadow-indigo-500/30 ring-2 ring-indigo-200 ring-offset-2'
                             : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
-                        }`}
+                            }`}
                     >
                         {section.category}
                     </button>
                 ))}
             </div>
 
-            {/* Questions List */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden min-h-[300px]">
+            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden min-h-[400px]">
                 {faqData[activeTab] && faqData[activeTab].items.map((item, idx) => (
                     <div key={idx} className="border-b border-slate-100 last:border-0">
-                        <button 
-                            onClick={() => toggleItem(idx)} 
+                        <button
+                            onClick={() => toggleItem(idx)}
                             className="w-full flex items-start justify-between p-6 text-left focus:outline-none hover:bg-slate-50/50 transition-colors"
                         >
                             <div className="flex gap-4">
-                                <span className={`flex-shrink-0 font-bold text-lg ${openIndex === idx ? 'text-indigo-600' : 'text-slate-400'}`}>
+                                <span className={`flex-shrink-0 font-bold text-lg ${openIndex === idx ? 'text-[#4F46E5]' : 'text-slate-400'}`}>
                                     Q.
                                 </span>
-                                <span className={`text-base md:text-lg font-bold transition-colors ${openIndex === idx ? 'text-indigo-600' : 'text-slate-900'}`}>
+                                <span className={`text-base font-bold transition-colors ${openIndex === idx ? 'text-[#4F46E5]' : 'text-slate-900'}`}>
                                     {item.q}
                                 </span>
                             </div>
-                            {openIndex === idx ? <ChevronUp className="text-indigo-600 shrink-0 mt-1" size={20} /> : <ChevronDown className="text-slate-400 shrink-0 mt-1" size={20} />}
+                            {openIndex === idx ? <Icon icon="solar:alt-arrow-up-bold" className="text-[#4F46E5] shrink-0 mt-1" width="20" /> : <Icon icon="solar:alt-arrow-down-bold" className="text-slate-400 shrink-0 mt-1" width="20" />}
                         </button>
-                        <div 
-                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                        <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                         >
                             <div className="px-6 pb-6 pl-14 pr-8">
-                                <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 text-slate-600 leading-relaxed text-sm md:text-base whitespace-pre-line">
-                                    <span className="font-bold text-indigo-600 mr-2">A.</span>
+                                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 text-slate-600 leading-relaxed text-sm md:text-base whitespace-pre-line">
+                                    <span className="font-bold text-[#4F46E5] mr-2">A.</span>
                                     {item.a}
                                 </div>
                             </div>
@@ -215,194 +184,277 @@ const FAQBoard: React.FC = () => {
                     </div>
                 ))}
             </div>
-            
-            <div className="mt-8 text-center">
-                 <p className="text-sm text-slate-400">
-                    <Link to="/contact" className="text-indigo-600 font-bold hover:underline">{t('nav.contact')}</Link>
-                 </p>
-            </div>
         </div>
     );
 };
 
 export const CatchCapturePage: React.FC = () => {
-  const { t } = useLanguage();
+    const { t } = useLanguage();
 
-  const features = [
-    {
-        imageUrl: ASSETS.THUMB_DEV,
-        title: t('catch.feat_precision'),
-        desc: t('catch.feat_precision_desc')
-    },
-    {
-        imageUrl: ASSETS.PREVIEW_HTML,
-        title: t('catch.feat_advanced'),
-        desc: t('catch.feat_advanced_desc')
-    },
-    {
-        imageUrl: ASSETS.THUMB_DESIGN,
-        title: t('catch.feat_edit'),
-        desc: t('catch.feat_edit_desc')
-    },
-    {
-        imageUrl: ASSETS.THUMB_PROD,
-        title: t('catch.feat_smart'),
-        desc: t('catch.feat_smart_desc')
-    },
-    {
-        imageUrl: ASSETS.PREVIEW_PDF,
-        title: t('catch.feat_pro'),
-        desc: t('catch.feat_pro_desc')
-    },
-    {
-        imageUrl: ASSETS.SLIDE_CATCH,
-        title: t('catch.feat_user'),
-        desc: t('catch.feat_user_desc')
-    }
-  ];
+    return (
+        <div className="w-full bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
 
-  return (
-    <div className="w-full overflow-hidden bg-white">
-      {/* 1. Hero Section - Mobile Optimized Padding */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-16 overflow-hidden bg-slate-50">
-         
-         <div className="absolute inset-0 w-full h-full pointer-events-none">
-             <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-             <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-         </div>
+            {/* 1. Hero Section - Refined Features & Balanced Layout */}
+            <section className="bg-slate-50/50 py-12 relative overflow-hidden">
+                <div className="max-w-[1500px] mx-auto px-6 relative z-10">
 
-         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-             <div className="absolute top-32 left-[5%] text-indigo-300 animate-float" style={{ animationDelay: '0s' }}>
-                <Crop size={100} className="opacity-40 transform -rotate-12 scale-75 md:scale-100" />
-             </div>
-             {/* ... */}
-         </div>
+                    {/* Grid: 12 Cols, Auto Rows ~120px */}
+                    <div className="grid grid-cols-2 lg:grid-cols-12 auto-rows-[120px] gap-5 animate-fade-in-up">
 
-         <div className="max-w-[1600px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10">
-            {/* Left Content (Text) */}
-            <div className="lg:col-span-5 space-y-8 lg:space-y-10 text-center lg:text-left lg:pl-16">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-indigo-100 text-indigo-600 text-sm font-bold shadow-sm animate-fade-in-up opacity-0">
-                    <Crop size={16} /> {t('catch.badge')}
+                        {/* [ROW 1] - Top Header Row */}
+
+                        {/* 1.1 Left: Title Card (4 Cols) */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col justify-center relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-indigo-100" />
+                            <h1 className="relative text-3xl lg:text-4xl font-black text-slate-800 leading-[1.1] tracking-tighter">
+                                Ultimate<br />
+                                <span className="text-slate-400">Capture Suite</span>
+                            </h1>
+                        </div>
+
+                        {/* 1.2 Mid: Main Features Strip (4 Cols) - CENTERED */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] px-6 py-4 shadow-sm border border-slate-100 flex items-center justify-around">
+                            <div className="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                                <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-indigo-50 transition-colors">
+                                    <Icon icon="solar:crop-minimalistic-bold" width="24" className="text-slate-600 group-hover:text-indigo-600" />
+                                </div>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase">Area</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                                <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-rose-50 transition-colors">
+                                    <Icon icon="solar:record-circle-bold" width="24" className="text-slate-600 group-hover:text-rose-600" />
+                                </div>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase">Record</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                                <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-emerald-50 transition-colors">
+                                    <Icon icon="solar:text-field-focus-bold" width="24" className="text-slate-600 group-hover:text-emerald-600" />
+                                </div>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase">OCR</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
+                                <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-blue-50 transition-colors">
+                                    <Icon icon="solar:alt-arrow-down-bold" width="24" className="text-slate-600 group-hover:text-blue-600" />
+                                </div>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase">Scroll</span>
+                            </div>
+                        </div>
+
+                        {/* 1.3 Right: Editing Tools (4 Cols) */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 flex flex-col justify-center pl-8 relative overflow-hidden group">
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <Icon icon="solar:pallete-2-bold" width="80" className="text-slate-100" />
+                            </div>
+                            <p className="text-lg font-black text-slate-800 leading-tight relative z-10">Instant<br />Editor Tools</p>
+                            <div className="flex gap-2 mt-3 relative z-10">
+                                {['solar:pen-new-square-bold', 'solar:eraser-square-bold', 'solar:text-square-bold', 'solar:sticker-smile-square-bold'].map((icon, i) => (
+                                    <Icon key={i} icon={icon} width="20" className="text-slate-400 hover:text-indigo-500 transition-colors" />
+                                ))}
+                            </div>
+                        </div>
+
+
+                        {/* [ROW 2 & 3 - MAIN CONTENT] */}
+
+                        {/* 2.1 Left Column: Capture Modes (3 Cols Width) */}
+                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5">
+
+                            {/* Top: 3-Stack Capture Options */}
+                            <div className="flex-1 bg-white rounded-[2.5rem] shadow-sm border border-slate-200 p-6 flex flex-col gap-4">
+                                <div className="flex items-center gap-4 group cursor-pointer">
+                                    <div className="w-10 h-10 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform">
+                                        <Icon icon="solar:stopwatch-bold" width="20" />
+                                    </div>
+                                    <div>
+                                        <p className="font-bold text-slate-700 text-sm">Delay Capture</p>
+                                        <p className="text-[10px] text-slate-400 font-bold">1-10 Seconds</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 group cursor-pointer">
+                                    <div className="w-10 h-10 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-600 group-hover:scale-110 transition-transform">
+                                        <Icon icon="solar:layers-bold" width="20" />
+                                    </div>
+                                    <div>
+                                        <p className="font-bold text-slate-700 text-sm">Multi Capture</p>
+                                        <p className="text-[10px] text-slate-400 font-bold">Batch Processing</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 group cursor-pointer">
+                                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
+                                        <Icon icon="solar:window-frame-bold" width="20" />
+                                    </div>
+                                    <div>
+                                        <p className="font-bold text-slate-700 text-sm">Window Mode</p>
+                                        <p className="text-[10px] text-slate-400 font-bold">Auto Detect</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Bottom: Tray Mode (Standard White Card) */}
+                            <div className="h-[120px] bg-white rounded-[2.5rem] p-6 flex flex-col justify-center border border-slate-200 shadow-sm relative overflow-hidden group cursor-pointer hover:border-slate-300 transition-colors">
+                                <div className="relative z-10 flex items-center gap-3">
+                                    <div className="p-3 bg-slate-50 rounded-2xl group-hover:bg-blue-50 transition-colors">
+                                        <Icon icon="solar:minimize-square-bold" className="text-slate-700 group-hover:text-blue-600" width="28" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-slate-800 leading-tight">Tray<br /><span className="text-blue-500">Mode</span></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {/* 2.2 CENTER HERO: Main App Image (6 Cols Width - Perfectly Centered) */}
+                        <div className="col-span-2 lg:col-span-6 lg:row-span-3 bg-white rounded-[3.5rem] shadow-xl shadow-slate-200/50 border border-slate-200 relative overflow-hidden group z-10">
+                            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
+
+                            {/* Background Elements */}
+                            <div className="absolute top-0 left-0 w-full h-full opacity-50 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/50 via-white to-transparent" />
+
+                            <div className="w-full h-full flex items-center justify-center relative z-10 p-8">
+                                <img
+                                    src={ASSETS.PREVIEW_CATCH}
+                                    alt="CatchCapture UI"
+                                    className="w-[110%] max-w-none shadow-2xl rounded-xl border border-slate-200/50 transform group-hover:scale-[1.01] transition-transform duration-700"
+                                />
+
+                                {/* NEW: Floating White Download Card (Ref Photo 2 Style) */}
+                                <div className="absolute bottom-8 right-8 z-20">
+                                    <Button className="!bg-white !text-slate-900 !rounded-[1.5rem] pl-5 pr-8 py-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+                                            <Icon icon="solar:download-bold" width="22" />
+                                        </div>
+                                        <div className="text-left flex flex-col">
+                                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Windows</span>
+                                            <span className="font-walsheim font-black text-xl text-slate-800 leading-none">Download</span>
+                                        </div>
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {/* 2.3 Right Column: Utility (3 Cols Width) */}
+                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5">
+
+                            {/* Editor Toolbar Preview */}
+                            <div className="flex-1 bg-white rounded-[2.5rem] border border-slate-200 p-6 flex flex-col justify-center items-center shadow-sm relative overflow-hidden">
+                                <p className="text-[10px] font-bold text-slate-400 uppercase mb-4 tracking-widest text-center">Smart Toolbar</p>
+                                <div className="w-full bg-slate-50 rounded-2xl p-3 flex flex-wrap gap-2 justify-center border border-slate-200">
+                                    {['solar:pen-bold', 'solar:text-bold', 'solar:gallery-bold', 'solar:scanner-bold'].map((icon, idx) => (
+                                        <div key={idx} className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-slate-600 hover:text-indigo-600 hover:scale-110 transition-all cursor-pointer border border-slate-100">
+                                            <Icon icon={icon} width="20" />
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="mt-4 flex items-center gap-2 text-xs font-bold text-slate-500">
+                                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                    <span>Ready to Edit</span>
+                                </div>
+                            </div>
+
+                            {/* Instant Edit Toggle (White Card Style) */}
+                            <div className="h-[120px] bg-white rounded-[2.5rem] p-6 flex flex-row items-center justify-between border border-slate-200 shadow-sm group cursor-pointer relative overflow-hidden hover:border-indigo-200 transition-colors">
+                                <div className="absolute top-0 right-0 w-20 h-20 bg-indigo-50 rounded-bl-[4rem] transition-transform group-hover:scale-110" />
+                                <div className="relative z-10">
+                                    <p className="text-slate-400 text-xs font-bold mb-1 uppercase">Feature</p>
+                                    <h3 className="text-xl font-black text-slate-800 leading-tight">Instant<br />Edit</h3>
+                                </div>
+                                <div className="relative z-10 w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 group-hover:scale-110 transition-transform">
+                                    <Icon icon="solar:magic-stick-3-bold" width="24" />
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        {/* [ROW 3 - BOTTOM ROW] - Extra Features */}
+
+                        {/* 3.1 Color Palette (4 cols) */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center justify-between border border-slate-200 shadow-sm">
+                            <div>
+                                <h4 className="font-bold text-slate-800">Rich Colors</h4>
+                                <p className="text-xs text-slate-400 font-bold">For Highlights</p>
+                            </div>
+                            <div className="flex -space-x-2">
+                                {['bg-yellow-400', 'bg-green-400', 'bg-blue-400', 'bg-pink-400'].map((c, i) => (
+                                    <div key={i} className={`w-8 h-8 rounded-full border-2 border-white ${c} shadow-sm`} />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* 3.2 Global Shortcuts (4 cols) - White Card Fix */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex flex-col justify-center border border-slate-200 text-center relative overflow-hidden shadow-sm">
+                            <div className="flex justify-center gap-2 mb-2 font-mono text-sm font-bold text-slate-600">
+                                <span className="px-2 py-1 bg-slate-50 rounded border border-slate-200">Ctrl</span>
+                                <span className="opacity-50">+</span>
+                                <span className="px-2 py-1 bg-slate-50 rounded border border-slate-200">Shift</span>
+                                <span className="opacity-50">+</span>
+                                <span className="px-2 py-1 bg-slate-50 rounded border border-slate-200 text-indigo-600">S</span>
+                            </div>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Shortcut</p>
+                        </div>
+
+                        {/* 3.3 Pin Mode (4 cols) */}
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center gap-4 border border-slate-200 shadow-sm group">
+                            <div className="w-12 h-12 rounded-full bg-rose-50 flex items-center justify-center text-rose-500 group-hover:rotate-12 transition-transform">
+                                <Icon icon="solar:pin-bold" width="24" />
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-slate-800">Pin Mode</h4>
+                                <p className="text-xs text-slate-400 font-bold">Always on Top</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                
-                <h1 className="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-snug animate-fade-in-up opacity-0" style={{ animationDelay: '0.1s' }}>
-                    {t('catch.title')}
-                </h1>
-                
-                <p className="text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
-                    {t('catch.desc')}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-5 pt-4 animate-fade-in-up opacity-0 justify-center lg:justify-start" style={{ animationDelay: '0.3s' }}>
-                    <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-200 text-lg h-14 md:h-16 px-10 rounded-2xl">
-                        <Download className="mr-3" size={24} />
-                        {t('catch.download_btn')}
-                    </Button>
+            </section>
+
+            <TechMarquee />
+
+            {/* 2. Workflow Steps */}
+            <section className="bg-white py-20">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="relative group">
+                            <div className="bg-slate-50 rounded-[3rem] p-3 shadow-inner border border-slate-100 relative z-10 overflow-hidden aspect-video">
+                                <img src={ASSETS.THUMB_PROD} alt="Workflow" className="rounded-[2.5rem] w-full h-full object-cover" />
+                            </div>
+                        </div>
+                        <div className="space-y-10">
+                            <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">{t('catch.flow_title')}</h2>
+                            <div className="space-y-8">
+                                {[
+                                    { step: 1, text: t('catch.flow_1'), icon: "solar:keyboard-bold", color: "bg-indigo-600" },
+                                    { step: 2, text: t('catch.flow_2'), icon: "solar:magic-stick-3-bold", color: "bg-rose-500" },
+                                    { step: 3, text: t('catch.flow_3'), icon: "solar:cloud-download-bold", color: "bg-blue-600" }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="flex gap-6 group items-center">
+                                        <div className={`w-14 h-14 rounded-2xl ${item.color} text-white flex items-center justify-center shadow-xl shrink-0`}>
+                                            <Icon icon={item.icon} width="24" />
+                                        </div>
+                                        <p className="text-xl text-slate-700 font-black">{item.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex gap-4 md:gap-8 text-xs md:text-sm text-slate-400 font-semibold animate-fade-in-up opacity-0 justify-center lg:justify-start" style={{ animationDelay: '0.4s' }}>
-                    <span className="flex items-center gap-2 uppercase tracking-wide"><Monitor size={16} /> Windows 10/11</span>
-                    <span className="flex items-center gap-2 uppercase tracking-wide"><ShieldCheck size={16} /> Professional Grade</span>
-                </div>
-            </div>
+            </section>
 
-            {/* Right Content (Image) */}
-            <div className="lg:col-span-7 relative animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
-                <div className="absolute -inset-8 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-                <div className="relative bg-white rounded-2xl lg:rounded-3xl shadow-2xl border-[4px] lg:border-[4px] border-white overflow-hidden group">
-                     <img 
-                       src={ASSETS.PREVIEW_CATCH} 
-                       alt={t('catch.preview_alt')} 
-                       className="w-full h-[250px] md:h-[395px] object-cover" 
-                     />
-                </div>
-            </div>
-         </div>
-      </section>
+            {/* 3. FAQ Section */}
+            <section className="bg-slate-50 py-20 md:py-28">
+                <FAQBoard />
+            </section>
 
-      <TechMarquee />
-
-      <section className="max-w-7xl mx-auto px-4 pt-16 md:pt-24 pb-12 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">{t('catch.feat_title')}</h2>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto">{t('catch.feat_subtitle')}</p>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-4 pb-16 md:pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-              {features.map((feat, idx) => (
-                  <FeatureItem key={idx} {...feat} />
-              ))}
-          </div>
-      </section>
-
-      <section className="bg-slate-50 py-16 md:py-32">
-          <div className="max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                  <div className="order-2 lg:order-1 relative">
-                      <div className="bg-white rounded-[2rem] p-4 shadow-2xl border border-slate-200 relative z-10 overflow-hidden aspect-[16/10] h-[300px] md:h-auto">
-                           <img src={ASSETS.THUMB_PROD} alt="Editor Preview" className="rounded-xl w-full h-full object-cover" />
-                      </div>
-                      <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl z-0"></div>
-                  </div>
-                  <div className="order-1 lg:order-2 space-y-8 text-left">
-                      <h2 className="text-3xl font-bold text-slate-900 leading-tight">{t('catch.flow_title')}</h2>
-                      <div className="space-y-6">
-                          <div className="flex gap-5">
-                              <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">1</div>
-                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_1')}</p>
-                          </div>
-                          <div className="flex gap-5">
-                              <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">2</div>
-                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_2')}</p>
-                          </div>
-                          <div className="flex gap-5">
-                              <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0 shadow-lg shadow-indigo-200">3</div>
-                              <p className="text-slate-600 leading-relaxed text-base md:text-lg font-medium">{t('catch.flow_3')}</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <section className="bg-slate-50/50 py-16 md:py-24">
-          <FAQBoard />
-      </section>
-
-      <section className="relative py-16 md:py-20 overflow-hidden bg-[#6C5CE7] isolate">
-           <style>{`
-             @keyframes spin-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-             @keyframes spin-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-             @keyframes tilt {
-                0%, 50%, 100% { transform: rotate(0deg); }
-                25% { transform: rotate(0.5deg); }
-                75% { transform: rotate(-0.5deg); }
-             }
-             .animate-tilt { animation: tilt 10s infinite linear; }
-           `}</style>
-
-           <div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] via-[#5D3FD3] to-[#4834d4] z-0"></div>
-           
-           {/* Restored Spiral/Circular Animations */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse] opacity-30 pointer-events-none"></div>
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full animate-spin-slow opacity-30 pointer-events-none"></div>
-           
-           <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-                <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight drop-shadow-2xl">
-                    {t('catch.cta_title')}
-                </h2>
-                <p className="text-lg md:text-xl text-purple-100 mb-12 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg opacity-90">
-                    {t('catch.cta_desc')}
-                </p>
-                
-                <div className="relative inline-flex group">
-                    <div className="absolute transition-all duration-1000 opacity-70 -inset-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-2xl blur-lg group-hover:opacity-100 group-hover:-inset-1.5 group-hover:duration-200 animate-tilt"></div>
-                    <Button size="lg" className="relative !bg-white !text-[#6C5CE7] hover:!bg-slate-50 border-none px-12 py-5 text-xl font-bold rounded-2xl shadow-2xl transition-all transform group-hover:scale-[1.02] flex items-center gap-3">
+            {/* 4. Final CTA */}
+            <section className="relative py-24 md:py-32 overflow-hidden bg-slate-900">
+                <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">{t('catch.cta_title')}</h2>
+                    <p className="text-slate-400 mb-14 text-xl font-medium max-w-xl mx-auto">{t('catch.cta_desc')}</p>
+                    <Button size="lg" className="relative !bg-white !text-slate-900 border-none px-16 py-6 text-2xl font-black rounded-2xl shadow-2xl transition-all transform group-hover:scale-[1.05]">
                         {t('catch.cta_btn')}
                     </Button>
                 </div>
-           </div>
-      </section>
-    </div>
-  );
+            </section>
+        </div>
+    );
 };

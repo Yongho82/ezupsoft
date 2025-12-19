@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface Review {
@@ -104,7 +105,7 @@ export const TestimonialSlider: React.FC = () => {
   // Auto-slide effect
   useEffect(() => {
     if (isPaused) return;
-    
+
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % (reviews.length / 2)); // Loop through sets
     }, 4000);
@@ -113,87 +114,86 @@ export const TestimonialSlider: React.FC = () => {
   }, [isPaused, reviews.length]);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+    <section className="py-24 bg-[#050505] overflow-hidden border-t border-white/5">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight whitespace-pre-line">
-             {t('testimonials.title')}
-           </h2>
-           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-             {t('testimonials.subtitle')}
-           </p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight whitespace-pre-line">
+            {t('testimonials.title')}
+          </h2>
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            {t('testimonials.subtitle')}
+          </p>
         </div>
 
         {/* Slider Track */}
-        <div 
+        <div
           className="relative w-full"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Increased vertical padding (py-12 -my-12) to ensure shadows are not clipped */}
+          {/* Increased vertical padding to ensure shadows are not clipped */}
           <div className="relative overflow-hidden py-12 -my-12 px-4 -mx-4">
-             <div 
-               className="flex gap-6 md:gap-8 transition-transform duration-1000 ease-in-out"
-               style={{ 
-                 transform: `translateX(-${activeIndex * (100 / (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1))}%)` 
-               }}
-             >
-                {/* We render reviews twice to handle loop smoothly if needed, but for simple request: */}
-                {[...reviews, ...reviews].map((review, index) => (
-                   <div 
-                     key={`${review.id}-${index}`} 
-                     className="flex-shrink-0 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-21px)] xl:w-[calc(25%-24px)]"
-                   >
-                      <div className="relative mt-10 pt-12 pb-8 px-4 bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 h-full flex flex-col hover:-translate-y-2 transition-transform duration-300 group">
-                         {/* Avatar */}
-                         <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-                            <div className="w-20 h-20 rounded-full border-[6px] border-white shadow-lg overflow-hidden bg-slate-100 group-hover:scale-105 transition-transform">
-                               <img src={review.avatar} alt={review.name} className="w-full h-full object-cover" />
-                            </div>
-                         </div>
-                         
-                         {/* Rating */}
-                         <div className="flex justify-center gap-1 mb-6 text-yellow-400">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} size={16} fill={i < review.rating ? "currentColor" : "none"} className={i < review.rating ? "text-yellow-400" : "text-slate-200"} />
-                            ))}
-                         </div>
-
-                         {/* Content */}
-                         <div className="text-center flex-grow px-2">
-                            <p className="text-slate-600 font-medium leading-relaxed italic mb-6 text-lg max-w-[90%] mx-auto">
-                              "{review.content}"
-                            </p>
-                         </div>
-
-                         {/* Footer */}
-                         <div className="text-center pt-6 border-t border-slate-50 mt-auto">
-                            <h4 className="text-slate-900 font-bold text-lg">{review.name}</h4>
-                            <p className="text-slate-400 text-xs uppercase tracking-wider font-bold mt-1">
-                              {review.role} @ {review.company}
-                            </p>
-                            <span className="inline-block mt-3 px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full uppercase tracking-wide">
-                               {review.product}
-                            </span>
-                         </div>
+            <div
+              className="flex gap-6 md:gap-8 transition-transform duration-1000 ease-in-out"
+              style={{
+                transform: `translateX(-${activeIndex * (100 / (window.innerWidth >= 1280 ? 4 : window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1))}%)`
+              }}
+            >
+              {/* We render reviews twice to handle loop smoothly */}
+              {[...reviews, ...reviews].map((review, index) => (
+                <div
+                  key={`${review.id}-${index}`}
+                  className="flex-shrink-0 w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-21px)] xl:w-[calc(25%-24px)]"
+                >
+                  <div className="relative mt-10 pt-12 pb-8 px-6 bg-[#111] rounded-3xl border border-white/10 h-full flex flex-col hover:-translate-y-2 transition-all duration-300 group hover:border-white/20">
+                    {/* Avatar */}
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2">
+                      <div className="w-20 h-20 rounded-full border-[6px] border-[#050505] shadow-lg overflow-hidden bg-slate-800 group-hover:scale-105 transition-transform">
+                        <img src={review.avatar} alt={review.name} className="w-full h-full object-cover" />
                       </div>
-                   </div>
-                ))}
-             </div>
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex justify-center gap-1 mb-6 text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Icon key={i} icon="solar:star-bold" width="16" className={i < review.rating ? "text-yellow-400" : "text-slate-700"} />
+                      ))}
+                    </div>
+
+                    {/* Content */}
+                    <div className="text-center flex-grow px-2">
+                      <p className="text-slate-300 font-medium leading-relaxed italic mb-6 text-lg max-w-[90%] mx-auto">
+                        "{review.content}"
+                      </p>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="text-center pt-6 border-t border-white/5 mt-auto">
+                      <h4 className="text-white font-bold text-lg">{review.name}</h4>
+                      <p className="text-slate-500 text-xs uppercase tracking-wider font-bold mt-1">
+                        {review.role} @ {review.company}
+                      </p>
+                      <span className="inline-block mt-3 px-3 py-1 bg-white/5 text-slate-400 text-[10px] font-bold rounded-full uppercase tracking-wide border border-white/5">
+                        {review.product}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          
+
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2 mt-20">
-             {Array.from({ length: Math.ceil(reviews.length / 1) }).slice(0, 8).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeIndex % reviews.length === idx ? 'bg-[#6C5CE7] w-8' : 'bg-slate-300 hover:bg-slate-400'}`}
-                />
-             ))}
+            {Array.from({ length: Math.ceil(reviews.length / 1) }).slice(0, 8).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeIndex % reviews.length === idx ? 'bg-[#6C5CE7] w-8' : 'bg-slate-700 hover:bg-slate-500'}`}
+              />
+            ))}
           </div>
         </div>
-        {/* Close 'relative w-full' container */}
       </div>
     </section>
   );

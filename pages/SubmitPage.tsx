@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { Button } from '../components/Button';
-import { Send, CheckCircle } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export const SubmitPage: React.FC = () => {
@@ -17,7 +18,7 @@ export const SubmitPage: React.FC = () => {
     return (
       <div className="w-full max-w-2xl mx-auto px-4 py-20 text-center mt-8">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="text-green-600" size={40} />
+          <Icon icon="solar:check-circle-bold" className="text-green-600" width="40" />
         </div>
         <h2 className="text-3xl font-bold text-slate-900 mb-4">{t('submit.received')}</h2>
         <p className="text-slate-500 mb-8">
@@ -92,7 +93,7 @@ export const SubmitPage: React.FC = () => {
 
         <div className="pt-4">
           <Button type="submit" size="lg" className="w-full gap-2">
-            <Send size={18} /> {t('submit.btn_submit')}
+            <Icon icon="solar:plain-3-bold" width="18" /> {t('submit.btn_submit')}
           </Button>
           <p className="text-center text-xs text-slate-400 mt-4">
             {t('submit.footer_note')}
