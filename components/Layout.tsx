@@ -290,12 +290,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [activeLegalDoc, setActiveLegalDoc] = useState<'privacy' | 'terms' | null>(null);
 
   const mainPaddingClass = isAppPage
-    ? 'h-screen overflow-hidden !pt-[80px]'
+    ? 'h-screen overflow-hidden !pt-[64px]'
     : location.pathname === '/'
       ? 'w-full pt-0'
-      : 'w-full pt-[80px]';
+      : 'w-full pt-[64px]';
 
-  const layoutBg = isAppPage ? 'bg-black' : 'bg-white';
+  const layoutBg = 'bg-white';
 
   return (
     <div className={`min-h-screen ${layoutBg} text-slate-900 flex flex-col font-sans`}>
