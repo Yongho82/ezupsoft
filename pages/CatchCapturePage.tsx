@@ -199,12 +199,12 @@ export const CatchCapturePage: React.FC = () => {
                 <div className="max-w-[1500px] mx-auto px-6 relative z-10">
 
                     {/* Grid: 12 Cols, Auto Rows ~120px */}
-                    <div className="grid grid-cols-2 lg:grid-cols-12 auto-rows-[120px] gap-5 animate-fade-in-up">
+                    <div className="grid grid-cols-2 lg:grid-cols-12 auto-rows-[120px] gap-5">
 
                         {/* [ROW 1] - Top Header Row */}
 
                         {/* 1.1 Left: Title Card (4 Cols) */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col justify-center relative overflow-hidden group">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100 flex flex-col justify-center relative overflow-hidden group animate-fade-in-up">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-indigo-100" />
                             <h1 className="relative text-3xl lg:text-4xl font-black text-slate-800 leading-[1.1] tracking-tighter">
                                 Ultimate<br />
@@ -213,7 +213,7 @@ export const CatchCapturePage: React.FC = () => {
                         </div>
 
                         {/* 1.2 Mid: Main Features Strip (4 Cols) - CENTERED */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] px-6 py-4 shadow-sm border border-slate-100 flex items-center justify-around">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] px-6 py-4 shadow-sm border border-slate-100 flex items-center justify-around animate-fade-in-up">
                             <div className="flex flex-col items-center gap-2 group cursor-pointer hover:-translate-y-1 transition-transform">
                                 <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-indigo-50 transition-colors">
                                     <Icon icon="solar:crop-minimalistic-bold" width="24" className="text-slate-600 group-hover:text-indigo-600" />
@@ -241,7 +241,7 @@ export const CatchCapturePage: React.FC = () => {
                         </div>
 
                         {/* 1.3 Right: Editing Tools (4 Cols) */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 flex flex-col justify-center pl-8 relative overflow-hidden group">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 flex flex-col justify-center pl-8 relative overflow-hidden group animate-fade-in-up">
                             <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 opacity-50 group-hover:opacity-100 transition-opacity">
                                 <Icon icon="solar:pallete-2-bold" width="80" className="text-slate-100" />
                             </div>
@@ -257,7 +257,7 @@ export const CatchCapturePage: React.FC = () => {
                         {/* [ROW 2 & 3 - MAIN CONTENT] */}
 
                         {/* 2.1 Left Column: Capture Modes (3 Cols Width) */}
-                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5">
+                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5 animate-fade-in-up">
 
                             {/* Top: 3-Stack Capture Options */}
                             <div className="flex-1 bg-white rounded-[2.5rem] shadow-sm border border-slate-200 p-6 flex flex-col gap-4">
@@ -303,7 +303,7 @@ export const CatchCapturePage: React.FC = () => {
 
 
                         {/* 2.2 CENTER HERO: Main App Image (6 Cols Width - Perfectly Centered) */}
-                        <div className="col-span-2 lg:col-span-6 lg:row-span-3 bg-white rounded-[3.5rem] shadow-xl shadow-slate-200/50 border border-slate-200 relative overflow-hidden group z-10">
+                        <div className="col-span-2 lg:col-span-6 lg:row-span-3 bg-white rounded-[3.5rem] shadow-xl shadow-slate-200/50 border border-slate-200 relative overflow-hidden group z-10 animate-fade-in-up">
                             <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
 
                             {/* Background Elements */}
@@ -333,7 +333,7 @@ export const CatchCapturePage: React.FC = () => {
 
 
                         {/* 2.3 Right Column: Utility (3 Cols Width) */}
-                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5">
+                        <div className="col-span-2 lg:col-span-3 lg:row-span-3 flex flex-col gap-5 animate-fade-in-up">
 
                             {/* Editor Toolbar Preview */}
                             <div className="flex-1 bg-white rounded-[2.5rem] border border-slate-200 p-6 flex flex-col justify-center items-center shadow-sm relative overflow-hidden">
@@ -369,7 +369,7 @@ export const CatchCapturePage: React.FC = () => {
                         {/* [ROW 3 - BOTTOM ROW] - Extra Features */}
 
                         {/* 3.1 Color Palette (4 cols) */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center justify-between border border-slate-200 shadow-sm">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center justify-between border border-slate-200 shadow-sm animate-fade-in-up">
                             <div>
                                 <h4 className="font-bold text-slate-800">Rich Colors</h4>
                                 <p className="text-xs text-slate-400 font-bold">For Highlights</p>
@@ -382,7 +382,7 @@ export const CatchCapturePage: React.FC = () => {
                         </div>
 
                         {/* 3.2 Global Shortcuts (4 cols) - White Card Fix */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex flex-col justify-center border border-slate-200 text-center relative overflow-hidden shadow-sm">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex flex-col justify-center border border-slate-200 text-center relative overflow-hidden shadow-sm animate-fade-in-up">
                             <div className="flex justify-center gap-2 mb-2 font-mono text-sm font-bold text-slate-600">
                                 <span className="px-2 py-1 bg-slate-50 rounded border border-slate-200">Ctrl</span>
                                 <span className="opacity-50">+</span>
@@ -394,7 +394,7 @@ export const CatchCapturePage: React.FC = () => {
                         </div>
 
                         {/* 3.3 Pin Mode (4 cols) */}
-                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center gap-4 border border-slate-200 shadow-sm group">
+                        <div className="col-span-2 lg:col-span-4 lg:row-span-1 bg-white rounded-[2.5rem] p-6 flex items-center gap-4 border border-slate-200 shadow-sm group animate-fade-in-up">
                             <div className="w-12 h-12 rounded-full bg-rose-50 flex items-center justify-center text-rose-500 group-hover:rotate-12 transition-transform">
                                 <Icon icon="solar:pin-bold" width="24" />
                             </div>
