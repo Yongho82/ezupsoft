@@ -117,7 +117,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
     }
 
     return (
-        <header className="bg-white shadow-sm px-4 py-2 flex justify-between items-center flex-shrink-0 z-20">
+        <header className="bg-white shadow-sm px-4 py-1 flex justify-between items-center flex-shrink-0 z-20">
             <h1 className="text-2xl font-bold text-gray-700 flex items-center">
                 {t('header.title')}
             </h1>

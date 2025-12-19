@@ -404,7 +404,7 @@ export const LivePdfApp: React.FC = () => {
     }, [language]);
 
     return (
-        <div className="w-full h-full flex flex-col bg-black overflow-hidden">
+        <div className="w-full h-full flex flex-col bg-white overflow-hidden">
             <div className="w-full h-full relative overflow-hidden">
                 <iframe
                     ref={iframeRef}

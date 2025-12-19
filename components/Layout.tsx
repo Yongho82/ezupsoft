@@ -88,10 +88,10 @@ const Header: React.FC = () => {
   const isAppPage = location.pathname.endsWith('/app');
 
   const headerStyle = isScrolled
-    ? 'bg-black/90 backdrop-blur-lg border-b border-white/10 py-3 shadow-md'
+    ? 'bg-black/90 backdrop-blur-lg border-b border-white/10 py-2 shadow-md'
     : isHomePage
-      ? 'bg-transparent border-transparent py-4'
-      : 'bg-black border-b border-white/5 py-4';
+      ? 'bg-transparent border-transparent py-2'
+      : 'bg-black border-b border-white/5 py-2';
 
   const roundedClass = isAppPage
     ? ''
