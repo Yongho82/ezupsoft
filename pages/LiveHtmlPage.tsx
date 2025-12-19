@@ -137,8 +137,8 @@ const FAQBoard: React.FC = () => {
                         key={idx}
                         onClick={() => { setActiveTab(idx); setOpenIndex(null); }}
                         className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-200 ${activeTab === idx
-                                ? 'bg-[#6C5CE7] text-white shadow-lg shadow-purple-500/30 ring-2 ring-purple-200 ring-offset-2'
-                                : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
+                            ? 'bg-[#6C5CE7] text-white shadow-lg shadow-purple-500/30 ring-2 ring-purple-200 ring-offset-2'
+                            : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
                             }`}
                     >
                         {section.category}
@@ -346,8 +346,21 @@ export const LiveHtmlPage: React.FC = () => {
 
 export const LiveHtmlApp: React.FC = () => {
     return (
-        <div className="w-full h-full flex flex-col bg-white">
-            <iframe src="https://ezupsoft.com/editor.php?lang=ko" title="Live HTML Studio" className="w-full flex-grow border-0" allowFullScreen />
+        <div className="w-full h-full flex flex-col bg-slate-100 overflow-hidden p-2 md:p-4">
+            <div className="w-full h-full relative rounded-xl shadow-2xl border border-slate-200 bg-white overflow-hidden">
+                <iframe
+                    src="/live_editor/index.html"
+                    title="Live HTML Studio"
+                    className="absolute top-0 left-0 border-0"
+                    style={{
+                        width: '125%',
+                        height: '125%',
+                        transform: 'scale(0.8)',
+                        transformOrigin: 'top left'
+                    }}
+                    allowFullScreen
+                />
+            </div>
         </div>
     );
 };
