@@ -346,8 +346,8 @@ export const LiveHtmlPage: React.FC = () => {
 
 export const LiveHtmlApp: React.FC = () => {
     return (
-        <div className="w-full h-full flex flex-col bg-slate-100 overflow-hidden p-2 md:p-4">
-            <div className="w-full h-full relative rounded-xl shadow-2xl border border-slate-200 bg-white overflow-hidden">
+        <div className="w-full h-full flex flex-col bg-black overflow-hidden">
+            <div className="w-full h-full relative overflow-hidden">
                 <iframe
                     src="/live_editor/index.html"
                     title="Live HTML Studio"

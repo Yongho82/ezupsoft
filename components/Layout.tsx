@@ -85,15 +85,21 @@ const Header: React.FC = () => {
     { name: t('nav.catch'), path: '/catch-capture', icon: "solar:crop-minimalistic-bold" },
   ];
 
+  const isAppPage = location.pathname.endsWith('/app');
+
   const headerStyle = isScrolled
     ? 'bg-black/90 backdrop-blur-lg border-b border-white/10 py-3 shadow-md'
     : isHomePage
       ? 'bg-transparent border-transparent py-4'
       : 'bg-black border-b border-white/5 py-4';
 
+  const roundedClass = isAppPage
+    ? ''
+    : 'rounded-bl-[30px] rounded-br-[30px] md:rounded-bl-none md:rounded-br-[50px]';
+
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-bl-[30px] rounded-br-[30px] md:rounded-bl-none md:rounded-br-[50px] ${headerStyle}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${roundedClass} ${headerStyle}`}>
         <div className="max-w-[1440px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <div className="flex items-center justify-between h-12">
 
@@ -289,8 +295,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       ? 'w-full pt-0'
       : 'w-full pt-[80px]';
 
+  const layoutBg = isAppPage ? 'bg-black' : 'bg-white';
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans">
+    <div className={`min-h-screen ${layoutBg} text-slate-900 flex flex-col font-sans`}>
       <Header />
       <main className={`flex-grow flex flex-col ${mainPaddingClass}`}>
         {children}
