@@ -191,46 +191,77 @@ export const CatchBento: React.FC = () => {
             </BentoCard>
 
             {/* 2. Top Mode Card (2x1) - Simple & Tray Mode Mockups */}
-            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(59, 130, 246, 0.15)">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                    <div className="flex justify-between items-start">
+            <BentoCard className="md:col-span-2 h-[260px]" glowColor="rgba(59, 130, 246, 0.15)">
+                <div className="absolute inset-0 p-8 flex flex-col">
+                    <div className="flex justify-between items-start mb-4">
                         <div>
                             <h3 className="text-xl font-black mb-1">Modern Interfaces</h3>
-                            <p className="text-slate-500 text-xs">Switch between optimized control modes</p>
+                            <p className="text-slate-500 text-xs text-nowrap">Switch between optimized control modes</p>
                         </div>
                         <div className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-[8px] font-mono text-blue-500">UI_LAYER: OVERLAY</div>
                     </div>
 
-                    <div className="flex gap-8 items-center flex-1">
-                        {/* Simple Mode Mockup (Photo 1 Style) */}
-                        <div className="flex-1">
-                            <p className="text-[10px] font-bold text-slate-600 mb-2 uppercase tracking-widest">Simple Mode</p>
-                            <div className="h-10 w-full bg-[#1A1A1A] rounded-xl border border-white/10 flex items-center px-3 gap-2 shadow-2xl relative overflow-hidden group/simple">
-                                <div className="w-4 h-4 rounded-full bg-green-500 animate-pulse" />
-                                <div className="h-4 w-px bg-white/10 mx-1" />
-                                <span className="text-[10px] font-black mr-auto">A+</span>
-                                <div className="flex gap-1.5 opacity-40 group-hover/simple:opacity-100 transition-opacity">
-                                    <Icon icon="solar:record-circle-bold" className="text-rose-500" width="14" />
-                                    <Icon icon="solar:crop-minimalistic-bold" width="14" />
-                                    <Icon icon="solar:text-bold" width="14" />
-                                    <Icon icon="solar:settings-bold" width="14" />
+                    <div className="flex gap-6 items-center flex-1">
+                        {/* Simple Mode Mockup (Ultra Sleek Version) */}
+                        <div className="flex-1 flex flex-col group/simple drop-shadow-2xl">
+                            {/* Pro Title Bar - Ultra Thin */}
+                            <div className="h-6 w-full bg-[#080808] rounded-t-xl border border-white/5 flex items-center px-4 justify-between relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
+
+                                <div className="flex items-center gap-2.5 z-10">
+                                    <div className="w-4 h-2 bg-green-500 rounded-full flex items-center px-0.5 shadow-[0_0_10px_rgba(34,197,94,0.5)] transition-all">
+                                        <div className="w-1 h-1 rounded-full bg-white ml-auto" />
+                                    </div>
+                                    <span className="text-[6px] font-black text-slate-500 font-mono tracking-widest leading-none">A+</span>
                                 </div>
-                                <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover/simple:opacity-100 transition-opacity" />
+
+                                {/* Minimalist Orange Emblem */}
+                                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 flex items-center justify-center">
+                                    <div className="w-1.5 h-1.5 bg-orange-500 rounded-sm rotate-45 shadow-[0_0_8px_rgba(249,115,22,1)]" />
+                                </div>
+
+                                <div className="flex items-center gap-2 opacity-30 group-hover/simple:opacity-100 transition-opacity z-10 scale-75 origin-right">
+                                    <Icon icon="solar:scanner-bold" width="12" className="text-slate-400" />
+                                    <div className="w-5 h-5 rounded-md bg-blue-600 flex items-center justify-center text-white shadow-lg">
+                                        <Icon icon="solar:alt-arrow-right-bold" width="10" />
+                                    </div>
+                                    <Icon icon="solar:close-square-bold" width="12" className="text-slate-600" />
+                                </div>
                             </div>
+
+                            {/* Minimalist Tool Space - Ultra Slim Horizontal Row */}
+                            <div className="bg-[#080808]/98 backdrop-blur-3xl rounded-b-xl border-x border-b border-white/5 px-4 py-3 flex items-center justify-between relative">
+                                {[
+                                    { icon: "solar:crop-minimalistic-bold", color: "text-blue-400" },
+                                    { icon: "solar:clock-circle-bold", color: "text-emerald-400" },
+                                    { icon: "solar:maximize-bold", color: "text-cyan-400" },
+                                    { icon: "solar:target-bold", color: "text-indigo-400" },
+                                    { icon: "solar:bolt-bold", color: "text-yellow-400" },
+                                    { icon: "solar:monitor-bold", color: "text-sky-400" },
+                                    { icon: "solar:settings-bold", color: "text-slate-500" }
+                                ].map((tool, i) => (
+                                    <div key={i} className={`flex items-center justify-center ${tool.color} hover:scale-125 transition-all cursor-pointer group/item`}>
+                                        <Icon icon={tool.icon} width="24" className="relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
+                                    </div>
+                                ))}
+                            </div>
+                            <span className="mt-3 text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] group-hover/simple:text-blue-500 transition-colors text-center">Simple Mode</span>
                         </div>
 
-                        {/* Tray Mode Mockup (Photo 2 Style) */}
-                        <div className="w-16">
-                            <p className="text-[10px] font-bold text-slate-600 mb-2 uppercase tracking-widest text-center">Tray</p>
-                            <div className="w-10 h-28 bg-[#1A1A1A] mx-auto rounded-xl border border-white/10 flex flex-col items-center py-3 gap-3 shadow-2xl group/tray">
-                                <div className="w-6 h-6 rounded-lg bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/50">
+                        {/* Tray Mode Mockup (Realistic Version) */}
+                        <div className="w-20 h-full flex flex-col items-center justify-center group/tray">
+                            <div className="w-9 h-32 bg-[#0D0D0D] rounded-2xl border border-white/10 flex flex-col items-center py-3 justify-between shadow-2xl group-hover/tray:border-blue-500/30 transition-all shrink-0">
+                                <div className="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/40 cursor-pointer hover:scale-110 transition-transform">
                                     <Icon icon="solar:maximize-square-bold" width="14" />
                                 </div>
-                                <div className="w-6 h-px bg-white/5" />
-                                <Icon icon="solar:pin-bold" className="text-rose-500 opacity-50 group-hover/tray:opacity-100 transition-opacity" width="12" />
-                                <span className="text-[10px] font-black text-slate-500">0</span>
-                                <Icon icon="solar:power-bold" className="text-orange-500 opacity-50 cursor-pointer" width="14" />
+                                <div className="w-px h-6 bg-gradient-to-b from-transparent via-red-500 to-transparent opacity-40 shadow-[0_0_8px_rgba(239,68,68,0.3)]" />
+                                <span className="text-[12px] font-black text-slate-200 font-mono tracking-tighter">0</span>
+                                <div className="w-px h-6 bg-gradient-to-b from-transparent via-red-500 to-transparent opacity-40 shadow-[0_0_8px_rgba(239,68,68,0.3)]" />
+                                <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-orange-500 hover:bg-white/10 cursor-pointer">
+                                    <Icon icon="solar:power-bold" width="12" />
+                                </div>
                             </div>
+                            <span className="mt-3 text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] group-hover/tray:text-blue-500 transition-colors text-center">Tray Mode</span>
                         </div>
                     </div>
                 </div>
@@ -287,10 +318,10 @@ export const CatchBento: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
             {/* 4. Smart Unit (1x1) - Distinctive Animation */}
-            <BentoCard className="h-[240px]" glowColor="rgba(168, 85, 247, 0.15)">
+            < BentoCard className="h-[240px]" glowColor="rgba(168, 85, 247, 0.15)" >
                 <div className="p-6 h-full flex flex-col justify-between overflow-hidden group/unit">
                     <div className="relative h-28 w-full bg-[#050505] rounded-xl border border-white/5 flex items-center justify-center overflow-hidden">
                         {/* Background Scanning Grid */}
@@ -324,10 +355,10 @@ export const CatchBento: React.FC = () => {
                         <p className="text-slate-500 text-[10px] uppercase font-bold tracking-[0.2em]">Precision Target AI</p>
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
             {/* 5. Combined Capture Tool Suite (2x1) */}
-            <BentoCard className="md:col-span-2 min-h-[160px]" glowColor="rgba(34, 197, 94, 0.15)">
+            < BentoCard className="md:col-span-2 min-h-[160px]" glowColor="rgba(34, 197, 94, 0.15)" >
                 <div className="absolute inset-0 p-6 flex flex-col justify-between">
                     <div className="flex items-baseline gap-3">
                         <h4 className="text-xl font-black whitespace-nowrap">Various Smart Capture</h4>
@@ -357,10 +388,10 @@ export const CatchBento: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
             {/* 6. AI Intelligence Card - More Distinctive Animation */}
-            <BentoCard className="md:col-span-2 h-[140px]" glowColor="rgba(59, 130, 246, 0.2)">
+            < BentoCard className="md:col-span-2 h-[140px]" glowColor="rgba(59, 130, 246, 0.2)" >
                 <div className="absolute inset-0 p-6 flex flex-row items-center justify-between overflow-hidden">
                     <div className="z-20">
                         <h4 className="text-lg font-black mb-1">AI Intelligence</h4>
@@ -392,10 +423,10 @@ export const CatchBento: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
             {/* 7. Advanced Localization (2x1) - Photo 4 Style */}
-            <BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(234, 179, 8, 0.15)">
+            < BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(234, 179, 8, 0.15)" >
                 <div className="absolute inset-0 p-8 flex items-center justify-between">
                     <div className="max-w-[160px]">
                         <h4 className="text-xl font-black mb-1">Global Scale</h4>
@@ -423,10 +454,10 @@ export const CatchBento: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
             {/* 8. Editing Powerhouse (2x1) - Photo 5 Insight */}
-            <BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(168, 85, 247, 0.15)">
+            < BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(168, 85, 247, 0.15)" >
                 <div className="absolute inset-0 p-8 flex items-center justify-between">
                     <div className="flex-1">
                         <h4 className="text-xl font-black mb-1">Editing Power</h4>
@@ -472,99 +503,8 @@ export const CatchBento: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </BentoCard>
+            </BentoCard >
 
-            {/* 9. Live HTML Studio (2x1) */}
-            <BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(108, 92, 231, 0.2)">
-                <div className="absolute inset-0 p-8 flex items-center justify-between overflow-hidden">
-                    <div className="z-20">
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="p-1.5 rounded-lg bg-purple-600">
-                                <Icon icon="solar:code-square-bold" width="20" className="text-white" />
-                            </div>
-                            <h4 className="text-xl font-black">HTML Studio</h4>
-                        </div>
-                        <p className="text-slate-500 text-xs">Visual Document Authoring Engine</p>
-                        <div className="mt-4 flex gap-4">
-                            <div>
-                                <p className="text-lg font-black text-purple-400">3.8k+</p>
-                                <p className="text-[8px] text-slate-600 uppercase font-bold tracking-widest">UI Elements</p>
-                            </div>
-                            <div className="w-px h-8 bg-white/5" />
-                            <div>
-                                <p className="text-lg font-black text-purple-400">900+</p>
-                                <p className="text-[8px] text-slate-600 uppercase font-bold tracking-widest">Smart Icons</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="relative w-48 h-full">
-                        {/* Drag & Drop Visual Mockup */}
-                        <div className="absolute top-0 right-0 w-32 h-20 bg-white/5 border border-white/10 rounded-xl overflow-hidden shadow-2xl animate-bounce" style={{ animationDuration: '4s' }}>
-                            <div className="h-4 bg-purple-600/20 border-b border-white/5 px-2 flex items-center gap-1">
-                                <div className="w-1 h-1 rounded-full bg-purple-400" />
-                                <div className="w-8 h-1 bg-white/10 rounded-full" />
-                            </div>
-                            <div className="p-3 space-y-2">
-                                <div className="h-2 w-full bg-white/5 rounded" />
-                                <div className="h-2 w-2/3 bg-white/5 rounded" />
-                            </div>
-                        </div>
-                        <div className="absolute bottom-2 right-10 w-24 h-24 bg-[#121212] border border-white/5 rounded-2xl p-4 shadow-xl">
-                            <div className="grid grid-cols-2 gap-2">
-                                {[1, 2, 3, 4].map(i => (
-                                    <div key={i} className="aspect-square bg-purple-500/10 border border-purple-500/20 rounded-lg flex items-center justify-center">
-                                        <Icon icon="solar:widget-bold" width="12" className="text-purple-500/50" />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </BentoCard>
-
-            {/* 10. Live PDF Studio (2x1) */}
-            <BentoCard className="md:col-span-2 h-[160px]" glowColor="rgba(0, 206, 201, 0.2)">
-                <div className="absolute inset-0 p-8 flex items-center justify-between overflow-hidden">
-                    <div className="z-20">
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="p-1.5 rounded-lg bg-cyan-600">
-                                <Icon icon="solar:file-text-bold" width="20" className="text-white" />
-                            </div>
-                            <h4 className="text-xl font-black">PDF Studio</h4>
-                        </div>
-                        <p className="text-slate-500 text-xs">Secure merging, conversion & editing</p>
-                        <div className="mt-4 flex gap-2">
-                            {["AES-256", "OCR", "MERGE", "SPLIT"].map(tag => (
-                                <span key={tag} className="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-[8px] font-mono text-cyan-500">{tag}</span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="relative w-48 h-full flex items-center justify-center">
-                        <div className="relative">
-                            <div className="w-24 h-32 bg-[#121212] border border-white/10 rounded-lg shadow-2xl p-4 flex flex-col gap-2 group-hover:scale-110 transition-transform">
-                                <Icon icon="solar:file-check-bold" className="text-cyan-500" width="32" />
-                                <div className="space-y-1">
-                                    <div className="h-1.5 w-full bg-white/5 rounded-full" />
-                                    <div className="h-1.5 w-full bg-white/5 rounded-full" />
-                                    <div className="h-1.5 w-2/3 bg-white/5 rounded-full" />
-                                </div>
-                                <div className="mt-auto flex justify-between">
-                                    <div className="w-6 h-6 rounded bg-cyan-500/20 flex items-center justify-center">
-                                        <Icon icon="solar:lock-keyhole-bold" width="12" className="text-cyan-500" />
-                                    </div>
-                                    <div className="w-6 h-6 rounded bg-white/5" />
-                                </div>
-                            </div>
-                            {/* Floating Elements */}
-                            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-cyan-500/20 backdrop-blur-xl border border-white/10 flex items-center justify-center text-cyan-500 animate-[float-ui_4s_ease-in-out_infinite]">
-                                <Icon icon="solar:bolt-circle-bold" width="24" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </BentoCard>
-        </div>
+        </div >
     );
 };
