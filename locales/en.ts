@@ -212,6 +212,7 @@ export const en = {
     title: "Get in Touch",
     subtitle: "Have questions? We'd love to hear from you.",
     label_category: "Inquiry Category",
+    cat_select: "Please select",
     cat_program: "Program Inquiry",
     cat_partner: "Partnership",
     cat_other: "Other Inquiry",
@@ -220,12 +221,19 @@ export const en = {
     label_subject: "Subject",
     label_message: "Message",
     label_file: "Attachment",
+    file_success: "File attached successfully",
     btn_send: "Send Message",
+    btn_another: "Send Another Message",
     success_title: "Message Sent!",
     success_desc: "We will get back to you as soon as possible.",
     info_email: "Email Support",
     info_time: "Response Time",
-    info_time_val: "Within 24 hours"
+    info_time_val: "Within 24 hours",
+    limit_warning: "Only image and text files are allowed. You can attach up to 2 files (max 2MB each).",
+    direct_email_note: "If you need to attach files larger than 2MB, please send your email directly to ezupsoft@gmail.com.",
+    err_file_size: "File size exceeds 2MB limit.",
+    err_file_type: "Only image and text files are supported.",
+    err_file_count: "You can only attach up to 2 files."
   },
   testimonials: {
     title: "Loved by everyone who \nvalues efficiency",

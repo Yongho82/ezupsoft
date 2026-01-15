@@ -212,6 +212,7 @@ export const ko = {
     title: "문의하기",
     subtitle: "궁금한 점이 있으신가요? 언제든 문의해 주세요.",
     label_category: "문의 분류",
+    cat_select: "선택하세요",
     cat_program: "프로그램 문의",
     cat_partner: "제휴 문의",
     cat_other: "기타 문의",
@@ -220,12 +221,19 @@ export const ko = {
     label_subject: "제목",
     label_message: "문의 내용",
     label_file: "첨부파일",
+    file_success: "파일이 성공적으로 첨부되었습니다.",
     btn_send: "메시지 보내기",
+    btn_another: "다른 문의 보내기",
     success_title: "전송 완료!",
     success_desc: "문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.",
     info_email: "이메일 지원",
     info_time: "응답 시간",
-    info_time_val: "24시간 이내"
+    info_time_val: "24시간 이내",
+    limit_warning: "이미지 및 텍스트 파일만 가능하며, 최대 2개(각 2MB 이내)까지 첨부할 수 있습니다.",
+    direct_email_note: "2MB 이상의 고용량 파일 첨부가 필요하신 경우, ezupsoft@gmail.com으로 직접 메일을 보내주시기 바랍니다.",
+    err_file_size: "파일 용량이 2MB를 초과합니다.",
+    err_file_type: "이미지 및 텍스트 파일만 첨부 가능합니다.",
+    err_file_count: "첨부파일은 최대 2개까지만 가능합니다."
   },
   testimonials: {
     title: "효율성을 중시하는 \n모든 이들에게 사랑받는 도구",
