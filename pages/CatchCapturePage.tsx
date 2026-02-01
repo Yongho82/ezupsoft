@@ -316,18 +316,23 @@ export const CatchCapturePage: React.FC = () => {
                                     className="w-[110%] max-w-none shadow-2xl rounded-xl border border-slate-200/50 transform group-hover:scale-[1.01] transition-transform duration-700"
                                 />
 
-                                {/* NEW: Floating White Download Card (Ref Photo 2 Style) */}
-                                <div className="absolute bottom-8 right-8 z-20">
+                                {/* Microsoft Store Download Button */}
+                                <a 
+                                    href="https://apps.microsoft.com/detail/9NRGS99PG892?hl=ko-kr&gl=KR&ocid=pdpshare"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="absolute bottom-8 right-8 z-20"
+                                >
                                     <Button className="!bg-white !text-slate-900 !rounded-[1.5rem] pl-5 pr-8 py-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
-                                            <Icon icon="solar:download-bold" width="22" />
+                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg">
+                                            <Icon icon="solar:bag-4-bold" width="22" />
                                         </div>
                                         <div className="text-left flex flex-col">
-                                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Windows</span>
-                                            <span className="font-walsheim font-black text-xl text-slate-800 leading-none">Download</span>
+                                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Get it from</span>
+                                            <span className="font-black text-xl text-slate-800 leading-none">Microsoft Store</span>
                                         </div>
                                     </Button>
-                                </div>
+                                </a>
                             </div>
                         </div>
 

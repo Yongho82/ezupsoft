@@ -1,15 +1,19 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface BentoCardProps {
     children: React.ReactNode;
     className?: string;
     glowColor?: string;
+    to?: string;
+    onClick?: () => void;
 }
 
-const BentoCard: React.FC<BentoCardProps> = ({ children, className = "", glowColor = "rgba(59, 130, 246, 0.15)" }) => {
+const BentoCard: React.FC<BentoCardProps> = ({ children, className = "", glowColor = "rgba(59, 130, 246, 0.15)", to, onClick }) => {
+    const isClickable = to || onClick;
     const cardRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -22,12 +26,8 @@ const BentoCard: React.FC<BentoCardProps> = ({ children, className = "", glowCol
         });
     };
 
-    return (
-        <div
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            className={`group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/10 transition-all duration-500 hover:border-white/20 hover:-translate-y-1 ${className}`}
-        >
+    const cardContent = (
+        <>
             {/* Grid Pattern Background */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -39,6 +39,31 @@ const BentoCard: React.FC<BentoCardProps> = ({ children, className = "", glowCol
                 }}
             />
             <div className="relative z-10 h-full w-full">{children}</div>
+        </>
+    );
+
+    const baseClassName = `group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/10 transition-all duration-500 hover:border-white/20 hover:-translate-y-1 ${isClickable ? 'cursor-pointer' : ''} ${className}`;
+
+    if (to) {
+        return (
+            <Link
+                to={to}
+                className={baseClassName}
+                onMouseMove={handleMouseMove}
+            >
+                {cardContent}
+            </Link>
+        );
+    }
+
+    return (
+        <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onClick={onClick}
+            className={baseClassName}
+        >
+            {cardContent}
         </div>
     );
 };
@@ -46,6 +71,14 @@ const BentoCard: React.FC<BentoCardProps> = ({ children, className = "", glowCol
 export const LivePdfBento: React.FC = () => {
     const { t } = useLanguage();
     const [compressText, setCompressText] = useState(10.0);
+
+    // PDF 도구로 직접 이동하는 함수
+    const navigateToPdfTool = (tool: string, subTool?: string) => {
+        const params = new URLSearchParams();
+        params.set('tool', tool);
+        if (subTool) params.set('sub', subTool);
+        window.open(`/live-pdf/app?${params.toString()}`, '_blank');
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -112,7 +145,7 @@ export const LivePdfBento: React.FC = () => {
             </style>
 
             {/* A. 메인 히어로 - PDF Studio Preview (2x2) */}
-            <BentoCard className="md:col-span-2 md:row-span-2 min-h-[450px]" glowColor="rgba(59, 130, 246, 0.2)">
+            <BentoCard className="md:col-span-2 md:row-span-2 min-h-[450px]" glowColor="rgba(59, 130, 246, 0.2)" to="/live-pdf/app">
                 <div className="absolute inset-0 p-8 flex flex-col justify-between">
                     <div>
                         <div className="flex items-center gap-2 mb-4">
@@ -168,7 +201,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* B. 문서 변환 - Orbiting Icons (2x1) */}
-            <BentoCard className="md:col-span-2 h-[220px]" glowColor="rgba(59, 130, 246, 0.15)">
+            <BentoCard className="md:col-span-2 h-[220px]" glowColor="rgba(59, 130, 246, 0.15)" onClick={() => navigateToPdfTool('convert', 'wordToPdf')}>
                 <div className="absolute inset-0 p-8 flex items-center justify-between">
                     <div className="max-w-[180px]">
                         <h4 className="text-xl font-bold mb-1">Office to PDF</h4>
@@ -201,7 +234,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* C. 스마트 보안 - Lock (1x1) */}
-            <BentoCard className="md:col-span-1 h-[214px]" glowColor="rgba(168, 85, 247, 0.15)">
+            <BentoCard className="md:col-span-1 h-[214px]" glowColor="rgba(168, 85, 247, 0.15)" onClick={() => navigateToPdfTool('edit')}>
                 <div className="absolute inset-0 p-6 flex flex-col justify-between overflow-hidden">
                     <div className="relative h-24 w-full flex items-center justify-center">
                         <div className="relative w-16 h-16 rounded-full flex items-center justify-center">
@@ -221,7 +254,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* D. 무손실 압축 - Compress Box (1x1) */}
-            <BentoCard className="md:col-span-1 h-[214px]" glowColor="rgba(34, 197, 94, 0.15)">
+            <BentoCard className="md:col-span-1 h-[214px]" glowColor="rgba(34, 197, 94, 0.15)" onClick={() => navigateToPdfTool('compress')}>
                 <div className="absolute inset-0 p-6 flex flex-col justify-between items-center text-center">
                     <div className="relative h-24 w-full flex flex-col items-center justify-center">
                         <div className="w-12 h-12 bg-emerald-500/20 rounded-lg border border-emerald-500/30 flex items-center justify-center text-emerald-400 compress-anim mb-2">
@@ -242,7 +275,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* E. 페이지 관리 - Stack Animation (2x1) */}
-            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(59, 130, 246, 0.15)">
+            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(59, 130, 246, 0.15)" onClick={() => navigateToPdfTool('merge')}>
                 <div className="absolute inset-0 p-8 flex items-center justify-between group/stack">
                     {/* Technical Markers */}
                     <div className="absolute top-4 left-4 text-[8px] font-mono text-slate-700">COORD_SYS: STACK_GRID</div>
@@ -295,7 +328,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* F. HEIC 엔진 - Scan (2x1) */}
-            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(244, 63, 94, 0.15)">
+            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(244, 63, 94, 0.15)" onClick={() => navigateToPdfTool('convert', 'jpgToPdf')}>
                 <div className="absolute inset-0 p-8 flex items-center justify-between overflow-hidden group/heic">
                     {/* Structure Lines */}
                     <div className="absolute inset-x-0 top-1/2 h-px bg-white/[0.03]" />
@@ -339,7 +372,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* G. 에디팅 도구 - Pencil (2x1) */}
-            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(234, 179, 8, 0.15)">
+            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(234, 179, 8, 0.15)" onClick={() => navigateToPdfTool('edit')}>
                 <div className="absolute inset-0 p-8 flex items-center justify-between overflow-hidden group/draw">
                     <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-white/20" />
                     <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-white/20" />
@@ -385,7 +418,7 @@ export const LivePdfBento: React.FC = () => {
             </BentoCard>
 
             {/* H. 디지털 서명 - Signature (2x1) */}
-            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(59, 130, 246, 0.15)">
+            <BentoCard className="md:col-span-2 h-[240px]" glowColor="rgba(59, 130, 246, 0.15)" onClick={() => navigateToPdfTool('edit')}>
                 <div className="absolute inset-0 p-8 flex items-center justify-between group/sig">
                     <div className="absolute top-4 right-4 flex items-center gap-1.5 px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />

@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { FileUpload } from './components/FileUpload';
 import { ToolPage } from './pages/ToolPage';
@@ -14,9 +14,28 @@ import { ICONS } from './components/Icons';
 
 type ProcessingResult = { blob: Blob; filename: string };
 
+// URL 파라미터에서 초기 도구 설정 읽기 (컴포넌트 외부에서 한 번만 실행)
+const getInitialToolId = (): ToolID => {
+    if (typeof window === 'undefined') return 'home';
+    const urlParams = new URLSearchParams(window.location.search);
+    const toolParam = urlParams.get('tool') as ToolID | null;
+    return toolParam && ['home', 'merge', 'split', 'compress', 'convert', 'watermark', 'edit'].includes(toolParam) 
+        ? toolParam 
+        : 'home';
+};
+
+const getInitialSubTool = (): string | null => {
+    if (typeof window === 'undefined') return null;
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('sub') || null;
+};
+
+const initialToolId = getInitialToolId();
+const initialSubTool = getInitialSubTool();
+
 export const App = () => {
-    const [activeToolId, setActiveToolId] = useState<ToolID>('home');
-    const [activeSubTool, setActiveSubTool] = useState<string | null>(null);
+    const [activeToolId, setActiveToolId] = useState<ToolID>(initialToolId);
+    const [activeSubTool, setActiveSubTool] = useState<string | null>(initialSubTool);
     const [files, setFiles] = useState<PdfFile[]>([]);
     const [isShowingLoader, setIsShowingLoader] = useState(false);
     const [processingState, setProcessingState] = useState<{

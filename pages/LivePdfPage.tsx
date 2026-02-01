@@ -226,49 +226,49 @@ export const LivePdfPage: React.FC = () => {
                     <div className="grid grid-cols-2 md:grid-cols-12 gap-4 auto-rows-[minmax(120px,auto)] items-stretch">
 
                         {/* [ROW 1] */}
-                        <div className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=merge" className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all cursor-pointer">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-[#00CEC9] group-hover:scale-110 transition-transform">
                                     <Icon icon="solar:file-check-bold" width="20" />
                                 </div>
-                                <h3 className="text-sm font-black text-slate-800 uppercase leading-tight tracking-tight">{t('pdf.bento.merge')}</h3>
+                                <h3 className="text-base font-black text-slate-800 uppercase leading-tight tracking-tight">{t('pdf.bento.merge')}</h3>
                             </div>
-                            <p className="text-slate-300 text-[9px] font-bold uppercase tracking-widest mt-4">{t('pdf.bento.fast_merge')}</p>
-                        </div>
+                            <p className="text-slate-300 text-xs font-bold uppercase tracking-widest mt-4">{t('pdf.bento.fast_merge')}</p>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=convert&sub=wordToPdf" className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all cursor-pointer">
                             <div className="flex flex-col gap-2">
                                 <Icon icon="solar:clapperboard-edit-bold" className="text-blue-500" width="22" />
-                                <h3 className="text-[10px] font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.office_to_pdf')}</h3>
+                                <h3 className="text-sm font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.office_to_pdf')}</h3>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className="col-span-2 md:col-span-4 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex items-center justify-between group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=split" className="col-span-2 md:col-span-4 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex items-center justify-between group hover:shadow-md transition-all cursor-pointer">
                             <div>
-                                <h3 className="text-sm font-black text-slate-800 mb-1">{t('pdf.bento.split')}</h3>
-                                <p className="text-slate-400 text-[9px] font-medium uppercase tracking-tighter">{t('pdf.bento.precision_split')}</p>
+                                <h3 className="text-base font-black text-slate-800 mb-1">{t('pdf.bento.split')}</h3>
+                                <p className="text-slate-400 text-xs font-medium uppercase tracking-tighter">{t('pdf.bento.precision_split')}</p>
                             </div>
                             <Icon icon="solar:layers-minimalistic-bold" className="text-cyan-500" width="18" />
-                        </div>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all">
-                            <h3 className="text-[11px] font-black text-slate-800 uppercase tracking-widest">{t('pdf.bento.compress')}</h3>
+                        <Link to="/live-pdf/app?tool=compress" className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-between group hover:shadow-md transition-all cursor-pointer">
+                            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">{t('pdf.bento.compress')}</h3>
                             <div className="flex items-end gap-1 h-6">
                                 {[20, 40, 80, 50, 40].map((h, i) => (
                                     <div key={i} className="flex-1 bg-cyan-100 rounded-sm group-hover:bg-cyan-500 transition-all duration-500" style={{ height: `${h}%` }}></div>
                                 ))}
                             </div>
-                        </div>
+                        </Link>
 
                         {/* [ROW 2: MIDDLE] */}
                         <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
-                            <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-center">
-                                <p className="text-[10px] font-black text-cyan-600 uppercase tracking-tighter mb-1">{t('pdf.bento.reverse')}</p>
-                                <h3 className="text-sm font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.pdf_to')}</h3>
-                            </div>
-                            <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex items-center justify-center overflow-hidden relative">
-                                <h3 className="text-sm font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.office')}</h3>
-                            </div>
+                            <Link to="/live-pdf/app?tool=convert&sub=pdfToWord" className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-center cursor-pointer">
+                                <p className="text-xs font-black text-cyan-600 uppercase tracking-tighter mb-1">{t('pdf.bento.reverse')}</p>
+                                <h3 className="text-base font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.pdf_to')}</h3>
+                            </Link>
+                            <Link to="/live-pdf/app?tool=convert&sub=wordToPdf" className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex items-center justify-center overflow-hidden relative cursor-pointer">
+                                <h3 className="text-base font-black text-slate-800 leading-tight uppercase">{t('pdf.bento.office')}</h3>
+                            </Link>
                         </div>
 
                         <div className="col-span-2 md:col-span-8 bg-white rounded-[3.5rem] p-2 shadow-xl shadow-slate-200/60 border border-white/80 relative overflow-hidden group">
@@ -287,46 +287,46 @@ export const LivePdfPage: React.FC = () => {
                         </div>
 
                         <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
-                            <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-between">
+                            <Link to="/live-pdf/app?tool=edit" className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-between cursor-pointer">
                                 <Icon icon="solar:pen-new-square-bold" width="22" className="text-slate-300 group-hover:text-cyan-500" />
-                                <h3 className="text-sm font-black text-slate-800 uppercase">PDF</h3>
-                            </div>
-                            <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-end">
-                                <h3 className="text-sm font-black text-slate-800 uppercase">{t('pdf.bento.edit')}</h3>
+                                <h3 className="text-base font-black text-slate-800 uppercase">PDF</h3>
+                            </Link>
+                            <Link to="/live-pdf/app?tool=edit" className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex-1 group hover:shadow-md transition-all flex flex-col justify-end cursor-pointer">
+                                <h3 className="text-base font-black text-slate-800 uppercase">{t('pdf.bento.edit')}</h3>
                                 <div className="h-1 w-full bg-cyan-400 mt-2 rounded-full shadow-[0_0_8px_rgba(34,211,238,0.5)]"></div>
-                            </div>
+                            </Link>
                         </div>
 
                         {/* [ROW 3: BOTTOM] */}
-                        <div className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex items-center gap-4 group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=convert&sub=jpgToPdf" className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex items-center gap-4 group hover:shadow-md transition-all cursor-pointer">
                             <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 group-hover:scale-110 transition-transform">
                                 <Icon icon="solar:gallery-bold" width="20" />
                             </div>
                             <div>
-                                <h3 className="text-[10px] font-black text-slate-800 uppercase tracking-tighter">{t('pdf.bento.jpg_to_pdf')}</h3>
-                                <p className="text-[7px] font-bold text-slate-300 uppercase">{t('pdf.bento.image_convert')}</p>
+                                <h3 className="text-sm font-black text-slate-800 uppercase tracking-tighter">{t('pdf.bento.jpg_to_pdf')}</h3>
+                                <p className="text-xs font-bold text-slate-300 uppercase">{t('pdf.bento.image_convert')}</p>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=edit" className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all cursor-pointer">
                             <Icon icon="solar:user-speak-bold" className="text-slate-300 mb-1 group-hover:text-cyan-500" width="18" />
-                            <p className="text-[10px] font-black text-slate-800">{t('pdf.bento.sign')}</p>
-                        </div>
+                            <p className="text-sm font-black text-slate-800">{t('pdf.bento.sign')}</p>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=edit" className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all cursor-pointer">
                             <Icon icon="solar:shield-keyhole-bold" className="text-slate-300 mb-1 group-hover:text-emerald-500" width="18" />
-                            <p className="text-[10px] font-black text-slate-800">{t('pdf.bento.security')}</p>
-                        </div>
+                            <p className="text-sm font-black text-slate-800">{t('pdf.bento.security')}</p>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all">
+                        <Link to="/live-pdf/app?tool=edit" className="col-span-1 md:col-span-2 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col items-center justify-center text-center group hover:shadow-md transition-all cursor-pointer">
                             <Icon icon="solar:scanner-bold" className="text-slate-300 mb-1 group-hover:text-blue-500" width="18" />
-                            <p className="text-[10px] font-black text-slate-800">{t('pdf.bento.ocr')}</p>
-                        </div>
+                            <p className="text-sm font-black text-slate-800">{t('pdf.bento.ocr')}</p>
+                        </Link>
 
-                        <div className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-center items-center text-center group hover:shadow-md transition-all overflow-hidden">
+                        <Link to="/live-pdf/app?tool=watermark" className="col-span-1 md:col-span-3 bg-white rounded-[2rem] p-6 shadow-sm border border-slate-200/60 flex flex-col justify-center items-center text-center group hover:shadow-md transition-all overflow-hidden cursor-pointer">
                             <Icon icon="solar:waterdrops-bold" className="text-indigo-200 mb-1" width="20" />
-                            <h3 className="text-[10px] font-black text-slate-800 italic tracking-tighter uppercase">{t('pdf.bento.watermark')}</h3>
-                        </div>
+                            <h3 className="text-sm font-black text-slate-800 italic tracking-tighter uppercase">{t('pdf.bento.watermark')}</h3>
+                        </Link>
 
                     </div>
                 </div>
